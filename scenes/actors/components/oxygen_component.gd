@@ -1,4 +1,5 @@
 extends Node
+class_name OxygenComponent
 
 signal run_out_of_oxygen
 
@@ -15,7 +16,6 @@ func _ready():
 
 func _process(delta):
 	oxygen -= consumption_speed * delta
-	
 	if oxygen <= 0.0:
 		run_out_of_oxygen.emit()
 
