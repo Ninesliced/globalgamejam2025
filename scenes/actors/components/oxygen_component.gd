@@ -1,4 +1,4 @@
-extends Node
+extends Component
 class_name OxygenComponent
 
 signal run_out_of_oxygen
@@ -12,6 +12,7 @@ var oxygen := 0.0:
 @export var consumption_speed := 30.0
 
 func _ready():
+	super()
 	oxygen = initial_oxygen
 
 func _process(delta):

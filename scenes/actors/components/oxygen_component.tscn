@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/actors/components/oxygen_component.gd" id="1_6by2n"]
 
-[node name="OxygenComponent" type="Node"]
+[node name="OxygenComponent" type="Node2D"]
 script = ExtResource("1_6by2n")
