@@ -28,6 +28,7 @@ font_size = 41
 script = ExtResource("1_brhlp")
 speed = 350.0
 friction = 1500.0
+play_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gs3qp")

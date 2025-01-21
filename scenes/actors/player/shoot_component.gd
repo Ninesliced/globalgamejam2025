@@ -26,10 +26,15 @@ func _process(delta):
 func handle_weapon_shoot():
 	if _weapons.size() == 0:
 		return
-
 	var weapon = _weapons[0]
 	var direction : Vector2 = Vector2(1,0)
-	direction = global_position.direction_to(get_global_mouse_position())
+
+	if player.play_mode == Global.PlayMode.MOUSE:
+		direction = global_position.direction_to(get_global_mouse_position())
+
+	if player.play_mode == Global.PlayMode.EIGHT_WAY:
+		var vec = Input.get_vector("left", "right", "up", "down") # SCOTCH FAIRE UNE FONC GLOBAL POUR CA
+		direction = vec.normalized()
 	weapon.handle_shoot(direction)
 	pass
 
