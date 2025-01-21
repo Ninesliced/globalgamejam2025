@@ -18,7 +18,6 @@ func _ready():
 	invincible_timer.one_shot = true
 	invincible_timer.timeout.connect(disable_invincibility)
 
-	pass
 
 func damage(damage : int):
 	if invincible:
