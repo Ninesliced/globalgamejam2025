@@ -6,24 +6,42 @@ var next_to_load_is_level = false
 var PackedScenelevel: PackedScene = preload("res://scenes/levels/level.tscn")
 var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between_level.tscn")
 
+@export var player : Player = null
+@export var camera : Camera2D = null
+var camera_depth = 0
+var next_level_position = 0
+var current_generate_level = 0
+
+var current_level = 0:
+	set(value):
+		current_level = value
+		print(current_level)
+		
+var is_on_a_level = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_next_level()
 	load_next_level()
 	load_next_level()
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var CameraTopLeft = camera.get_screen_center_position() - get_viewport_rect().size / 2
 	if len(levels) >= 3:
-		if levels[0].position.y + get_size_of_level(levels[0]).y < 0:
+		if levels[0].position.y + get_size_of_level(levels[0]).y < CameraTopLeft.y:
 			load_next_level()
 			print("Next level is loading")
 	if Input.is_action_pressed("test_arkanyota"):
 		down_the_screen()
-		
+
+	# if player_distance_to_top > get_viewport_rect().size.y * camera_offset_scale:
+	# 	$Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)
+		# $Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)**2 / (3*get_viewport_rect().size.y)
+	
 func load_next_level():
 	var level_to_delete
 	var node
@@ -34,8 +52,11 @@ func load_next_level():
 	
 	if next_to_load_is_level:
 		node = PackedScenelevel.instantiate()
+		node.associated_level = current_generate_level
 	else:
 		node = PackedScenebetween_level.instantiate()
+		node.associated_level = current_generate_level
+		current_generate_level += 1
 
 	if len(levels) != 0:
 		var size = get_size_of_level(levels[-1])
@@ -61,9 +82,7 @@ func get_size_of_level(level_node):
 	return size
 	
 func down_the_screen():
-	for level in levels:
-		level.set_position(level.get_position() - Vector2(0,1))
-
-
-
-	
+	pass
+	# for level in levels:
+	# 	level.set_position(level.get_position() - Vector2(0,1)
+	# $Camera2D.position.y += 1
