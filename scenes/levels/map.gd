@@ -79,6 +79,3 @@ func down_the_screen():
 	# for level in levels:
 	# 	level.set_position(level.get_position() - Vector2(0,1)
 	$Camera2D.position.y += 1
-	
-
-	

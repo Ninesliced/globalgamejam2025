@@ -26,7 +26,7 @@ font_size = 41
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_brhlp")
-speed = 350.0
+speed = 450.0
 friction = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,6 +42,7 @@ script = ExtResource("4_5qxf7")
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
+consumption_speed = 10.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -14.0

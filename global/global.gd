@@ -10,10 +10,14 @@ enum PlayMode {
 
 func _ready() -> void:
 	print("======[ GlobalGameJam2025 ]======")
-	print("By Team Ninesliced")
-	print("")
+	print("By Team Ninesliced\n")
 	
 	process_mode = PROCESS_MODE_ALWAYS
 	
 	menu_manager = menu_manager_file.instantiate()
 	add_child(menu_manager)
+
+
+func _process(delta):
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene()

@@ -12,6 +12,7 @@ unique_name_in_owner = true
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 unique_name_in_owner = true
 position = Vector2(732, 395)
+speed = 350.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 318)
