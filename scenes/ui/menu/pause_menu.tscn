@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b64p3bg6pqutj"]
+[gd_scene load_steps=3 format=3 uid="uid://b64p3bg6pqutj"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/pause_menu.gd" id="1_cjlbg"]
+[ext_resource type="Texture2D" uid="uid://wubb1uaw4w3b" path="res://assets/images/menu_backgrounds/main_background.png" id="2_gntxt"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -11,33 +12,59 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cjlbg")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_gntxt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.39
+
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Pause"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.84
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
+text = "RESUME"
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "Resume"
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "QUIT"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.25
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_quit_pressed"]
