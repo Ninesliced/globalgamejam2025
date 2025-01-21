@@ -26,6 +26,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	handle_dash()
+	pass
 
 func handle_dash() -> void:
 	if Input.is_action_just_pressed("dash"):
@@ -41,6 +42,8 @@ func dash(velocity) -> Vector2:
 		vec = (mouse_position - player.global_position).normalized()
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		vec = Input.get_vector("left", "right", "up", "down")
+		if vec == Vector2.ZERO:
+			vec = Vector2(1,0)
 		vec = vec.normalized()
 	return vec * dash_force
 	

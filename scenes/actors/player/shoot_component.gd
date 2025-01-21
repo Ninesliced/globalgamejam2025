@@ -29,9 +29,13 @@ func handle_weapon_shoot():
 
 	if player.play_mode == Global.PlayMode.MOUSE:
 		direction = global_position.direction_to(get_global_mouse_position())
+		if direction == Vector2.ZERO:
+			direction = Vector2(1,0)
 
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		var vec = Input.get_vector("left", "right", "up", "down") # SCOTCH FAIRE UNE FONC GLOBAL POUR CA
+		if vec == Vector2.ZERO:
+			vec = Vector2(1,0)
 		direction = vec.normalized()
 
 	weapon.handle_shoot(direction)
