@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba685dj1syyam"]
+
+[ext_resource type="Script" path="res://scenes/actors/weapons/weapon.gd" id="1_rmefx"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_rmefx")

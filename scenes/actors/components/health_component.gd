@@ -13,12 +13,11 @@ signal on_death()
 signal on_heal(amount : int)
 
 func _ready():
-	super._ready()
+	super()
 	hp = initial_hp
 	invincible_timer.wait_time = invincible_time
 	invincible_timer.one_shot = true
 	invincible_timer.timeout.connect(disable_invincibility)
-
 
 func damage(damage : int):
 	if invincible:
