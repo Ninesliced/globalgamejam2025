@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-@export var bullet_scene: PackedScene
+@export var weapon_resource: WeaponResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	pass
 
 func shoot(direction: Vector2):

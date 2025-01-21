@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://pgdh62n0nd1u"]
+
+[ext_resource type="Script" path="res://resources/weapon_resources/weapon_resource.gd" id="1_i471s"]
+
+[resource]
+script = ExtResource("1_i471s")
+fire_rate = 0.5
