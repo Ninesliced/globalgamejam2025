@@ -6,9 +6,9 @@ class_name Player
 @export var friction = 900.0
 
 func _ready():
-    pass
+	pass
 
 func _process(delta):
-    move_and_slide()
+	move_and_slide()
 
-    $Label.text = str($OxygenComponent.oxygen)
+	$Label.text = str($OxygenComponent.oxygen)

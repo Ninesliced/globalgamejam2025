@@ -4,3 +4,6 @@
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_kr2hq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
