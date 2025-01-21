@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ll8yxlfyaure"]
+
+[ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="1_4b4if"]
+[ext_resource type="Script" path="res://scenes/actors/particles/autodelete_particle.gd" id="1_28keh"]
+
+[sub_resource type="Curve" id="Curve_ovryo"]
+_data = [Vector2(0, 1), 0.0, -0.34982, 0, 0, Vector2(0.554479, 1), 0.0, 0.0, 0, 0, Vector2(0.999395, 0.0641255), -3.79191, 0.0, 0, 0]
+point_count = 3
+
+[node name="BubbleCloudParticle" type="CPUParticles2D"]
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.89
+lifetime_randomness = 0.56
+texture = ExtResource("1_4b4if")
+emission_shape = 1
+emission_sphere_radius = 6.49
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 87.12
+initial_velocity_max = 447.17
+damping_min = 76.563
+damping_max = 89.444
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_ovryo")
+script = ExtResource("1_28keh")

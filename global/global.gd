@@ -10,8 +10,7 @@ enum PlayMode {
 
 func _ready() -> void:
 	print("======[ GlobalGameJam2025 ]======")
-	print("By Team Ninesliced")
-	print("")
+	print("By Team Ninesliced\n")
 	
 	process_mode = PROCESS_MODE_ALWAYS
 	
