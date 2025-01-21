@@ -15,7 +15,6 @@ func _ready():
 
 func _process(delta):
 	oxygen -= consumption_speed * delta
-	print(oxygen)
 	
 	if oxygen <= 0.0:
 		run_out_of_oxygen.emit()
