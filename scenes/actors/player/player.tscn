@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
+size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywf2e"]
 animations = [{
@@ -33,6 +34,8 @@ friction = 1500.0
 shape = SubResource("RectangleShape2D_gs3qp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.124998, 0.125)
+scale = Vector2(0.498047, 0.498047)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]

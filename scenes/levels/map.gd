@@ -28,14 +28,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var topLeft = $Camera2D.get_screen_center_position() - get_viewport_rect().size / 2
 	if len(levels) >= 3:
-		var topLeft = $Camera2D.get_screen_center_position() - get_viewport_rect().size / 2  
 		if levels[0].position.y + get_size_of_level(levels[0]).y < topLeft.y:
 			load_next_level()
 			print("Next level is loading")
 	if Input.is_action_pressed("test_arkanyota"):
 		down_the_screen()
-		
+	
+	if %Player.position.y - topLeft.y > get_viewport_rect().size.y / 3:
+		$Camera2D.position.y += (%Player.position.y - topLeft.y - get_viewport_rect().size.y / 3)**2/(3*get_viewport_rect().size.y)
+	
 func load_next_level():
 	var level_to_delete
 	var node
