@@ -10,7 +10,6 @@ func _ready():
 	add_child(fire_rate_timer)
 	fire_rate_timer.one_shot = true
 	fire_rate_timer.timeout.connect(_shoot_timer_timeout)
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +17,6 @@ func _process(delta):
 	pass
 
 func shoot(direction: Vector2):
-
 	pass
 
 func handle_shoot(vector: Vector2):
@@ -36,8 +34,6 @@ func handle_shoot(vector: Vector2):
 func set_shoot_timer():
 	fire_rate_timer.start()
 	can_shoot = false
-	pass
 
 func _shoot_timer_timeout():
 	can_shoot = true
-	pass

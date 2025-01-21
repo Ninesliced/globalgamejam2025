@@ -21,6 +21,5 @@ func _process(delta):
     var sine_value = sin(time) * sine_amplitude
 
     assert(get_parent() is CharacterBody2D, "Parent is not a CharacterBody2D")
-    print(orthogonal_vector)
     get_parent().velocity = orthogonal_vector * sine_value + direction_vector * movement_speed
     
