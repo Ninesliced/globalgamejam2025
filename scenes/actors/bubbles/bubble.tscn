@@ -33,7 +33,7 @@ shape = SubResource("CircleShape2D_l7bmd")
 debug_color = Color(0.799145, 0.421532, 3.85046e-07, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 2)
+position = Vector2(0, 2.38419e-07)
 scale = Vector2(2.03448, 2.06897)
 sprite_frames = SubResource("SpriteFrames_j1d6u")
 
