@@ -15,7 +15,7 @@ enum DashMode {
 signal on_dash
 
 func _ready():
-	super._ready()
+	super()
 	var parent = get_parent()
 	if parent is Player:
 		player = parent
