@@ -1,3 +1,4 @@
+@icon("res://_engine/icons/node_2D/icon_bullet.png")
 extends Node2D
 class_name Bullet
 
@@ -15,7 +16,6 @@ func _process(delta):
 
 
 func _handle_timeout():
-	# FIXME: Add an animation prior to destroying the object?
 	queue_free()
 
 
