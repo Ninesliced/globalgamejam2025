@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhcnvfpyf02uy"]
+[gd_scene load_steps=4 format=3 uid="uid://dhcnvfpyf02uy"]
 
 [ext_resource type="PackedScene" uid="uid://ba685dj1syyam" path="res://scenes/actors/weapons/weapon.tscn" id="1_5d88k"]
 [ext_resource type="Script" path="res://scenes/actors/weapons/base_weapon.gd" id="2_oh7on"]
+[ext_resource type="PackedScene" uid="uid://cvjydd0xa6rn0" path="res://scenes/actors/bullets/bullet_base.tscn" id="3_gem6u"]
 
 [node name="Weapon" instance=ExtResource("1_5d88k")]
 script = ExtResource("2_oh7on")
+bullet_scene = ExtResource("3_gem6u")

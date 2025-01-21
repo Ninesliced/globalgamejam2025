@@ -5,9 +5,11 @@ var _weapons : Array[Weapon] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
-	for node in get_parent().get_children():
+	for node in get_children():
 		if node is Weapon:
 			add_weapon(node)
+		else:
+			print("Node is not a weapon: ", node)
 	pass # Replace with function body.
 
 func _process(delta):
@@ -26,5 +28,8 @@ func remove_weapon(weapon: Weapon):
 	pass
 
 func shoot_weapon(direction: Vector2):
+	if _weapons.size() == 0:
+		print("No weapons to shoot")
+		return
 	_weapons[0].shoot(direction)
 	pass
