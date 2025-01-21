@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://mdjn5erhyg8u"]
+
+[ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="1_g0w08"]
+[ext_resource type="Script" path="res://scenes/actors/bubbles/bubble.gd" id="1_g33ep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qn20"]
+radius = 58.0086
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7bmd"]
+radius = 96.1873
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1d6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g0w08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bubble" type="CharacterBody2D"]
+script = ExtResource("1_g33ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5qn20")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_l7bmd")
+debug_color = Color(0.799145, 0.421532, 3.85046e-07, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(2.03448, 2.06897)
+sprite_frames = SubResource("SpriteFrames_j1d6u")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
