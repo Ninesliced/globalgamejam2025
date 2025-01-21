@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=8 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://03ulstrdc4rm" path="res://icon.svg" id="2_k7f04"]
 [ext_resource type="PackedScene" uid="uid://lfbg6v5hsa05" path="res://scenes/actors/player/components/movement_controller.tscn" id="3_sfvb3"]
-[ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
+[ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 
@@ -28,5 +29,8 @@ shape = SubResource("RectangleShape2D_gs3qp")
 sprite_frames = SubResource("SpriteFrames_ywf2e")
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
+
+[node name="DashComponent" type="Node2D" parent="."]
+script = ExtResource("4_5qxf7")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
