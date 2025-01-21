@@ -6,5 +6,3 @@
 [node name="Enemy" instance=ExtResource("1_phiae")]
 
 [node name="MoveLinear" parent="." index="3" instance=ExtResource("2_hdkqs")]
-direction = null
-speed = null
