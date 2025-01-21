@@ -2,14 +2,9 @@ extends Component
 var player : Player = null
 var velocity = Vector2(0, 0)
 
-enum DashMode {
-	EIGHT_WAY,
-	MOUSE,
-}
-
 @export var dash_consumption = 10
 @export var dash_force = 1000
-@export var dash_mode : DashMode = DashMode.MOUSE
+@export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
 
 signal on_dash
@@ -42,10 +37,10 @@ func handle_dash() -> void:
 
 func dash(velocity) -> Vector2:
 	var vec = Vector2(0, 0)
-	if dash_mode == DashMode.MOUSE:
+	if player.play_mode == Global.PlayMode.MOUSE:
 		var mouse_position = get_global_mouse_position()
 		vec = (mouse_position - player.global_position).normalized()
-	if dash_mode == DashMode.EIGHT_WAY:
+	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		vec = Input.get_vector("left", "right", "up", "down")
 		vec = vec.normalized()
 	return vec * dash_force

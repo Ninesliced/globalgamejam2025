@@ -8,3 +8,4 @@ script = ExtResource("2_u473k")
 bullet_scene = ExtResource("1_04wkd")
 fire_rate = 0.5
 oxygen_comsuption = 5.0
+weapon_shoot_type = 1
