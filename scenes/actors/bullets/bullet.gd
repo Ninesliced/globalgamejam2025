@@ -1,5 +1,5 @@
 @icon("res://_engine/icons/node_2D/icon_bullet.png")
-extends Node2D
+extends CharacterBody2D
 class_name Bullet
 
 @export var speed : float = 300.0
@@ -25,3 +25,10 @@ func set_direction(direction: Vector2):
 
 func set_timeout(timeout: float):
 	$Timer.set_wait_time(timeout)
+
+
+func _on_hurtbox_component_damaged_other(damaged_area:Area2D):
+	_remove()
+
+func _remove():
+	queue_free()

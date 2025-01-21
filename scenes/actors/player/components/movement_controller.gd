@@ -25,7 +25,10 @@ func handle_movement(delta,velocity):
 	var vec = Input.get_vector("left", "right", "up", "down")
 
 	vec = vec.normalized()
-
+	if vec.x > 0:
+		player.sprite.flip_h = false
+	else:
+		player.sprite.flip_h = true
 	if vec != Vector2(0, 0):
 		new_velocity = velocity.move_toward(vec * player.speed, player.acceleration * delta)
 	else:

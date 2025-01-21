@@ -49,5 +49,11 @@ func _shoot_timer_timeout():
 
 func set_weapon_angle(direction: Vector2):
 	var rotation_radians = direction.angle()
-	weapon_sprite.rotation = rotation_radians
+	if direction.x > 0:
+		weapon_sprite.flip_h = false
+		weapon_sprite.rotation = rotation_radians
+	else:
+		weapon_sprite.flip_h = true
+		weapon_sprite.rotation = rotation_radians + PI
+
 	pass

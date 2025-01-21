@@ -6,7 +6,7 @@ var velocity = Vector2(0, 0)
 @export var dash_force = 1000
 @export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
-
+@export var minimum_dash_distance = 50
 signal on_dash
 
 func _ready():
@@ -30,8 +30,10 @@ func _physics_process(delta):
 
 func handle_dash() -> void:
 	if Input.is_action_just_pressed("dash"):
-		oxygen_component.add_oxygen(-dash_consumption)
 		player.velocity = dash(player.velocity)
+		if player.velocity == Vector2.ZERO:
+			return
+		oxygen_component.add_oxygen(-dash_consumption)
 		on_dash.emit()
 		
 
@@ -39,6 +41,9 @@ func dash(velocity) -> Vector2:
 	var vec = Vector2(0, 0)
 	if player.play_mode == Global.PlayMode.MOUSE:
 		var mouse_position = get_global_mouse_position()
+		var distance = (mouse_position - player.global_position).length()
+		if distance < minimum_dash_distance:
+			return Vector2.ZERO
 		vec = (mouse_position - player.global_position).normalized()
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		vec = Input.get_vector("left", "right", "up", "down")
