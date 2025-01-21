@@ -10,6 +10,7 @@ script = ExtResource("4_emvtc")
 bullet_scene = ExtResource("3_gem6u")
 fire_rate = 0.5
 oxygen_comsuption = 5.0
+weapon_shoot_type = 0
 
 [node name="Weapon" instance=ExtResource("1_5d88k")]
 script = ExtResource("2_oh7on")
