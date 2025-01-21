@@ -1,13 +1,16 @@
 extends Component
 class_name CaptureOxygenComponent
 
-@export var detection_area: Area2D 
+@export var hitbox: HitboxComponent
+@export var oxygen_capture_threshold := 0.0
+
+var oxygen_captured := 0.0
 
 func _ready():
-    super()
+	super()
 
-    assert(detection_area != null, "CaptureOxygenComponent: No detection area defined")
-    detection_area.body_entered.connect(_on_detection_area_body_entered)
+	assert(hitbox != null, "CaptureOxygenComponent: No hitbox defined")
+	hitbox.recieved_damage.connect(_on_hitbox_recieved_damage)
 
-func _on_detection_area_body_entered(body: Node2D):
-    pass
+func _on_hitbox_recieved_damage(damager_area: Area2D, damage_amount: float):
+	oxygen_captured += damage_amount
