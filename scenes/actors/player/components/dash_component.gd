@@ -11,12 +11,18 @@ enum DashMode {
 @export var dash_consumption = 10
 @export var dash_force = 1000
 @export var dash_mode : DashMode = DashMode.MOUSE
+@export var oxygen_component : OxygenComponent = null
+
+signal on_dash
+
 func _ready():
 	var parent = get_parent()
 	if parent is Player:
 		player = parent
 	else:
 		assert(false, "dash component must be a child of Player")
+	if oxygen_component == null:
+		assert(false, "dash component must have an oxygen component")
 	pass
 
 
@@ -24,9 +30,15 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("dash"):
-		player.velocity = dash(player.velocity)
+	handle_dash()
 	pass
+
+func handle_dash() -> void:
+	if Input.is_action_just_pressed("dash"):
+		oxygen_component.add_oxygen(-dash_consumption)
+		player.velocity = dash(player.velocity)
+		on_dash.emit()
+		
 
 func dash(velocity) -> Vector2:
 	var vec = Vector2(0, 0)
@@ -34,8 +46,7 @@ func dash(velocity) -> Vector2:
 		var mouse_position = get_global_mouse_position()
 		vec = (mouse_position - player.global_position).normalized()
 	if dash_mode == DashMode.EIGHT_WAY:
-		vec = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		vec = Input.get_vector("left", "right", "up", "down")
 		vec = vec.normalized()
-	return velocity + vec * dash_force
-	pass
+	return vec * dash_force
 	

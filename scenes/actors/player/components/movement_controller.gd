@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 func handle_movement(delta,velocity):
 	var new_velocity = Vector2(0, 0)
-	var vec = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var vec = Input.get_vector("left", "right", "up", "down")
 
 	vec = vec.normalized()
 
