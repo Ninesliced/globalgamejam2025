@@ -1,17 +1,27 @@
 extends Node2D
 class_name Bullet
+
 @export var speed : float = 300.0
+
 var _direction : Vector2 = Vector2.ZERO
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	$Timer.connect("timeout", _handle_timeout)
+	$Timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
+func _handle_timeout():
+	# FIXME: Add an animation prior to destroying the object?
+	queue_free()
+
+
 func set_direction(direction: Vector2):
 	_direction = direction
-	pass
+
+
+func set_timeout(timeout: float):
+	$Timer.set_wait_time(timeout)

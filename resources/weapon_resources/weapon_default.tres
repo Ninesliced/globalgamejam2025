@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://pgdh62n0nd1u"]
+
+[ext_resource type="PackedScene" uid="uid://cvjydd0xa6rn0" path="res://scenes/actors/bullets/bullet_base.tscn" id="1_04wkd"]
+[ext_resource type="Script" path="res://resources/weapon_resources/weapon_resource.gd" id="2_u473k"]
+
+[resource]
+script = ExtResource("2_u473k")
+bullet_scene = ExtResource("1_04wkd")
+fire_rate = 0.5
+oxygen_comsuption = 5.0
+weapon_shoot_type = 1

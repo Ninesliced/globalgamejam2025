@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
 [ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
-[ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/base_weapon.tscn" id="7_uxkc3"]
+[ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 
@@ -28,6 +28,7 @@ font_size = 41
 script = ExtResource("1_brhlp")
 speed = 350.0
 friction = 1500.0
+play_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gs3qp")

@@ -13,5 +13,16 @@ func _process(delta):
 	pass
 
 func shoot(direction: Vector2):
-	# virtual method
+
 	pass
+
+func handle_shoot(vector: Vector2):
+	print(weapon_resource.weapon_shoot_type)
+	if weapon_resource.weapon_shoot_type == weapon_resource.ShootType.SEMI_AUTO:
+		if Input.is_action_just_pressed("shoot"):
+			shoot(vector)
+			
+	elif weapon_resource.weapon_shoot_type == weapon_resource.ShootType.AUTO:
+		if Input.is_action_pressed("shoot"):
+			print("shoot")
+			shoot(vector)

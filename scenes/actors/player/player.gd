@@ -4,11 +4,12 @@ class_name Player
 @export var speed = 300.0
 @export var acceleration = 1200.0
 @export var friction = 900.0
+@export var play_mode : Global.PlayMode = Global.PlayMode.MOUSE
 
 func _ready():
-    pass
+	pass
 
 func _process(delta):
-    move_and_slide()
+	move_and_slide()
 
-    $Label.text = str($OxygenComponent.oxygen)
+	$Label.text = str($OxygenComponent.oxygen)
