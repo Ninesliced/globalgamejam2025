@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
-size = Vector2(1408, 142)
+size = Vector2(2176, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg7th"]
-size = Vector2(128, 730)
+size = Vector2(128, 1093)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekr4v"]
-size = Vector2(125, 673)
+size = Vector2(125, 1088.5)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
@@ -23,11 +23,11 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 unique_name_in_owner = true
-position = Vector2(576, 395)
+position = Vector2(952, 552)
 speed = 350.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(576, 395)
+position = Vector2(960, 544)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_left_margin = 1.0
@@ -38,19 +38,22 @@ script = ExtResource("3_vjjyf")
 player = NodePath("../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(1152, -451)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(0, -388)
+position = Vector2(-1152, -157)
 shape = SubResource("RectangleShape2D_r1his")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-120, 605)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D2"]
-position = Vector2(-640, 39)
+position = Vector2(-904, -607.5)
 shape = SubResource("RectangleShape2D_gg7th")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(656, 128)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D3"]
-position = Vector2(640, 12)
+position = Vector2(368, -125.25)
 shape = SubResource("RectangleShape2D_ekr4v")
