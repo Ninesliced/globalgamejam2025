@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdow3uqace07"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_d2k7l"]
+[ext_resource type="Texture2D" uid="uid://ctcv86cq4vk1c" path="res://images/background/1000_F_305827311_gzhaRwKqzqXairHIVapU6qYQSIiybMf7 copy.jpg" id="2_qnpdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmtaw"]
+size = Vector2(1165, 1361)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_d2k7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(571, 666)
+scale = Vector2(1.94501, 1.34074)
+texture = ExtResource("2_qnpdf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(572.5, 670.5)
+shape = SubResource("RectangleShape2D_hmtaw")
