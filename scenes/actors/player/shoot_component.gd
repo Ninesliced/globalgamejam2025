@@ -25,7 +25,7 @@ func _process(delta):
 func handle_direction():
 	var direction : Vector2 = Vector2(1,0)
 	if player.play_mode == Global.PlayMode.MOUSE:
-		direction = get_global_mouse_position() - player.global_position
+		direction = (get_global_mouse_position() - player.global_position).normalized()
 		if direction == Vector2.ZERO:
 			direction = Vector2(1,0)
 
