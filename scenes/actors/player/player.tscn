@@ -26,7 +26,6 @@ animations = [{
 font_size = 41
 
 [node name="Player" type="CharacterBody2D"]
-rotation = -0.0589298
 script = ExtResource("1_brhlp")
 speed = 450.0
 friction = 1500.0
