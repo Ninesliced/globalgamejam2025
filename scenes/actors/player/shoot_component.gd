@@ -35,6 +35,7 @@ func handle_weapon_shoot():
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		var vec = Input.get_vector("left", "right", "up", "down") # SCOTCH FAIRE UNE FONC GLOBAL POUR CA
 		direction = vec.normalized()
+
 	weapon.handle_shoot(direction)
 	pass
 
@@ -44,8 +45,4 @@ func add_weapon(weapon: Weapon):
 
 func remove_weapon(weapon: Weapon):
 	_weapons.erase(weapon)
-	pass
-
-func shoot_weapon(weapon: Weapon, direction: Vector2):
-	weapon.shoot(direction)
 	pass

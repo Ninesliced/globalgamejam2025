@@ -15,7 +15,7 @@ signal on_heal(amount : int)
 func _ready():
 	super()
 	hp = initial_hp
-	invincible_timer.wait_time = invincible_time
+	invincible_timer.set_wait_time(invincible_time)
 	invincible_timer.one_shot = true
 	invincible_timer.timeout.connect(disable_invincibility)
 
