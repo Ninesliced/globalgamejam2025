@@ -5,6 +5,8 @@ class_name Weapon
 @export var weapon_resource: WeaponResource
 var fire_rate_timer : Timer = Timer.new()
 var can_shoot : bool = true
+@onready var weapon_sprite : Sprite2D = $Sprite2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,3 +45,15 @@ func set_shoot_timer():
 
 func _shoot_timer_timeout():
 	can_shoot = true
+
+
+func set_weapon_angle(direction: Vector2):
+	var rotation_radians = direction.angle()
+	if direction.x > 0:
+		weapon_sprite.flip_h = false
+		weapon_sprite.rotation = rotation_radians
+	else:
+		weapon_sprite.flip_h = true
+		weapon_sprite.rotation = rotation_radians + PI
+
+	pass

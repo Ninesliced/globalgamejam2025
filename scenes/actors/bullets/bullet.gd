@@ -1,5 +1,5 @@
 @icon("res://_engine/icons/node_2D/icon_bullet.png")
-extends Node2D
+extends CharacterBody2D
 class_name Bullet
 
 @export var speed : float = 300.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhcnvfpyf02uy"]
+[gd_scene load_steps=7 format=3 uid="uid://dhcnvfpyf02uy"]
 
 [ext_resource type="PackedScene" uid="uid://ba685dj1syyam" path="res://scenes/actors/weapons/weapon.tscn" id="1_5d88k"]
 [ext_resource type="Script" path="res://scenes/actors/weapons/default_weapon.gd" id="2_oh7on"]
 [ext_resource type="PackedScene" uid="uid://cvjydd0xa6rn0" path="res://scenes/actors/bullets/bullet_base.tscn" id="3_gem6u"]
 [ext_resource type="Script" path="res://resources/weapon_resources/weapon_resource.gd" id="4_emvtc"]
+[ext_resource type="Texture2D" uid="uid://c4c0orj5dtswu" path="res://assets/images/actors/player/hand.png" id="5_jcjnh"]
 
 [sub_resource type="Resource" id="Resource_tlnge"]
 script = ExtResource("4_emvtc")
@@ -15,3 +16,7 @@ weapon_shoot_type = 1
 [node name="Weapon" instance=ExtResource("1_5d88k")]
 script = ExtResource("2_oh7on")
 weapon_resource = SubResource("Resource_tlnge")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_jcjnh")

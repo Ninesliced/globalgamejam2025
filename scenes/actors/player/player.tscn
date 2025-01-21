@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
-[ext_resource type="Texture2D" uid="uid://03ulstrdc4rm" path="res://icon.svg" id="2_k7f04"]
+[ext_resource type="Texture2D" uid="uid://d20acp6htlofu" path="res://assets/images/actors/player/player.png" id="2_abhn0"]
 [ext_resource type="PackedScene" uid="uid://lfbg6v5hsa05" path="res://scenes/actors/player/components/movement_controller.tscn" id="3_sfvb3"]
 [ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
 [ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
-[ext_resource type="PackedScene" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
+[ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 size = Vector2(64, 64)
@@ -15,7 +15,7 @@ size = Vector2(64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_k7f04")
+"texture": ExtResource("2_abhn0")
 }],
 "loop": true,
 "name": &"default",
@@ -26,6 +26,7 @@ animations = [{
 font_size = 41
 
 [node name="Player" type="CharacterBody2D"]
+rotation = -0.0589298
 script = ExtResource("1_brhlp")
 speed = 450.0
 friction = 1500.0
@@ -34,8 +35,7 @@ friction = 1500.0
 shape = SubResource("RectangleShape2D_gs3qp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.124998, 0.125)
-scale = Vector2(0.498047, 0.498047)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
