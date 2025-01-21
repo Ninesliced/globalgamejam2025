@@ -1,7 +1,7 @@
-extends Node
+extends Node2D
 
-@export var initial_hp = 100
 @export var max_hp = 100
+@export var initial_hp = 100
 var hp = 0
 
 @export var invincible = false
