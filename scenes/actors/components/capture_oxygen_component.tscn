@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://opn7sr1keqb0"]
+
+[ext_resource type="Script" path="res://scenes/actors/components/capture_oxygen_component.gd" id="1_76inm"]
+
+[node name="CaptureOxygenComponent" type="Node2D"]
+script = ExtResource("1_76inm")
