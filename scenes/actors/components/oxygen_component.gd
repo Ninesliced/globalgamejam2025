@@ -1,0 +1,24 @@
+extends Node
+
+signal run_out_of_oxygen
+
+@export var max_oxygen := 100.0
+@export var initial_oxygen := 100.0
+var oxygen := 0.0:
+	set(value):
+		oxygen = max(0.0, value)
+
+@export var consumption_speed := 30.0
+
+func _ready():
+	oxygen = initial_oxygen
+
+func _process(delta):
+	oxygen -= consumption_speed * delta
+	print(oxygen)
+	
+	if oxygen <= 0.0:
+		run_out_of_oxygen.emit()
+
+func add_oxygen(value: float):
+	oxygen += value
