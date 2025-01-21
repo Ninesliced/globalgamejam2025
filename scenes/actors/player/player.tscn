@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=11 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://03ulstrdc4rm" path="res://icon.svg" id="2_k7f04"]
@@ -21,6 +21,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_yudvb"]
+font_size = 41
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_brhlp")
 speed = 350.0
@@ -39,6 +42,14 @@ script = ExtResource("4_5qxf7")
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -14.0
+offset_top = -125.0
+offset_right = 26.0
+offset_bottom = -102.0
+label_settings = SubResource("LabelSettings_yudvb")
+horizontal_alignment = 1
 
 [node name="ShootComponent" type="Node2D" parent="."]
 script = ExtResource("6_u70v2")
