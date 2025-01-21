@@ -1,4 +1,4 @@
-extends Node2D
+extends Component
 
 @export var max_hp = 100
 @export var initial_hp = 100
@@ -13,12 +13,11 @@ signal on_death()
 signal on_heal(amount : int)
 
 func _ready():
+	super()
 	hp = initial_hp
 	invincible_timer.wait_time = invincible_time
 	invincible_timer.one_shot = true
 	invincible_timer.timeout.connect(disable_invincibility)
-
-	pass
 
 func damage(damage : int):
 	if invincible:

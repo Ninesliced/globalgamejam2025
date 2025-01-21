@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmcad243tfejy"]
+[gd_scene load_steps=3 format=3 uid="uid://bmcad243tfejy"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_phiae"]
+[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/move_linear.tscn" id="2_hdkqs"]
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
+
+[node name="MoveLinear" parent="." index="3" instance=ExtResource("2_hdkqs")]
