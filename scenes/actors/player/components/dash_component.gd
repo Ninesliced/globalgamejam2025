@@ -26,7 +26,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	handle_dash()
-	pass
 
 func handle_dash() -> void:
 	if Input.is_action_just_pressed("dash"):
