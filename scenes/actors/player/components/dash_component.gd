@@ -1,5 +1,4 @@
-extends Node2D
-
+extends Component
 var player : Player = null
 var velocity = Vector2(0, 0)
 
@@ -16,6 +15,7 @@ enum DashMode {
 signal on_dash
 
 func _ready():
+	super._ready()
 	var parent = get_parent()
 	if parent is Player:
 		player = parent
