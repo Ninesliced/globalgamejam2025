@@ -33,6 +33,9 @@ func dash(velocity) -> Vector2:
 	if dash_mode == DashMode.MOUSE:
 		var mouse_position = get_global_mouse_position()
 		vec = (mouse_position - player.global_position).normalized()
+	if dash_mode == DashMode.EIGHT_WAY:
+		vec = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		vec = vec.normalized()
 	return velocity + vec * dash_force
 	pass
 	
