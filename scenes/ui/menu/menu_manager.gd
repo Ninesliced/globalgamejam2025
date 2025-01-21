@@ -22,6 +22,7 @@ var back_cooldown_timer = 0.0
 
 
 func _ready():
+	set_menu("MainMenu")
 	pass
 
 @export var texture: Texture:
@@ -58,6 +59,7 @@ func exit_menu():
 func set_menu(menu_name: String, add_to_stack: bool = true, animation_direction_right = true):
 	var menu: Control = get_node_or_null("Menus/" + str(menu_name))
 	if not menu:
+		printerr("Menu not found: " + menu_name)
 		return
 	
 	set_menu_by_node(menu, add_to_stack, animation_direction_right)
@@ -142,6 +144,8 @@ func _animate_background(color: Color, final_blur: float):
 	background_tween.tween_property(background, "modulate", color, MENU_TRANSITION_DURATION)
 
 	var initial_val = blur_background.material.get_shader_parameter("amount")
+	if not initial_val:
+		return
 	background_tween.tween_method(func(val):
 		blur_background.material.set_shader_parameter("amount", val)
 	, initial_val, final_blur, MENU_TRANSITION_DURATION)

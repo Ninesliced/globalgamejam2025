@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk62u1muho6ot"]
+[gd_scene load_steps=6 format=3 uid="uid://bk62u1muho6ot"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/menu_manager.gd" id="1_2yx3i"]
 [ext_resource type="PackedScene" uid="uid://b64p3bg6pqutj" path="res://scenes/ui/menu/pause_menu.tscn" id="1_lurkk"]
+[ext_resource type="PackedScene" uid="uid://tmy5pmuxhk1t" path="res://scenes/ui/menu/main_menu.tscn" id="3_no84k"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bms1h"]
 random_pitch = 1.1
@@ -58,4 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" parent="Menus" instance=ExtResource("1_lurkk")]
+layout_mode = 1
+
+[node name="MainMenu" parent="Menus" instance=ExtResource("3_no84k")]
 layout_mode = 1
