@@ -1,28 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://b66unee4sohqr"]
+[gd_scene load_steps=8 format=3 uid="uid://b66unee4sohqr"]
 
 [ext_resource type="Texture2D" uid="uid://03ulstrdc4rm" path="res://icon.svg" id="1_g3yc1"]
 [ext_resource type="Script" path="res://scenes/actors/enemies/enemy.gd" id="1_nysku"]
 [ext_resource type="PackedScene" path="res://scenes/actors/components/health_component.tscn" id="3_2ekxo"]
 [ext_resource type="PackedScene" uid="uid://egpes7daydmo" path="res://scenes/actors/components/hitbox_component.tscn" id="4_oyr4w"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k518l"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://opn7sr1keqb0" path="res://scenes/actors/components/capture_oxygen_component.tscn" id="5_f1jnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kno4"]
 size = Vector2(172, 170)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k518l"]
+size = Vector2(128, 128)
+
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(64, 320)
 collision_mask = 0
 script = ExtResource("1_nysku")
-
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_g3yc1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_k518l")
-
-[node name="HealthComponent" parent="." instance=ExtResource("3_2ekxo")]
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_oyr4w")]
 
@@ -31,3 +23,20 @@ shape = SubResource("RectangleShape2D_k518l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent/Area2D"]
 shape = SubResource("RectangleShape2D_5kno4")
 debug_color = Color(0.875666, 0.344006, 3.85046e-07, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k518l")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_2ekxo")]
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_g3yc1")
+
+[node name="CaptureOxygenComponent" parent="." node_paths=PackedStringArray("hitbox") instance=ExtResource("5_f1jnu")]
+hitbox = NodePath("../HitboxComponent")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -123.0
+offset_right = 18.0
+offset_bottom = -100.0

@@ -20,4 +20,5 @@ script = ExtResource("2_8a75c")
 shape = SubResource("CircleShape2D_c4ml3")
 debug_color = Color(0.997432, 0, 0.166091, 0.42)
 
+[connection signal="damaged_other" from="HurtboxComponent" to="." method="_on_hurtbox_component_damaged_other"]
 [connection signal="area_entered" from="HurtboxComponent/Hurtbox" to="." method="_on_hurtbox_area_entered"]

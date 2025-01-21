@@ -25,3 +25,10 @@ func set_direction(direction: Vector2):
 
 func set_timeout(timeout: float):
 	$Timer.set_wait_time(timeout)
+
+
+func _on_hurtbox_component_damaged_other(damaged_area:Area2D):
+	_remove()
+
+func _remove():
+	queue_free()

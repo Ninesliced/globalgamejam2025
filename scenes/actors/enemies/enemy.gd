@@ -9,5 +9,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func _process(delta):
+	$Label.text = str($CaptureOxygenComponent.oxygen_captured)
+
 func _on_hitbox_component_recieved_damage(damager_area:Area2D, damage_amount:float):
 	print("I have been hit")
