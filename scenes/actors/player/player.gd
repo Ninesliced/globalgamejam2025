@@ -6,6 +6,8 @@ class_name Player
 @export var friction = 900.0
 @export var play_mode : Global.PlayMode = Global.PlayMode.MOUSE
 
+
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 func _ready():
 	pass
 
