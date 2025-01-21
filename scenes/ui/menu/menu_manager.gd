@@ -22,7 +22,7 @@ var back_cooldown_timer = 0.0
 
 
 func _ready():
-	set_menu("MainMenu")
+	set_menu("MainMenu", true, false, true)
 	pass
 
 @export var texture: Texture:
@@ -56,21 +56,22 @@ func exit_menu():
 	get_tree().set_pause(false)
 
 
-func set_menu(menu_name: String, add_to_stack: bool = true, animation_direction_right = true):
+func set_menu(menu_name: String, add_to_stack: bool = true, animation_direction_right = true, no_animation = false):
 	var menu: Control = get_node_or_null("Menus/" + str(menu_name))
 	if not menu:
 		printerr("Menu not found: " + menu_name)
 		return
 	
-	set_menu_by_node(menu, add_to_stack, animation_direction_right)
+	set_menu_by_node(menu, add_to_stack, animation_direction_right, no_animation)
 
 
-func set_menu_by_node(menu: Control, add_to_stack = true, animation_direction_right = true):
+func set_menu_by_node(menu: Control, add_to_stack = true, animation_direction_right = true, no_animation = false):
 	if not menu:
 		return
 
 	# AudioServer.set_bus_effect_enabled(_music_bus_index, 0, true)
-	_animate_background(Color.WHITE, DEFAULT_BLUR_VALUE)
+	if not no_animation:
+		_animate_background(Color.WHITE, DEFAULT_BLUR_VALUE)
 
 	show()
 	get_tree().set_pause(true)
@@ -82,12 +83,13 @@ func set_menu_by_node(menu: Control, add_to_stack = true, animation_direction_ri
 	var viewport_width = get_viewport().get_visible_rect().size.x
 	var viewport_height = get_viewport().get_visible_rect().size.y
 	var animation_sign = 1 if animation_direction_right else -1
-	if current_menu:
+	if current_menu and not no_animation:
 		_animate_menu(current_menu, Vector2.ZERO, Vector2(0, -viewport_height * animation_sign), true)
 
 	menu.show()
 	menu.menu_set.emit()
-	_animate_menu(menu, Vector2(0, animation_sign * viewport_height), Vector2(0, 0))
+	if not no_animation:
+		_animate_menu(menu, Vector2(0, animation_sign * viewport_height), Vector2(0, 0))
 
 	current_menu = menu
 	if add_to_stack:
