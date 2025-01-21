@@ -17,11 +17,9 @@ func _ready():
 			player = parent
 		else:
 			assert(false, "dash component must be a child of Player")
-	pass # Replace with function body.
 
 func _process(delta):
 	handle_weapon_shoot()
-	pass
 
 func handle_weapon_shoot():
 	if _weapons.size() == 0:
@@ -37,12 +35,12 @@ func handle_weapon_shoot():
 		direction = vec.normalized()
 
 	weapon.handle_shoot(direction)
-	pass
 
 func add_weapon(weapon: Weapon):
 	_weapons.append(weapon)
-	pass
 
 func remove_weapon(weapon: Weapon):
 	_weapons.erase(weapon)
-	pass
+
+func shoot_weapon(weapon: Weapon, direction: Vector2):
+	weapon.shoot(direction)

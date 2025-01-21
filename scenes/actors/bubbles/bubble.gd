@@ -13,3 +13,6 @@ func _on_hitbox_body_entered(body:Node2D):
 
 func _remove():
 	queue_free()
+
+func _process(delta):
+	move_and_slide()
