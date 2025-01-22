@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=14 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://d20acp6htlofu" path="res://assets/images/actors/player/player.png" id="2_abhn0"]
@@ -11,6 +11,14 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_fil61"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.555)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a8h7k"]
+gradient = SubResource("Gradient_fil61")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywf2e"]
 animations = [{
@@ -29,15 +37,31 @@ font_size = 41
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_brhlp")
-speed = 450.0
+speed = 600.0
+acceleration = 1500.0
 friction = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gs3qp")
 
+[node name="OxygenBar" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-32, -17)
+rotation = -1.0821
+scale = Vector2(0.110343, 10.0557)
+texture = SubResource("GradientTexture1D_a8h7k")
+
+[node name="OxygenBar2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(32, -17)
+rotation = -2.06059
+scale = Vector2(0.110343, 10.0557)
+texture = SubResource("GradientTexture1D_a8h7k")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
+flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 
@@ -46,7 +70,7 @@ script = ExtResource("4_5qxf7")
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
-consumption_speed = 10.0
+consumption_speed = 3.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -14.0

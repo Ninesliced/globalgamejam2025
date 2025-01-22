@@ -1,7 +1,10 @@
 @icon("res://_engine/icons/node_2D/icon_projectile.png")
 extends Component
+
 var player : Player = null
 var velocity = Vector2(0, 0)
+
+signal on_dash
 
 @export var dash_consumption = 10
 @export var dash_distance = 10000
@@ -14,7 +17,6 @@ var dash_timer : Timer = Timer.new()
 @export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
 @export var minimum_dash_distance = 50
-signal on_dash
 
 func _ready():
 	super()
@@ -35,6 +37,7 @@ func _ready():
 
 func _process(delta):
 	pass
+
 
 func _physics_process(delta):
 	_dash_direction = handle_dash()
@@ -64,6 +67,7 @@ func get_dash_direction(velocity) -> Vector2:
 		if distance < minimum_dash_distance:
 			return Vector2.ZERO
 		vec = (mouse_position - player.global_position).normalized()
+	
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		vec = Input.get_vector("left", "right", "up", "down")
 		if vec == Vector2.ZERO:
