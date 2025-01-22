@@ -24,7 +24,8 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _process(delta):
-	$Label.text = str($CaptureOxygenComponent.oxygen_stored)
+	if $CaptureOxygenComponent:
+		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player:
 		var player = get_tree().current_scene.get_node("Player")
 		player.Oxygen_component.add_oxygen(-10 * delta)
