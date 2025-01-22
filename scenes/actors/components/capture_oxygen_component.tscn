@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://opn7sr1keqb0"]
+[gd_scene load_steps=4 format=3 uid="uid://sqqvlx3ysea4"]
 
 [ext_resource type="Script" path="res://scenes/actors/components/capture_oxygen_component.gd" id="1_76inm"]
+[ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="2_oi2lt"]
+[ext_resource type="Script" path="res://scenes/actors/enemies/components/bubble.gd" id="3_jghvu"]
 
 [node name="CaptureOxygenComponent" type="Node2D"]
 script = ExtResource("1_76inm")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_oi2lt")
+script = ExtResource("3_jghvu")

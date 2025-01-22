@@ -11,6 +11,7 @@ var can_shoot : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fire_rate_timer.set_wait_time(weapon_resource.fire_rate)
+	print("fire rate: ", weapon_resource.fire_rate)
 	add_child(fire_rate_timer)
 	fire_rate_timer.one_shot = true
 	fire_rate_timer.timeout.connect(_shoot_timer_timeout)

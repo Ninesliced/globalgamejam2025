@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=12 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://d20acp6htlofu" path="res://assets/images/actors/player/player.png" id="2_abhn0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
 [ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
+[ext_resource type="Resource" uid="uid://pgdh62n0nd1u" path="res://resources/weapon_resources/weapon_default.tres" id="8_me6fi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 size = Vector2(64, 64)
@@ -59,3 +60,4 @@ horizontal_alignment = 1
 script = ExtResource("6_u70v2")
 
 [node name="Weapon" parent="ShootComponent" instance=ExtResource("7_uxkc3")]
+weapon_resource = ExtResource("8_me6fi")

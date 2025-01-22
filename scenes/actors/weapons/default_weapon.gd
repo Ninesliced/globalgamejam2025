@@ -14,5 +14,5 @@ func shoot(direction: Vector2):
 	var bullet_instance : Bullet = weapon_resource.bullet_scene.instantiate()
 	bullet_instance.global_position = global_position
 	bullet_instance.set_direction(direction)
-	get_tree().get_root().add_child(bullet_instance)
+	get_tree().current_scene.add_child(bullet_instance)
 	pass
