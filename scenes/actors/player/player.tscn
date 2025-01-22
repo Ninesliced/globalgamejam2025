@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://bhbpuedpj1d3l"]
+=======
+[gd_scene load_steps=13 format=3 uid="uid://bhbpuedpj1d3l"]
+>>>>>>> d051d3bdfde5a00bfdec40bb62c03d4f4e437e77
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://d20acp6htlofu" path="res://assets/images/actors/player/player.png" id="2_abhn0"]
@@ -6,11 +10,23 @@
 [ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
 [ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 [ext_resource type="Resource" uid="uid://pgdh62n0nd1u" path="res://resources/weapon_resources/weapon_default.tres" id="8_me6fi"]
+=======
+[ext_resource type="PackedScene" uid="uid://dwqpqvd3kh602" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
+>>>>>>> d051d3bdfde5a00bfdec40bb62c03d4f4e437e77
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_to3ly"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.435)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ql8nc"]
+gradient = SubResource("Gradient_to3ly")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywf2e"]
 animations = [{
@@ -35,18 +51,33 @@ friction = 1500.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gs3qp")
 
+[node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
+consumption_speed = 10.0
+
+[node name="OxygenBar" type="Sprite2D" parent="OxygenComponent"]
+unique_name_in_owner = true
+position = Vector2(-32, -17)
+rotation = -1.07227
+scale = Vector2(0.11327, 10.455)
+texture = SubResource("GradientTexture1D_ql8nc")
+
+[node name="OxygenBar2" type="Sprite2D" parent="OxygenComponent"]
+unique_name_in_owner = true
+position = Vector2(32, -17)
+rotation = -2.06407
+scale = Vector2(0.11327, 10.455)
+texture = SubResource("GradientTexture1D_ql8nc")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
+flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 
 [node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("oxygen_component")]
 script = ExtResource("4_5qxf7")
 oxygen_component = NodePath("../OxygenComponent")
-
-[node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
-consumption_speed = 10.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -14.0

@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Map
+
 var levels = []
 var next_to_load_is_level = false
 
@@ -12,16 +14,41 @@ var camera_depth = 0
 var next_level_position = 0
 var current_generate_level = 0
 
+signal level_change(level: int)
+signal level_zone_change(is_on_a_level: bool)
+
 var current_level = 0:
 	set(value):
 		current_level = value
-		print(current_level)
-		
-var is_on_a_level = false
+		emit_signal("level_change", value)
+		if not is_on_a_level:
+			next_light_effect()
+
+var number_of_level = 25
+
+var is_on_a_level = false:
+	set(value):
+		is_on_a_level = value
+		emit_signal("level_zone_change", value)
+
+var light_gap = 0.1
+var light_radius = 0.7:
+	set(value):
+		light_radius = value
+		var gradient = %PointLight2D.texture.get_gradient()
+		gradient.set_offset(1, 0.0)
+		gradient.set_offset(2, max(light_radius, 0.0))
+		gradient.set_offset(3, min(light_radius+light_gap, 1.0))
+		gradient.set_offset(4, 1.0)
+
+func next_light_effect():
+	light_radius = max(0.1, light_radius-0.9/number_of_level)
 
 
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	light_radius = 0.7
 	load_next_level()
 	load_next_level()
 	load_next_level()
@@ -35,12 +62,15 @@ func _process(delta):
 		if levels[0].position.y + get_size_of_level(levels[0]).y < CameraTopLeft.y:
 			load_next_level()
 			print("Next level is loading")
-	if Input.is_action_pressed("test_arkanyota"):
-		down_the_screen()
 
+	if Input.is_action_just_pressed("test_arkanyota"):
+		next_light_effect()
 	# if player_distance_to_top > get_viewport_rect().size.y * camera_offset_scale:
 	# 	$Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)
 		# $Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)**2 / (3*get_viewport_rect().size.y)
+		
+
+
 	
 func load_next_level():
 	var level_to_delete
@@ -80,9 +110,3 @@ func get_size_of_level(level_node):
 		size = Vector2(2,2)
 		print("Is not a fucking shape")
 	return size
-	
-func down_the_screen():
-	pass
-	# for level in levels:
-	# 	level.set_position(level.get_position() - Vector2(0,1)
-	# $Camera2D.position.y += 1

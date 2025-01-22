@@ -16,4 +16,4 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		get_parent().get_parent().current_level = associated_level
-		get_parent().get_parent().is_on_a_level = false
+		get_parent().get_parent().is_on_a_level = true
