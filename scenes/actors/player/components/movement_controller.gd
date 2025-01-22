@@ -11,8 +11,7 @@ func _ready():
 		player = parent
 	else:
 		assert(false, "MovementController must be a child of Player")
-	%OxygenBar.visible = false
-	%OxygenBar2.visible = true
+
 	
 func _process(delta):
 	pass
@@ -28,12 +27,12 @@ func handle_movement(delta,velocity):
 	var vec = Input.get_vector("left", "right", "up", "down")
 
 	vec = vec.normalized()
-	if vec.x > 0:
-		%OxygenBar.visible = true
-		%OxygenBar2.visible = false
-	elif vec.x < 0:
-		%OxygenBar.visible = false
-		%OxygenBar2.visible = true
+	# if vec.x > 0:
+	# 	player.sprite.flip_h = false
+	# 	$"..".is_flip_h = false
+	# elif vec.x < 0:
+	# 	player.sprite.flip_h = true
+	# 	$"..".is_flip_h = true
 
 	new_velocity = handle_acceleration_decceleration(delta, vec, velocity)
 	return new_velocity

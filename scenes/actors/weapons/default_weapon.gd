@@ -17,4 +17,6 @@ func shoot(direction: Vector2):
 	bullet_instance.global_position = cannon_end_position
 	bullet_instance.set_direction(direction)
 	get_tree().current_scene.add_child(bullet_instance)
+	var player = get_tree().current_scene.get_node("Player")
+	player.Oxygen_component.add_oxygen(-1)
 	pass

@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=20 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://ck143ckxsx7yo" path="res://assets/images/actors/player/player_dash.png" id="2_t67tn"]
+[ext_resource type="Script" path="res://scenes/actors/player/oxygen_bar.gd" id="2_ulhxp"]
 [ext_resource type="Texture2D" uid="uid://bpqxk0ibu4f0q" path="res://assets/images/actors/player/player_swim.png" id="3_7g1kn"]
 [ext_resource type="PackedScene" uid="uid://lfbg6v5hsa05" path="res://scenes/actors/player/components/movement_controller.tscn" id="3_sfvb3"]
 [ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
-[ext_resource type="PackedScene" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
+[ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
 [ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 [ext_resource type="Resource" uid="uid://pgdh62n0nd1u" path="res://resources/weapon_resources/weapon_default.tres" id="8_me6fi"]
@@ -81,20 +82,12 @@ position = Vector2(-64.4233, -34.0846)
 rotation = -1.0821
 scale = Vector2(0.22209, 19.2855)
 texture = SubResource("GradientTexture1D_a8h7k")
-
-[node name="OxygenBar2" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(63.2504, -33.1416)
-rotation = -2.06059
-scale = Vector2(0.220865, 18.8255)
-texture = SubResource("GradientTexture1D_a8h7k")
+script = ExtResource("2_ulhxp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
 animation = &"swim"
-frame_progress = 0.794706
-flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 

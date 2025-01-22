@@ -11,9 +11,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if direction.x > 0 and right_ray_cast.is_colliding():
-		print("Colliding")
 		direction.x = -1
 	elif direction.x < 0 and left_ray_cast.is_colliding():
 		direction.x = 1
 	pass
 	parent.velocity = direction.normalized() * speed
+	if parent is Enemy:
+		var enemy = parent as Enemy
+		enemy.icon.flip_h = direction.x < 0
