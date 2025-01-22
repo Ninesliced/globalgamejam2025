@@ -24,7 +24,7 @@ texture = ExtResource("2_qnpdf")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(962, 1599)
+position = Vector2(968, 1608)
 shape = SubResource("RectangleShape2D_hmtaw")
 
 [node name="right" type="Node2D" parent="."]
@@ -60,3 +60,4 @@ texture = SubResource("CompressedTexture2D_ogmwl")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
