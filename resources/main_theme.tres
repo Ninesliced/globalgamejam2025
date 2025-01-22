@@ -1,10 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://nonhr1o4s7iq"]
-
-[ext_resource type="FontFile" uid="uid://byxlpc8sjny18" path="res://assets/fonts/KumbhSans-Regular.ttf" id="1_hw256"]
-[ext_resource type="Texture2D" uid="uid://ddstqdrk3kgau" path="res://assets/images/ui/patch_rect_button.png" id="2_cahky"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://nonhr1o4s7iq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4lss"]
-texture = ExtResource("2_cahky")
 texture_margin_left = 77.0
 texture_margin_top = 77.0
 texture_margin_right = 75.0
@@ -20,8 +16,8 @@ texture = SubResource("CanvasTexture_0u6y3")
 modulate_color = Color(0.646, 0.8024, 0.85, 1)
 
 [resource]
-Button/fonts/font = ExtResource("1_hw256")
+Button/fonts/font = null
 Button/styles/normal = SubResource("StyleBoxTexture_h4lss")
-Label/fonts/font = ExtResource("1_hw256")
+Label/fonts/font = null
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_oaoje")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_guw5w")
