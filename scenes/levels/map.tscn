@@ -126,6 +126,7 @@ script = ExtResource("9_4yhvd")
 player = NodePath("../Player")
 
 [node name="Enemy" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(776, 1032)
+position = Vector2(648, 1872)
+collision_mask = 4
 
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
