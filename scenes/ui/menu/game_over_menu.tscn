@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnkkw8qkiqhmn"]
 
-[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_uw7vs"]
+[ext_resource type="Theme" uid="uid://bdxxnp2cr1ju4" path="res://resources/main_theme.tres" id="1_uw7vs"]
 [ext_resource type="Script" path="res://scenes/ui/menu/game_over_menu.gd" id="2_vs25s"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj5t5"]
