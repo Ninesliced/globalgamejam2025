@@ -15,6 +15,7 @@ var next_level_position = 0
 var current_generate_level = 0
 
 signal level_change(level: int)
+signal level_zone_change(is_on_a_level: bool)
 
 var current_level = 0:
 	set(value):
@@ -25,7 +26,10 @@ var current_level = 0:
 
 var number_of_level = 25
 
-var is_on_a_level = false
+var is_on_a_level = false:
+	set(value):
+		is_on_a_level = value
+		emit_signal("level_zone_change", value)
 
 var light_gap = 0.1
 var light_radius = 0.7:
