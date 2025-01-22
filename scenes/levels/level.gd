@@ -15,7 +15,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		get_parent().get_parent().next_current_level = associated_level
-		get_parent().get_parent().next_is_on_a_level = true
+		get_parent().get_parent().next_current_level_node = self
 
 func get_size_of_level(level_node):
 	var size
@@ -33,7 +33,6 @@ func get_size_of_level(level_node):
 func _on_area_2d_body_exited(body):
 	if body is Player:
 		get_parent().get_parent().current_level = get_parent().get_parent().next_current_level
-		get_parent().get_parent().is_on_a_level = get_parent().get_parent().next_is_on_a_level
 		level_has_been_passed = true
 		# var camera = get_parent().get_parent().camera
 		# var player = get_parent().get_parent().player

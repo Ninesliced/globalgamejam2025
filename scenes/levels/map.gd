@@ -14,6 +14,10 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 var camera_depth = 0
 var next_level_position = 0
 var current_generate_level = 0
+var next_current_level_node
+var current_level_node:
+	set(value):
+		current_level_node = value
 
 signal level_change(level: int)
 signal level_zone_change(level: Level, is_on_a_level: bool)
@@ -25,6 +29,7 @@ var current_level = 0:
 		if not is_on_a_level and len(levels) >= 1 and levels[1] is Level and not levels[1].level_has_been_passed:
 			next_light_effect()
 			levels[1].level_has_been_passed = true
+			print("level is passeds")
 
 var number_of_level = 25
 
@@ -58,8 +63,18 @@ func _ready():
 	load_next_level()
 	load_next_level()
 	load_next_level()
+	
+	var mapsize = get_size_of_level(PackedScenelevel.instantiate())
+	print(mapsize)
 	pass # Replace with function body.
 
+
+func get_current_level_node():
+	for i in range(levels.size()-1, -1, -1):
+		var level_elt = levels[i]
+		if player.position.y > level_elt.position.y:
+			return level_elt
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -68,7 +83,9 @@ func _process(delta):
 		if levels[0].position.y + get_size_of_level(levels[0]).y < CameraTopLeft.y:
 			load_next_level()
 			print("Next level is loading")
-
+	if len(levels) != 0:
+		current_level_node = get_current_level_node()
+		is_on_a_level = current_level_node is Level
 	# if Input.is_action_just_pressed("test_arkanyota"):
 	# 	next_light_effect()
 		

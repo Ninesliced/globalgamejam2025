@@ -37,6 +37,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
 
+	get_dashed_on((body))
+
+func get_dashed_on(body: Node2D) -> void:
 	if not body.is_in_group("has_DashComponent"):
 		return
 
@@ -67,13 +70,12 @@ func _on_body_entered(body: Node2D) -> void:
 			spinning = true
 
 			$DeathSound.play()
-			#queue_free()
-
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
 		return
 	damage_player = false
+	get_dashed_on(body)
 
 func disable_movement():
 	can_move = false
