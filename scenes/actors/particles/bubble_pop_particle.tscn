@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://jc2jgurs7vdf"]
+
+[ext_resource type="Script" path="res://scenes/actors/particles/bubble_pop_particle.gd" id="1_el1i6"]
+[ext_resource type="PackedScene" uid="uid://ll8yxlfyaure" path="res://scenes/actors/particles/bubble_cloud_particle.tscn" id="2_ly6gq"]
+[ext_resource type="Texture2D" uid="uid://cqehaiys2ovuk" path="res://assets/images/particles/bubble_pop.png" id="3_cxod0"]
+[ext_resource type="Texture2D" uid="uid://gxiid86rmt8y" path="res://assets/images/actors/bubbles/bubble_small.png" id="3_y4ds2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v6pq4"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_8nggs"]
+max_value = 3.0
+_data = [Vector2(0, 0.997697), 0.0, 0.0, 0, 0, Vector2(1, 1.16605), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t8qwy"]
+offsets = PackedFloat32Array(0.386308, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="BubblePopParticle" type="Node2D"]
+script = ExtResource("1_el1i6")
+
+[node name="BubbleCloudParticle" parent="." instance=ExtResource("2_ly6gq")]
+texture = ExtResource("3_y4ds2")
+emission_sphere_radius = 29.61
+gravity = Vector2(0, -200)
+initial_velocity_min = 66.11
+initial_velocity_max = 258.09
+
+[node name="PopStar" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_v6pq4")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+texture = ExtResource("3_cxod0")
+gravity = Vector2(0, 0)
+angle_max = 360.0
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_8nggs")
+color_ramp = SubResource("Gradient_t8qwy")
+anim_speed_min = 1.0
+anim_speed_max = 1.0

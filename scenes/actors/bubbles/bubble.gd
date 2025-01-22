@@ -4,7 +4,7 @@ class_name Bubble
 
 @export var bubble_value := 20.0 
 
-var bubble_cloud_scene: PackedScene = preload("res://scenes/actors/particles/bubble_cloud_particle.tscn")
+var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
 
 func _on_hitbox_body_entered(body:Node2D):
 	if body.is_in_group("has_OxygenComponent"):
@@ -15,10 +15,10 @@ func _on_hitbox_body_entered(body:Node2D):
 		_remove()
 
 func _remove():
-	var bubble_cloud: CPUParticles2D = bubble_cloud_scene.instantiate()
+	var bubble_cloud = bubble_pop_scene.instantiate()
 	get_parent().add_child(bubble_cloud)
 	bubble_cloud.global_position = global_position
-	bubble_cloud.emitting = true
+	bubble_cloud.play()
 	queue_free()
 
 func _process(delta):
