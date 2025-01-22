@@ -59,7 +59,7 @@ scale = Vector2(0.110343, 10.0557)
 texture = SubResource("GradientTexture1D_a8h7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywf2e")
 flip_h = true
 
@@ -84,6 +84,7 @@ label_settings = SubResource("LabelSettings_yudvb")
 horizontal_alignment = 1
 
 [node name="ShootComponent" type="Node2D" parent="."]
+scale = Vector2(2, 2)
 script = ExtResource("6_u70v2")
 
 [node name="Weapon" parent="ShootComponent" instance=ExtResource("7_uxkc3")]

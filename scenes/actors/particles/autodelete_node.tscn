@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wfj38ffwr2s0"]
+
+[ext_resource type="Script" path="res://scenes/actors/particles/autodelete_node.gd" id="1_a64px"]
+
+[node name="AutodeleteNode" type="Node2D"]
+script = ExtResource("1_a64px")
