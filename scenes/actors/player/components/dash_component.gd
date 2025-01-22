@@ -10,7 +10,7 @@ signal dash_exited
 
 @export var dash_consumption = 10
 @export var dash_distance = 20000
-@export var dash_duration = 0.4
+@export var dash_duration = 0.1
 @export var keep_velocity_scale = 1
 @export var maximum_velocity_keep = 1000
 var _dash_direction = Vector2(0, 0)

@@ -65,8 +65,9 @@ flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 
-[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("oxygen_component")]
+[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("movement_controller", "oxygen_component")]
 script = ExtResource("4_5qxf7")
+movement_controller = NodePath("../MovementController")
 dash_duration = 0.2
 oxygen_component = NodePath("../OxygenComponent")
 
