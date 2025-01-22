@@ -30,7 +30,7 @@ func _physics_process(delta):
 func _process(delta):
 	if $Label:
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
-	if damage_player:
+	if damage_player and not $CaptureOxygenComponent.is_captured:
 		var player = get_tree().current_scene.get_node("Player")
 		player.Oxygen_component.add_oxygen(-10 * delta)
 
