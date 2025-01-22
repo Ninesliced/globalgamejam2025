@@ -2,11 +2,12 @@
 extends CharacterBody2D
 class_name Bubble
 
+var size := 1.0
+
 @export var bubble_value := 20.0 :
 	set(value):
 		bubble_value = value
-		var size = 1.2 ** value / 10
-		print(size)
+		size = 1.2 ** value / 10
 		scale = Vector2(size, size)
 
 var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
@@ -23,9 +24,13 @@ func _on_hitbox_body_entered(body:Node2D):
 		body.queue_free()
 
 func _remove():
-	var bubble_cloud = bubble_pop_scene.instantiate()
+	var bubble_cloud : BubblePop = bubble_pop_scene.instantiate()
 	get_parent().add_child(bubble_cloud)
 	bubble_cloud.global_position = global_position
+	bubble_cloud.bubble_cloud.scale_amount_max = size
+	bubble_cloud.bubble_cloud.scale_amount_min = size
+	bubble_cloud.pop_star.scale_amount_max = size
+	bubble_cloud.pop_star.scale_amount_min = size
 	bubble_cloud.play()
 	queue_free()
 

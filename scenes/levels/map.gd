@@ -16,13 +16,13 @@ var next_level_position = 0
 var current_generate_level = 0
 
 signal level_change(level: int)
-signal level_zone_change(is_on_a_level: bool)
+signal level_zone_change(level: Level, is_on_a_level: bool)
 
 var current_level = 0:
 	set(value):
 		current_level = value
 		emit_signal("level_change", value)
-		if not is_on_a_level and len(levels) != 0 and levels[1] is Level and not levels[1].level_has_been_passed:
+		if not is_on_a_level and len(levels) >= 1 and levels[1] is Level and not levels[1].level_has_been_passed:
 			next_light_effect()
 			levels[1].level_has_been_passed = true
 

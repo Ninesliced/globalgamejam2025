@@ -8,4 +8,8 @@ script = ExtResource("1_6eulj")
 [node name="SpawnDelay" type="Timer" parent="."]
 autostart = true
 
+[node name="BubbleDelay" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="SpawnDelay" to="." method="_on_spawn_delay_timeout"]
+[connection signal="timeout" from="BubbleDelay" to="." method="_on_bubble_delay_timeout"]

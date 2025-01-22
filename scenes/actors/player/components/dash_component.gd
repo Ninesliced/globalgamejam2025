@@ -90,6 +90,8 @@ func enable_dash():
 	is_dashing = true
 	dash_timer.start()
 
+	$DashSound.play()
+
 func _disable_dash():
 	is_dashing = false
 	player.velocity *= keep_velocity_scale
