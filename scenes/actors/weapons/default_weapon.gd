@@ -3,7 +3,6 @@ extends Weapon
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,4 +17,7 @@ func shoot(direction: Vector2):
 	bullet_instance.set_direction(direction)
 	get_tree().current_scene.add_child(bullet_instance)
 
+	var player = get_tree().current_scene.get_node("Player")
+	player.Oxygen_component.add_oxygen(-1)
+	
 	$ShootSound.play()
