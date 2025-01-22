@@ -11,7 +11,7 @@ var can_move = true
 var spinning = false
 var spin_time = 0.5
 var damage_player = false
-
+var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
 
 signal died
@@ -25,7 +25,7 @@ func _physics_process(delta):
 			queue_free()
 		return
 	if can_move:
-		move_and_slide()
+		collision = move_and_collide(velocity * delta)
 
 func _process(delta):
 	if $Label:
