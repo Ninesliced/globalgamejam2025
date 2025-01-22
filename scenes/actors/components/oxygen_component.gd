@@ -16,9 +16,19 @@ func _ready():
 	oxygen = initial_oxygen
 
 func _process(delta):
+	if get_parent().get_parent() is Map:
+		var map: Map = get_parent().get_parent()
+		if not map.is_on_a_level:
+			return
+	
 	oxygen -= consumption_speed * delta
 	if oxygen <= 0.0:
 		run_out_of_oxygen.emit()
 
 func add_oxygen(value: float):
+	if get_parent().get_parent() is Map:
+		var map: Map = get_parent().get_parent()
+		if value <= 0 and not map.is_on_a_level:
+			return
+	
 	oxygen += value
