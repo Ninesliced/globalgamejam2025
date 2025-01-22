@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk62u1muho6ot"]
+[gd_scene load_steps=6 format=3 uid="uid://bk62u1muho6ot"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/menu_manager.gd" id="1_2yx3i"]
 [ext_resource type="PackedScene" uid="uid://b64p3bg6pqutj" path="res://scenes/ui/menu/pause_menu.tscn" id="1_lurkk"]
+[ext_resource type="PackedScene" uid="uid://dnkkw8qkiqhmn" path="res://scenes/ui/menu/game_over_menu.tscn" id="3_3vnc0"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bms1h"]
 random_pitch = 1.1
@@ -35,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211765, 0.188235, 0.25098, 0.560784)
+color = Color(0.15978, 0.165799, 0.402664, 0.560784)
 
 [node name="BlurBackground" type="ColorRect" parent="Background"]
 z_index = -200
@@ -57,5 +58,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" parent="Menus" instance=ExtResource("1_lurkk")]
+visible = false
+layout_mode = 1
+
+[node name="GameOverMenu" parent="Menus" instance=ExtResource("3_3vnc0")]
 visible = false
 layout_mode = 1
