@@ -7,9 +7,18 @@ const JUMP_VELOCITY = -400.0
 
 var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
 var can_move = true
+var spinning = false
+var spin_time = 0.5
 @onready var icon : Sprite2D = $Icon
 
 func _physics_process(delta):
+	if spinning:
+		spin_time -= delta
+		rotation += 360 * delta
+		if spin_time <= 0:
+			spinning = false
+			queue_free()
+		return
 	if can_move:
 		move_and_slide()
 
@@ -43,7 +52,8 @@ func _on_body_entered(body: Node2D) -> void:
 			get_parent().add_child(bubble_cloud)
 			bubble_cloud.global_position = global_position
 			bubble_cloud.play()
-			queue_free()
+			spinning = true
+			#queue_free()
 
 func disable_movement():
 	can_move = false
