@@ -44,7 +44,7 @@ func _on_body_entered(body: Node2D) -> void:
 			var is_captured = $CaptureOxygenComponent.is_captured
 			if not is_captured:
 				return
-			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 2.5
+			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 4
 			if not oxygen_captured:
 				return
 			child.add_oxygen(oxygen_captured)
