@@ -34,6 +34,7 @@ func _remove():
 	bubble_cloud.pop_star.scale_amount_max = size
 	bubble_cloud.pop_star.scale_amount_min = size
 	bubble_cloud.play()
+
 	queue_free()
 
 func _process(delta):

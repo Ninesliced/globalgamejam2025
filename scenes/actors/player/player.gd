@@ -57,6 +57,7 @@ func damage(amount: float):
 		return
 	
 	$OxygenComponent.add_oxygen(-amount)
+	$DamageSound.play()
 
 	_invincibility_time_left = damage_invicibility_time
 
