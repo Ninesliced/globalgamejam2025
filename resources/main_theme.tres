@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nonhr1o4s7iq"]
-
-[ext_resource type="FontFile" uid="uid://byxlpc8sjny18" path="res://assets/fonts/KumbhSans-Regular.ttf" id="1_hw256"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://nonhr1o4s7iq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4lss"]
 texture_margin_left = 77.0
