@@ -3,6 +3,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+@export var damage_value = 15.0
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -32,7 +34,8 @@ func _process(delta):
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player and not $CaptureOxygenComponent.is_captured:
 		var player = get_tree().current_scene.get_node("Player")
-		player.Oxygen_component.add_oxygen(-10 * delta)
+		player.damage(damage_value)
+		damage_player = false
 
 func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: float):
 	pass
@@ -79,7 +82,6 @@ func get_dashed_on(body: Node2D) -> void:
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	print("player out of fish")
 	damage_player = false
 	get_dashed_on(body)
 

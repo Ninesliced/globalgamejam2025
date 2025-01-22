@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=24 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="11_3eyet"]
+[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/star.tscn" id="12_cx4an"]
 
 [sub_resource type="Resource" id="Resource_rb20b"]
 script = ExtResource("4_f32e1")
@@ -22,9 +23,14 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("6_xpab5")
 chance = 1
 
+[sub_resource type="Resource" id="Resource_isf03"]
+script = ExtResource("4_f32e1")
+spawnable = ExtResource("12_cx4an")
+chance = 1
+
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
-spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_rb20b"), SubResource("Resource_l2i2w")])
+spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_rb20b"), SubResource("Resource_l2i2w"), SubResource("Resource_isf03")])
 spawn_count = Vector2i(1, 3)
 bubble_spawn_interval = 0.4
 bubble_spawn_count = 1

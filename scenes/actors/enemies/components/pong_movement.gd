@@ -21,6 +21,9 @@ func _physics_process(delta):
 			movement_velocity = movement_velocity.bounce(enemy.collision.get_normal())
 	parent.rotate(1 * delta)
 	parent.velocity = movement_velocity * speed
+	if parent.position.x < -300 or parent.position.x > 3000:
+		print("FEATURE_SHAPING")
+		parent.queue_free()
 	pass
 
 func _on_area_2d_body_entered(body: Node) -> void:
