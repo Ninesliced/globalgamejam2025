@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=17 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/SpawnableChance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://mdjn5erhyg8u" path="res://scenes/actors/bubbles/bubble.tscn" id="5_kyp5i"]
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="8_0jw7t"]
+[ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 
 [sub_resource type="Resource" id="Resource_6s1yd"]
 script = ExtResource("4_f32e1")
@@ -95,6 +96,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="Enemy" parent="." instance=ExtResource("8_0jw7t")]
 position = Vector2(658, 1192)
+
+[node name="GameStateManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-410, 0)
+script = ExtResource("9_4yhvd")
+player = NodePath("../Player")
 
 [connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="level_zone_change" from="." to="Spawner" method="_on_map_level_zone_change"]
