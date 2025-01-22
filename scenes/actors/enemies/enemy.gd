@@ -27,7 +27,7 @@ func _process(delta):
 	$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player:
 		var player = get_tree().current_scene.get_node("Player")
-		player.Oxygen_component.add_oxygen(-1)
+		player.Oxygen_component.add_oxygen(-10 * delta)
 
 func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: float):
 	pass
@@ -58,7 +58,6 @@ func _on_body_entered(body: Node2D) -> void:
 			bubble_cloud.global_position = global_position
 			bubble_cloud.play()
 			spinning = true
-			#queue_free()
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
