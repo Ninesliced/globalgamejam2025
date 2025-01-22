@@ -22,11 +22,8 @@ func _ready():
 			return
 		else:
 			printerr("No oxygen component in the player, shouldn't print this error, it does mean that comopnents system not working")
-			pass
 	else:
 		printerr("Player is not in the oxygen component group")
-		pass
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
