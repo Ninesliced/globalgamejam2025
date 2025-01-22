@@ -52,8 +52,6 @@ var light_radius = 0.7:
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
 
-
-	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	light_radius = 0.7
