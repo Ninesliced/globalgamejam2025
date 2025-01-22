@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=15 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -90,7 +90,7 @@ position = Vector2(656, 128)
 position = Vector2(368, -125.25)
 shape = SubResource("RectangleShape2D_ekr4v")
 
-[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
