@@ -82,7 +82,6 @@ func get_dashed_on(body: Node2D) -> void:
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	print("player out of fish")
 	damage_player = false
 	get_dashed_on(body)
 
