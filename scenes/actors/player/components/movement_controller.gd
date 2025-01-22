@@ -29,11 +29,9 @@ func handle_movement(delta,velocity):
 
 	vec = vec.normalized()
 	if vec.x > 0:
-		player.sprite.flip_h = false
 		%OxygenBar.visible = true
 		%OxygenBar2.visible = false
 	elif vec.x < 0:
-		player.sprite.flip_h = true
 		%OxygenBar.visible = false
 		%OxygenBar2.visible = true
 

@@ -18,6 +18,8 @@ func _process(delta):
 
 	Global.hud.set_oxygen_bar($OxygenComponent.oxygen, $OxygenComponent.max_oxygen)
 
+	sprite.flip_h = ($ShootComponent.aim_direction.x <= 0)
+
 	$Label.text = str($OxygenComponent.oxygen)
 
 	if $DashComponent.is_dashing:

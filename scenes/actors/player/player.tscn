@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bpqxk0ibu4f0q" path="res://assets/images/actors/player/player_swim.png" id="3_7g1kn"]
 [ext_resource type="PackedScene" uid="uid://lfbg6v5hsa05" path="res://scenes/actors/player/components/movement_controller.tscn" id="3_sfvb3"]
 [ext_resource type="Script" path="res://scenes/actors/player/components/dash_component.gd" id="4_5qxf7"]
-[ext_resource type="PackedScene" uid="uid://codky1oo2virb" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/oxygen_component.tscn" id="4_n4vdn"]
 [ext_resource type="Script" path="res://scenes/actors/player/shoot_component.gd" id="6_u70v2"]
 [ext_resource type="PackedScene" uid="uid://dhcnvfpyf02uy" path="res://scenes/actors/weapons/default_weapon.tscn" id="7_uxkc3"]
 [ext_resource type="Resource" uid="uid://pgdh62n0nd1u" path="res://resources/weapon_resources/weapon_default.tres" id="8_me6fi"]
@@ -74,7 +74,6 @@ script = ExtResource("1_brhlp")
 speed = 600.0
 acceleration = 1500.0
 friction = 1500.0
-play_mode = null
 
 [node name="OxygenBar" type="Sprite2D" parent="."]
 unique_name_in_owner = true
