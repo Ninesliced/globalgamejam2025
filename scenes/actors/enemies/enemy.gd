@@ -24,7 +24,7 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _process(delta):
-	if $CaptureOxygenComponent:
+	if $Label:
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player:
 		var player = get_tree().current_scene.get_node("Player")
@@ -79,3 +79,11 @@ func _on_body_exit(body: Node2D) -> void:
 
 func disable_movement():
 	can_move = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

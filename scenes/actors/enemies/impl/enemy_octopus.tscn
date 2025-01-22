@@ -1,51 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpjx6l40iycrn"]
+[gd_scene load_steps=3 format=3 uid="uid://d3xojrrd0vnld"]
 
-[ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_2aw1m"]
-[ext_resource type="PackedScene" uid="uid://c7xle6dxk75gb" path="res://scenes/actors/components/health_component.tscn" id="2_oawao"]
-[ext_resource type="Script" path="res://scenes/actors/components/hitbox_component.gd" id="2_wa8id"]
-[ext_resource type="PackedScene" uid="uid://sqqvlx3ysea4" path="res://scenes/actors/components/capture_oxygen_component.tscn" id="3_hpfqg"]
-[ext_resource type="AudioStream" uid="uid://27pcg38jg7q0" path="res://assets/sounds/shoot/hit_enemy_01.ogg" id="4_f5far"]
-[ext_resource type="AudioStream" uid="uid://bkq2t443w65f2" path="res://assets/sounds/shoot/hit_enemy_02.ogg" id="5_vojhy"]
-[ext_resource type="AudioStream" uid="uid://va7jkmnxx1x3" path="res://assets/sounds/shoot/hit_enemy_03.ogg" id="6_cpwvc"]
-[ext_resource type="AudioStream" uid="uid://dwk8d3qd7ntsj" path="res://assets/sounds/shoot/hit_enemy_04.ogg" id="7_y44qo"]
+[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
+[ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0tlr"]
+[node name="Enemy" instance=ExtResource("1_8p5bd")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7511v"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t0j4u"]
-random_pitch = 1.2
-streams_count = 4
-stream_0/stream = ExtResource("4_f5far")
-stream_1/stream = ExtResource("5_vojhy")
-stream_2/stream = ExtResource("6_cpwvc")
-stream_3/stream = ExtResource("7_y44qo")
-
-[node name="EnemyOctopus" type="CharacterBody2D"]
-
-[node name="HitboxComponent" type="Node2D" parent="."]
-script = ExtResource("2_wa8id")
-
-[node name="Area2D" type="Area2D" parent="HitboxComponent"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent/Area2D"]
-scale = Vector2(2.68, 2.76)
-shape = SubResource("RectangleShape2D_x0tlr")
-debug_color = Color(0.8, 0.505882, 0.360784, 0.419608)
-
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_2aw1m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.88, 1.92)
-shape = SubResource("RectangleShape2D_7511v")
-
-[node name="HealthComponent" parent="." instance=ExtResource("2_oawao")]
-
-[node name="CaptureOxygenComponent" parent="." node_paths=PackedStringArray("hitbox") instance=ExtResource("3_hpfqg")]
-hitbox = NodePath("../HitboxComponent")
-bubble_scale_max = 2.0
-bubble_scale_threshold = 3.0
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_t0j4u")
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("2_34h7d")
