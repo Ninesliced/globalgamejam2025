@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	move_and_slide()
 
-	Global.hud.set_oxygen_bar($OxygenComponent.oxygen)
+	Global.hud.set_oxygen_bar($OxygenComponent.oxygen, $OxygenComponent.max_oxygen)
 
 	$Label.text = str($OxygenComponent.oxygen)
 
