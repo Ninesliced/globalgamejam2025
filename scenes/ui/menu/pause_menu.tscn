@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b64p3bg6pqutj"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/pause_menu.gd" id="1_cjlbg"]
-[ext_resource type="Theme" uid="uid://bdxxnp2cr1ju4" path="res://resources/main_theme.tres" id="1_xcqqo"]
+[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_xcqqo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj5t5"]
 
@@ -50,12 +50,14 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 10.84
+size_flags_stretch_ratio = 4.0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(250, 75)
+custom_minimum_size = Vector2(500, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("1_xcqqo")
 text = "RESUME"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
@@ -64,9 +66,11 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.33
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(250, 75)
+custom_minimum_size = Vector2(500, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("1_xcqqo")
 text = "QUIT"
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]

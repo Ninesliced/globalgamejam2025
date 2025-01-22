@@ -43,6 +43,8 @@ func _on_hitbox_recieved_damage(damager_area: Area2D, damage_amount: float):
 		oxygen_stored += damage_amount
 	handle_bubble_size()
 
+	$InflateSound.play()
+
 func handle_bubble_size():
 	if is_captured:
 		bubble.set_size(Vector2(bubble_scale_threshold, bubble_scale_threshold))
