@@ -4,7 +4,11 @@ class_name OxygenComponent
 
 signal run_out_of_oxygen	
 	
-@export var max_oxygen := 100.0
+@export var max_oxygen := 100.0:
+	set(value):
+		max_oxygen = value
+		change_oxygen_bar()
+
 @export var initial_oxygen := 100.0
 var oxygen := 0.0:
 	set(value):
