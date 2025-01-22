@@ -78,9 +78,9 @@ func get_current_level_node():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var CameraTopLeft = camera.get_screen_center_position() - get_viewport_rect().size / 2
+	var camera_top_left = camera.get_screen_center_position() - get_viewport_rect().size / 2
 	if len(levels) >= 3:
-		if levels[0].position.y + get_size_of_level(levels[0]).y < CameraTopLeft.y:
+		if levels[0].position.y + get_size_of_level(levels[0]).y < camera_top_left.y:
 			load_next_level()
 			print("Next level is loading")
 	if len(levels) != 0:
