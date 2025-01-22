@@ -92,7 +92,7 @@ position = Vector2(-1152, -157)
 shape = SubResource("RectangleShape2D_r1his")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.072, 0.0936, 0.18, 0.627451)
 
 [node name="Enemy" parent="." instance=ExtResource("8_0jw7t")]
 position = Vector2(658, 1192)
