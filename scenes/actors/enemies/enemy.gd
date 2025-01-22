@@ -5,10 +5,10 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
-
+var can_move = true
 func _physics_process(delta):
-	move_and_slide()
-
+	if can_move:
+		move_and_slide()
 
 func _process(delta):
 	$Label.text = str($CaptureOxygenComponent.oxygen_stored)
@@ -38,3 +38,6 @@ func _on_body_entered(body: Node2D) -> void:
 			bubble_cloud.global_position = global_position
 			bubble_cloud.play()
 			queue_free()
+
+func disable_movement():
+	can_move = false
