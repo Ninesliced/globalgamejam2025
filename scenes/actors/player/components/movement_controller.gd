@@ -34,7 +34,6 @@ func handle_movement(delta,velocity):
 		player.sprite.flip_h = true
 		$"..".is_flip_h = true
 
-
 	new_velocity = handle_acceleration_decceleration(delta, vec, velocity)
 	return new_velocity
 

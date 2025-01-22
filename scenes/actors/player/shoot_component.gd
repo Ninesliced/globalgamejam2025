@@ -3,6 +3,7 @@ extends Component
 
 var _weapons : Array[Weapon] = []
 var player : Player = null
+var aim_direction = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,8 +21,8 @@ func _ready():
 			assert(false, "dash component must be a child of Player")
 
 func _process(delta):
-	var direction = handle_direction()
-	handle_weapon_shoot(direction)
+	aim_direction = handle_direction()
+	handle_weapon_shoot(aim_direction)
 
 func handle_direction():
 	var direction : Vector2 = Vector2(1,0)
