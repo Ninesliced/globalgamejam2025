@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buy6nd4bjnxr8" path="res://scenes/actors/bullets/bullet.tscn" id="1_jhdad"]
 [ext_resource type="Script" path="res://scenes/actors/bullets/bullet_base.gd" id="2_i2m73"]
-[ext_resource type="Texture2D" uid="uid://03ulstrdc4rm" path="res://icon.svg" id="2_tkodm"]
+[ext_resource type="Texture2D" uid="uid://gxiid86rmt8y" path="res://assets/images/actors/bubbles/bubble_small.png" id="3_r5ppr"]
 
 [node name="Bullet" instance=ExtResource("1_jhdad")]
 script = ExtResource("2_i2m73")
@@ -11,5 +11,5 @@ speed = 1500.0
 
 [node name="Icon" type="Sprite2D" parent="." index="0"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_tkodm")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_r5ppr")
