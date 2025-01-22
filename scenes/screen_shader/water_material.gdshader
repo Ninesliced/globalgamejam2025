@@ -6,7 +6,7 @@ uniform float spectrumMultiplier : hint_range(0.0, 200.0) = 120.0;
 
 #define PI 3.14159265359
 
-float rand(in vec2 n) { 
+float rand(in vec2 n) {
 	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
 

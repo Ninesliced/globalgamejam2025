@@ -1,11 +1,14 @@
 @icon("res://_engine/icons/node_2D/icon_fish.png")
 extends CharacterBody2D
+class_name Enemy
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
 var can_move = true
+@onready var icon : Sprite2D = $Icon
+
 func _physics_process(delta):
 	if can_move:
 		move_and_slide()
