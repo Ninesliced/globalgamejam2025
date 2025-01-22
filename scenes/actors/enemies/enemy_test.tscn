@@ -6,7 +6,3 @@
 [node name="Enemy" instance=ExtResource("1_phiae")]
 
 [node name="MoveLinear" parent="." index="3" instance=ExtResource("2_hdkqs")]
-
-[node name="CaptureOxygenComponent" parent="." index="5" node_paths=PackedStringArray("hitbox")]
-hitbox = NodePath("../HitboxComponent")
-oxygen_capture_threshold = 3.0

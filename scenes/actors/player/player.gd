@@ -8,8 +8,11 @@ class_name Player
 
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+
+var Oxygen_component
+
 func _ready():
-	pass
+	Oxygen_component = %OxygenComponent
 
 func _process(delta):
 	move_and_slide()
