@@ -7,7 +7,7 @@
 [node name="Bullet" instance=ExtResource("1_jhdad")]
 script = ExtResource("2_i2m73")
 friction = 300.0
-speed = 800.0
+speed = 1500.0
 
 [node name="Icon" type="Sprite2D" parent="." index="0"]
 position = Vector2(2.08165e-12, 2.08165e-12)

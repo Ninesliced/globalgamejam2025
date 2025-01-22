@@ -19,7 +19,7 @@ chance = 1
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
 spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_6s1yd")])
-spawn_interval = 2.0
+spawn_interval = 0.1
 spawn_count = 1
 
 [sub_resource type="Gradient" id="Gradient_o0own"]
@@ -110,7 +110,7 @@ position = Vector2(900.5, 2)
 shape = SubResource("RectangleShape2D_dcf6n")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.072, 0.0936, 0.18, 1)
+color = Color(0.102462, 0.119067, 0.29463, 1)
 
 [node name="Enemy" parent="." instance=ExtResource("8_0jw7t")]
 position = Vector2(658, 1192)
@@ -120,6 +120,4 @@ position = Vector2(-410, 0)
 script = ExtResource("9_4yhvd")
 player = NodePath("../Player")
 
-[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
-[connection signal="level_zone_change" from="." to="Spawner" method="_on_map_level_zone_change"]
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
