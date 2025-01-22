@@ -36,3 +36,4 @@ func _process(delta):
 func set_lose_state():
 	print("You lose")
 	game_state = GameState.LOSE
+	Global.reload_game()

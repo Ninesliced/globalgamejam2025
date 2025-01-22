@@ -5,7 +5,9 @@ class_name Bubble
 @export var bubble_value := 20.0 :
 	set(value):
 		bubble_value = value
-		apply_scale(Vector2(value, value))
+		var size = 1.2 ** value / 10
+		print(size)
+		scale = Vector2(size, size)
 
 var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
 
