@@ -8,6 +8,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_guw5w"]
 texture = SubResource("CanvasTexture_0u6y3")
+modulate_color = Color(0.646, 0.8024, 0.85, 1)
 
 [resource]
 Button/fonts/font = ExtResource("1_hw256")
