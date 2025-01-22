@@ -52,7 +52,6 @@ levels = Array[ExtResource("3_sb12f")]([SubResource("Resource_ba807")])
 unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
-unique_name_in_owner = true
 position = Vector2(952, 552)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
@@ -65,6 +64,7 @@ texture_scale = 33.95
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(960, 544)
 position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 drag_horizontal_enabled = true
 drag_left_margin = 1.0
 drag_top_margin = 1.0
@@ -75,6 +75,7 @@ player = NodePath("../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
 position = Vector2(1152, -451)
+collision_layer = 4
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
 position = Vector2(-128, 453.75)
