@@ -1,8 +1,10 @@
 extends Node
+class_name MovementController
 
 var player : Player = null
 var velocity = Vector2(0, 0)
-
+var can_accelerate = true
+var can_decelerate = true
 func _ready():
 	var parent = get_parent()
 	if parent is Player:
@@ -33,9 +35,14 @@ func handle_movement(delta,velocity):
 		player.sprite.flip_h = true
 		%OxygenBar.visible = false
 		%OxygenBar2.visible = true
+
+	new_velocity = handle_acceleration_decceleration(delta, vec, velocity)
+	return new_velocity
+
+func handle_acceleration_decceleration(delta, vec, velocity):
+	var new_velocity = Vector2(0, 0)
 	if vec != Vector2(0, 0):
 		new_velocity = velocity.move_toward(vec * player.speed, player.acceleration * delta)
 	else:
 		new_velocity = velocity.move_toward(Vector2(0, 0), player.friction * delta)
-	
 	return new_velocity

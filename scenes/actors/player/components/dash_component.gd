@@ -1,13 +1,14 @@
 @icon("res://_engine/icons/node_2D/icon_projectile.png")
 extends Component
-
+class_name DashComponent
 var player : Player = null
 var velocity = Vector2(0, 0)
 
 signal on_dash
+@export var movement_controller : MovementController = null
 
 @export var dash_consumption = 10
-@export var dash_distance = 10000
+@export var dash_distance = 20000
 @export var dash_duration = 0.5
 
 var _dash_direction = Vector2(0, 0)
@@ -17,6 +18,9 @@ var dash_timer : Timer = Timer.new()
 @export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
 @export var minimum_dash_distance = 50
+
+var old_acceleration = true
+var old_decceleration = true
 
 func _ready():
 	super()
@@ -53,8 +57,7 @@ func handle_dash():
 		oxygen_component.add_oxygen(-dash_consumption)
 		on_dash.emit()
 
-		is_dashing = true
-		dash_timer.start()
+		enable_dash()
 		return _dash_direction
 	return _dash_direction
 		
@@ -75,6 +78,18 @@ func get_dash_direction(velocity) -> Vector2:
 		vec = vec.normalized()
 	return vec
 
+func enable_dash():
+	if movement_controller:
+		old_acceleration = movement_controller.can_accelerate
+		old_decceleration = movement_controller.can_decelerate
+		movement_controller.can_accelerate = false
+		movement_controller.can_decelerate = false
+	is_dashing = true
+	dash_timer.start()
+
 func _disable_dash():
 	is_dashing = false
+	if movement_controller:
+		movement_controller.can_accelerate = old_acceleration
+		movement_controller.can_decelerate = old_decceleration
 	
