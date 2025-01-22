@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="1_g0w08"]
 [ext_resource type="Script" path="res://scenes/actors/bubbles/bubble.gd" id="1_g33ep"]
-[ext_resource type="PackedScene" path="res://scenes/actors/components/sine_movement_component.tscn" id="3_uh8av"]
+[ext_resource type="PackedScene" uid="uid://dpyt52xy81e0a" path="res://scenes/actors/components/sine_movement_component.tscn" id="3_uh8av"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qn20"]
 radius = 58.0086
