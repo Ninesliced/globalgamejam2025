@@ -19,4 +19,3 @@ func _process(delta):
 	if parent is Enemy:
 		var enemy = parent as Enemy
 		enemy.icon.flip_h = direction.x < 0
-

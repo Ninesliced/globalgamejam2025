@@ -7,7 +7,7 @@ signal oxygen_recieved(oxygen: float)
 signal captured
 
 @export var hitbox: HitboxComponent
-@export var capture_threshold := 5.0
+@export var capture_threshold := 10.0
 @export var bubble_texture: Texture2D:
 	set(value):
 		bubble_texture = value
@@ -39,9 +39,10 @@ func _process(delta):
 
 
 func _on_hitbox_recieved_damage(damager_area: Area2D, damage_amount: float):
-	oxygen_stored += damage_amount
+	if not is_captured:
+		oxygen_stored += damage_amount
 	handle_bubble_size()
-	
+
 func handle_bubble_size():
 	if is_captured:
 		bubble.set_size(Vector2(bubble_scale_threshold, bubble_scale_threshold))
