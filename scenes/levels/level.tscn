@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://mdow3uqace07"]
+[gd_scene load_steps=7 format=3 uid="uid://mdow3uqace07"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_d2k7l"]
-[ext_resource type="Material" path="res://scenes/screen_shader/water_material.tres" id="2_nxare"]
+[ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="2_nxare"]
 [ext_resource type="Texture2D" uid="uid://ctcv86cq4vk1c" path="res://images/background/1000_F_305827311_gzhaRwKqzqXairHIVapU6qYQSIiybMf7 copy.jpg" id="2_qnpdf"]
-[ext_resource type="Texture2D" uid="uid://1lgw2oh6hwlu" path="res://assets/images/menu_backgrounds/Illustration_sans_titre.png" id="4_rbkl1"]
+[ext_resource type="Texture2D" uid="uid://82myjobl684h" path="res://assets/images/menu_backgrounds/wall.png" id="4_gqhh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmtaw"]
 size = Vector2(1944, 3218)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogmwl"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_d2k7l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 material = ExtResource("2_nxare")
 position = Vector2(962.125, 1603.81)
 scale = Vector2(3.26861, 3.21637)
@@ -27,31 +30,32 @@ shape = SubResource("RectangleShape2D_hmtaw")
 
 [node name="IllustrationSansTitre" type="Sprite2D" parent="right"]
 position = Vector2(1776, 536)
-texture = ExtResource("4_rbkl1")
+texture = SubResource("CompressedTexture2D_ogmwl")
 
 [node name="IllustrationSansTitre3" type="Sprite2D" parent="right"]
 position = Vector2(1778, 2692)
-texture = ExtResource("4_rbkl1")
+texture = SubResource("CompressedTexture2D_ogmwl")
 
 [node name="IllustrationSansTitre2" type="Sprite2D" parent="right"]
 position = Vector2(1776, 1616)
-texture = ExtResource("4_rbkl1")
+texture = ExtResource("4_gqhh5")
 
 [node name="left" type="Node2D" parent="."]
 position = Vector2(1920, 0)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 
 [node name="IllustrationSansTitre" type="Sprite2D" parent="left"]
 position = Vector2(1776, 536)
-texture = ExtResource("4_rbkl1")
+texture = ExtResource("4_gqhh5")
 
 [node name="IllustrationSansTitre3" type="Sprite2D" parent="left"]
 position = Vector2(1778, 2692)
-texture = ExtResource("4_rbkl1")
+texture = ExtResource("4_gqhh5")
 
 [node name="IllustrationSansTitre2" type="Sprite2D" parent="left"]
 position = Vector2(1776, 1616)
-texture = ExtResource("4_rbkl1")
+texture = SubResource("CompressedTexture2D_ogmwl")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

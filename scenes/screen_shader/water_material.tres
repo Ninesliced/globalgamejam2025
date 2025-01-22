@@ -4,3 +4,6 @@
 
 [resource]
 shader = ExtResource("1_28p2i")
+shader_parameter/timeScale = 0.6
+shader_parameter/warpAmplitude = 0.01
+shader_parameter/spectrumMultiplier = 120.0

@@ -1,6 +1,6 @@
 extends Area2D
 
-var push_distance = 200
+var push_distance = 350
 
 func _ready() -> void:
 	pass
