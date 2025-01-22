@@ -10,6 +10,7 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 
 @export var player : Player = null
 @export var camera : Camera2D = null
+
 var camera_depth = 0
 var next_level_position = 0
 var current_generate_level = 0
@@ -35,11 +36,14 @@ var light_gap = 0.1
 var light_radius = 0.7:
 	set(value):
 		light_radius = value
-		var gradient = %PointLight2D.texture.get_gradient()
-		gradient.set_offset(1, 0.0)
-		gradient.set_offset(2, max(light_radius, 0.0))
-		gradient.set_offset(3, min(light_radius+light_gap, 1.0))
-		gradient.set_offset(4, 1.0)
+		if %PointLight2D != null:
+			var gradient = %PointLight2D.texture.get_gradient()
+			gradient.set_offset(1, 0.0)
+			gradient.set_offset(2, max(light_radius, 0.0))
+			gradient.set_offset(3, min(light_radius+light_gap, 1.0))
+		else:
+			printerr("No light in the scene")
+		# gradient.set_offset(4, 1.0) #was out of bounds
 
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
@@ -65,9 +69,6 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("test_arkanyota"):
 		next_light_effect()
-	# if player_distance_to_top > get_viewport_rect().size.y * camera_offset_scale:
-	# 	$Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)
-		# $Camera2D.position.y += (player_distance_to_top - get_viewport_rect().size.y * camera_offset_scale)**2 / (3*get_viewport_rect().size.y)
 		
 
 

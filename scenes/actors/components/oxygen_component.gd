@@ -9,7 +9,7 @@ signal run_out_of_oxygen
 var oxygen := 0.0:
 	set(value):
 		oxygen = clamp(0.0, value, max_oxygen)
-		# change_oxygen_bar()	
+		change_oxygen_bar()
 
 @export var consumption_speed := 30.0
 
