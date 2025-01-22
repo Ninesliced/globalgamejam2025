@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=20 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/SpawnableChance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://mdjn5erhyg8u" path="res://scenes/actors/bubbles/bubble.tscn" id="5_kyp5i"]
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="8_0jw7t"]
+[ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
+[ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 
 [sub_resource type="Resource" id="Resource_6s1yd"]
 script = ExtResource("4_f32e1")
@@ -40,6 +42,12 @@ size = Vector2(128, 1093)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
 size = Vector2(2176, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb3cr"]
+size = Vector2(134, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcf6n"]
+size = Vector2(123, 1082)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
@@ -90,11 +98,28 @@ shape = SubResource("RectangleShape2D_gg7th")
 position = Vector2(-1152, -157)
 shape = SubResource("RectangleShape2D_r1his")
 
+[node name="Area2D" type="Area2D" parent="Camera2D"]
+script = ExtResource("8_vk5iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
+position = Vector2(-893, 3)
+shape = SubResource("RectangleShape2D_yb3cr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D"]
+position = Vector2(900.5, 2)
+shape = SubResource("RectangleShape2D_dcf6n")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.072, 0.0936, 0.18, 0.627451)
 
 [node name="Enemy" parent="." instance=ExtResource("8_0jw7t")]
 position = Vector2(658, 1192)
 
+[node name="GameStateManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-410, 0)
+script = ExtResource("9_4yhvd")
+player = NodePath("../Player")
+
 [connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="level_zone_change" from="." to="Spawner" method="_on_map_level_zone_change"]
+[connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]

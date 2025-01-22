@@ -1,5 +1,5 @@
-extends CPUParticles2D
-class_name AutodeleteParticle
+extends Node2D
+class_name AutodeleteNode
 
 @export_range(0, 1000000000, 0.01, "suffix:s") var delete_time = 3.0
 

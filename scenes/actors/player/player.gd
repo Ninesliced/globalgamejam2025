@@ -6,14 +6,21 @@ class_name Player
 @export var friction = 900.0
 @export var play_mode : Global.PlayMode = Global.PlayMode.MOUSE
 
-
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+
+var Oxygen_component
+
 func _ready():
-	pass
+	Oxygen_component = %OxygenComponent
 
 func _process(delta):
 	move_and_slide()
 
-	Global.hud.set_oxygen_bar($OxygenComponent.oxygen)
+	Global.hud.set_oxygen_bar($OxygenComponent.oxygen, $OxygenComponent.max_oxygen)
 
 	$Label.text = str($OxygenComponent.oxygen)
+
+	if $DashComponent.is_dashing:
+		sprite.play("dash")
+	else:
+		sprite.play("swim")
