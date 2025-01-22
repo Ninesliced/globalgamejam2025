@@ -17,4 +17,5 @@ func shoot(direction: Vector2):
 	bullet_instance.global_position = cannon_end_position
 	bullet_instance.set_direction(direction)
 	get_tree().current_scene.add_child(bullet_instance)
-	pass
+
+	$ShootSound.play()
