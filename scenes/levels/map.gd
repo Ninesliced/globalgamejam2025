@@ -28,6 +28,9 @@ var current_level = 0:
 
 var number_of_level = 25
 
+var next_current_level = 0
+var next_is_on_a_level = false
+
 var is_on_a_level = false:
 	set(value):
 		is_on_a_level = value
@@ -68,8 +71,8 @@ func _process(delta):
 			load_next_level()
 			print("Next level is loading")
 
-	if Input.is_action_just_pressed("test_arkanyota"):
-		next_light_effect()
+	# if Input.is_action_just_pressed("test_arkanyota"):
+	# 	next_light_effect()
 		
 
 

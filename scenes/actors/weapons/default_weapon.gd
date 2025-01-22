@@ -12,7 +12,9 @@ func _process(delta):
 
 func shoot(direction: Vector2):
 	var bullet_instance : Bullet = weapon_resource.bullet_scene.instantiate()
-	bullet_instance.global_position = global_position
+	var cannon_length = 100
+	var cannon_end_position = global_position + direction.normalized() * cannon_length
+	bullet_instance.global_position = cannon_end_position
 	bullet_instance.set_direction(direction)
 	get_tree().current_scene.add_child(bullet_instance)
 	pass
