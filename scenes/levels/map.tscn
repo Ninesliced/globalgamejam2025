@@ -18,7 +18,7 @@ chance = 1
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
 spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_6s1yd")])
-spawn_interval = 2.0
+spawn_interval = 0.1
 spawn_count = 1
 
 [sub_resource type="Gradient" id="Gradient_o0own"]
@@ -55,7 +55,6 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 position = Vector2(952, 552)
-play_mode = null
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true
