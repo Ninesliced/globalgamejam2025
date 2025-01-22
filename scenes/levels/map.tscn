@@ -90,6 +90,7 @@ drag_right_margin = 1.0
 drag_bottom_margin = 1.0
 script = ExtResource("3_vjjyf")
 player = NodePath("../Player")
+scale_offset = -0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
 position = Vector2(1152, -451)

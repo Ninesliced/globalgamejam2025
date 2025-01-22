@@ -15,4 +15,3 @@ func _process(delta):
 	_center = get_screen_center_position()
 	if player.global_position.y > _center.y - get_viewport_rect().size.y * scale_offset:
 		global_position.y = player.global_position.y + get_viewport_rect().size.y * scale_offset
-	pass
