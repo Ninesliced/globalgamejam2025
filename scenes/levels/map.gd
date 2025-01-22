@@ -2,8 +2,8 @@ extends Node2D
 
 class_name Map
 
-var levels = []
-var next_to_load_is_level = false
+var levels: Array[Variant]      = []
+var next_to_load_is_level: bool = false
 
 var PackedScenelevel: PackedScene = preload("res://scenes/levels/level.tscn")
 var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between_level.tscn")
@@ -11,9 +11,9 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 @export var player : Player = null
 @export var camera : Camera2D = null
 
-var camera_depth = 0
-var next_level_position = 0
-var current_generate_level = 0
+var camera_depth: int           = 0
+var next_level_position: int    = 0
+var current_generate_level: int = 0
 var next_current_level_node
 var current_level_node:
 	set(value):
@@ -22,7 +22,7 @@ var current_level_node:
 signal level_change(level: int)
 signal level_zone_change(level: Level, is_on_a_level: bool)
 
-var current_level = 0:
+var current_level: int   = 0:
 	set(value):
 		current_level = value
 		emit_signal("level_change", value)
@@ -31,18 +31,18 @@ var current_level = 0:
 			levels[1].level_has_been_passed = true
 			print("level is passeds")
 
-var number_of_level = 25
+var number_of_level: int = 25
 
-var next_current_level = 0
-var next_is_on_a_level = false
+var next_current_level: int  = 0
+var next_is_on_a_level: bool = false
 
-var is_on_a_level = false:
+var is_on_a_level: bool = false:
 	set(value):
 		is_on_a_level = value
 		emit_signal("level_zone_change", value)
 
-var light_gap = 0.1
-var light_radius = 0.7:
+var light_gap: float    = 0.1
+var light_radius: float = 0.7:
 	set(value):
 		light_radius = value
 		if %PointLight2D != null:
@@ -120,8 +120,8 @@ func load_next_level():
 	
 	next_to_load_is_level = not next_to_load_is_level
 	
-func get_size_of_level(level_node):
-	var size
+func get_size_of_level(level_node) -> Vector2:
+	var size : Vector2
 	var last_level_collision_shape = level_node.get_node("Area2D/CollisionShape2D")
 	var last_level_collision_shape_shape = last_level_collision_shape.get_shape()
 	if last_level_collision_shape_shape is RectangleShape2D:
