@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Map
+
 var levels = []
 var next_to_load_is_level = false
 
@@ -12,11 +14,13 @@ var camera_depth = 0
 var next_level_position = 0
 var current_generate_level = 0
 
+signal level_change(level: int)
+
 var current_level = 0:
 	set(value):
 		current_level = value
-		print(current_level)
-		
+		emit_signal("level_change", value)
+
 var is_on_a_level = false
 
 
