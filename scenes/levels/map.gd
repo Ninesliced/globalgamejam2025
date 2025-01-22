@@ -39,7 +39,7 @@ var light_radius = 0.7:
 		gradient.set_offset(1, 0.0)
 		gradient.set_offset(2, max(light_radius, 0.0))
 		gradient.set_offset(3, min(light_radius+light_gap, 1.0))
-		gradient.set_offset(4, 1.0)
+		# gradient.set_offset(4, 1.0) #was out of bounds
 
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
