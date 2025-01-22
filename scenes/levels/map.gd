@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Map
+
 var levels = []
 var next_to_load_is_level = false
 
@@ -12,17 +14,21 @@ var camera_depth = 0
 var next_level_position = 0
 var current_generate_level = 0
 
+signal level_change(level: int)
+
 var current_level = 0:
 	set(value):
 		current_level = value
-		
+		emit_signal("level_change", value)
+		if not is_on_a_level:
+			next_light_effect()
 
 var number_of_level = 25
 
 var is_on_a_level = false
 
 var light_gap = 0.1
-var light_radius = 1.0:
+var light_radius = 0.7:
 	set(value):
 		light_radius = value
 		var gradient = %PointLight2D.texture.get_gradient()
@@ -38,7 +44,7 @@ func next_light_effect():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	light_radius = 1.0
+	light_radius = 0.7
 	load_next_level()
 	load_next_level()
 	load_next_level()
