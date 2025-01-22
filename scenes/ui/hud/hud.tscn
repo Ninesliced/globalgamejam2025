@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/ui/hud/hud.gd" id="1_diqqf"]
 [ext_resource type="Theme" uid="uid://kk4jiaqolcyf" path="res://resources/main_theme.tres" id="2_7xrxq"]
-[ext_resource type="Texture2D" uid="uid://k2r3u86duhd1" path="res://assets/images/ui/oxygen_bar.png" id="2_bspmi"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uafen"]
+load_path = "res://.godot/imported/oxygen_bar.png-e59fefdca88f2fa96407973f5ce1d962.ctex"
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_diqqf")
@@ -26,7 +28,7 @@ anchor_bottom = 1.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("2_bspmi")
+texture = SubResource("CompressedTexture2D_uafen")
 metadata/_edit_use_anchors_ = true
 
 [node name="OxygenBar" type="ProgressBar" parent="Control/NinePatchRect"]
