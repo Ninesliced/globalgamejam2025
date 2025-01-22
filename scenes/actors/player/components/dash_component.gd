@@ -1,22 +1,28 @@
 @icon("res://_engine/icons/node_2D/icon_projectile.png")
 extends Component
-
+class_name DashComponent
 var player : Player = null
 var velocity = Vector2(0, 0)
 
-signal on_dash
+signal dash_entered
+signal dash_exited
+@export var movement_controller : MovementController = null
 
 @export var dash_consumption = 10
-@export var dash_distance = 10000
-@export var dash_duration = 0.5
-
+@export var dash_distance = 20000
+@export var dash_duration = 0.1
+@export var keep_velocity_scale = 1
+@export var maximum_velocity_keep = 1000
 var _dash_direction = Vector2(0, 0)
 var is_dashing = false
 var dash_timer : Timer = Timer.new()
 
 @export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
-@export var minimum_dash_distance = 50
+@export var minimum_dash_distance_to_mouse = 50
+
+var old_acceleration = true
+var old_decceleration = true
 
 func _ready():
 	super()
@@ -43,6 +49,7 @@ func _physics_process(delta):
 	_dash_direction = handle_dash()
 	if is_dashing:
 		player.velocity = ((_dash_direction * dash_distance) / dash_duration) * delta
+		print(player.velocity)
 	pass
 
 func handle_dash():
@@ -51,10 +58,9 @@ func handle_dash():
 		if _dash_direction == Vector2.ZERO:
 			return Vector2.ZERO
 		oxygen_component.add_oxygen(-dash_consumption)
-		on_dash.emit()
+		dash_entered.emit()
 
-		is_dashing = true
-		dash_timer.start()
+		enable_dash()
 		return _dash_direction
 	return _dash_direction
 		
@@ -64,7 +70,7 @@ func get_dash_direction(velocity) -> Vector2:
 	if player.play_mode == Global.PlayMode.MOUSE:
 		var mouse_position = get_global_mouse_position()
 		var distance = (mouse_position - player.global_position).length()
-		if distance < minimum_dash_distance:
+		if distance < minimum_dash_distance_to_mouse:
 			return Vector2.ZERO
 		vec = (mouse_position - player.global_position).normalized()
 	
@@ -75,6 +81,23 @@ func get_dash_direction(velocity) -> Vector2:
 		vec = vec.normalized()
 	return vec
 
+func enable_dash():
+	if movement_controller:
+		old_acceleration = movement_controller.can_accelerate
+		old_decceleration = movement_controller.can_decelerate
+		movement_controller.can_accelerate = false
+		movement_controller.can_decelerate = false
+	is_dashing = true
+	dash_timer.start()
+
 func _disable_dash():
 	is_dashing = false
+	player.velocity *= keep_velocity_scale
+	dash_exited.emit()
+
+	if player.velocity.length() > maximum_velocity_keep:
+		player.velocity = player.velocity.normalized() * maximum_velocity_keep
+	if movement_controller:
+		movement_controller.can_accelerate = old_acceleration
+		movement_controller.can_decelerate = old_decceleration
 	
