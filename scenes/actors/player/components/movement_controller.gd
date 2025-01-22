@@ -41,8 +41,8 @@ func handle_movement(delta,velocity):
 
 func handle_acceleration_decceleration(delta, vec, velocity):
 	var new_velocity = Vector2(0, 0)
-	if vec != Vector2(0, 0):
+	if vec != Vector2(0, 0) and can_accelerate:
 		new_velocity = velocity.move_toward(vec * player.speed, player.acceleration * delta)
-	else:
+	elif can_decelerate:
 		new_velocity = velocity.move_toward(Vector2(0, 0), player.friction * delta)
 	return new_velocity
