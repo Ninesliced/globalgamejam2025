@@ -48,6 +48,12 @@ func win_oxygen(player):
 
 func _on_area_2d_body_entered(body):
 	if body is Player and is_usable:
+		var is_dashed_on = false
+		for child in body.get_children():
+			if child is DashComponent:
+				is_dashed_on = child.is_dashing
+		if not is_dashed_on:
+			return
 		is_usable = false
 		win_upgrades[win_upgrade].call(body)
 		lose_upgrades[lose_upgrade].call(body)

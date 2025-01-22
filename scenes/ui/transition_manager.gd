@@ -1,5 +1,6 @@
-extends Sprite2D
-class_name CaptureBubble
+extends CanvasLayer
+
+@onready var animation_player : AnimationPlayer = $AnimationPlayer 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,8 +11,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func set_size(size: Vector2):
-	var tween = get_tree().create_tween()
 
-	tween.tween_property(self, "scale", size, 0.8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+func change_scene(packed_scene : PackedScene):
+	$AnimationPlayer.play("transition")
+	await animation_player.animation_finished
+	
 	pass

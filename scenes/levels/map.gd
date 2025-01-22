@@ -28,6 +28,9 @@ var current_level = 0:
 
 var number_of_level = 25
 
+var next_current_level = 0
+var next_is_on_a_level = false
+
 var is_on_a_level = false:
 	set(value):
 		is_on_a_level = value
@@ -49,8 +52,6 @@ var light_radius = 0.7:
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
 
-
-	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	light_radius = 0.7
@@ -68,8 +69,8 @@ func _process(delta):
 			load_next_level()
 			print("Next level is loading")
 
-	if Input.is_action_just_pressed("test_arkanyota"):
-		next_light_effect()
+	# if Input.is_action_just_pressed("test_arkanyota"):
+	# 	next_light_effect()
 		
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b66unee4sohqr"]
 
 [ext_resource type="Script" path="res://scenes/actors/enemies/enemy.gd" id="1_nysku"]
-[ext_resource type="PackedScene" uid="uid://c7xle6dxk75gb" path="res://scenes/actors/components/health_component.tscn" id="3_2ekxo"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/health_component.tscn" id="3_2ekxo"]
 [ext_resource type="Texture2D" uid="uid://efjkluqhs6yf" path="res://assets/images/actors/player/enemy_fish_01.png" id="4_c4ki8"]
 [ext_resource type="PackedScene" path="res://scenes/actors/components/hitbox_component.tscn" id="4_oyr4w"]
 [ext_resource type="PackedScene" uid="uid://sqqvlx3ysea4" path="res://scenes/actors/components/capture_oxygen_component.tscn" id="5_f1jnu"]
@@ -13,6 +13,7 @@ size = Vector2(172, 170)
 size = Vector2(106, 104)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_nysku")
 
@@ -45,3 +46,5 @@ offset_right = 18.0
 offset_bottom = -100.0
 
 [connection signal="body_entered" from="HitboxComponent/Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="HitboxComponent/Area2D" to="." method="_on_body_exit"]
+[connection signal="captured" from="CaptureOxygenComponent" to="." method="disable_movement"]
