@@ -34,6 +34,8 @@ texture = ExtResource("1_g3yc1")
 
 [node name="CaptureOxygenComponent" parent="." node_paths=PackedStringArray("hitbox") instance=ExtResource("5_f1jnu")]
 hitbox = NodePath("../HitboxComponent")
+bubble_scale_max = 2.0
+bubble_scale_threshold = 3.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -22.0
