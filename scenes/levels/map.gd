@@ -122,10 +122,10 @@ func load_next_level():
 	
 func get_size_of_level(level_node):
 	var size
-	var LastLevelColisionShape = level_node.get_node("Area2D/CollisionShape2D")
-	var LastLevelColisionShape_Shape = LastLevelColisionShape.get_shape()
-	if LastLevelColisionShape_Shape is RectangleShape2D:
-		size = LastLevelColisionShape_Shape.size
+	var last_level_collision_shape = level_node.get_node("Area2D/CollisionShape2D")
+	var last_level_collision_shape_shape = last_level_collision_shape.get_shape()
+	if last_level_collision_shape_shape is RectangleShape2D:
+		size = last_level_collision_shape_shape.size
 	else:
 		size = Vector2(2,2)
 		print("Is not a fucking shape")
