@@ -30,6 +30,7 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func set_lose_state():
 	print("You lose")
 	game_state = GameState.LOSE
