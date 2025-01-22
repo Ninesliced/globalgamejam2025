@@ -67,6 +67,7 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 position = Vector2(952, 552)
+play_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true
@@ -129,3 +130,4 @@ position = Vector2(648, 1872)
 collision_mask = 2
 
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_exited"]
