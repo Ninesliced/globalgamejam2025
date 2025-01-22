@@ -24,6 +24,9 @@ var lose_upgrades = {
 # Oxygene
 # capacité max d'oxygene
 func win_oxygen_capacity(player):
+	if player.Oxygen_component == null:
+		print("OxygeneComoneent is null")
+		return
 	var oldMaxOxygen = player.Oxygen_component.max_oxygen
 	player.Oxygen_component.max_oxygen = 150
 	var gainOxygen = player.Oxygen_component.max_oxygen - oldMaxOxygen
