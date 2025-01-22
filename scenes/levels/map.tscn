@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/LevelData.gd" id="3_sb12f"]
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/SpawnableChance.gd" id="4_f32e1"]
-[ext_resource type="PackedScene" uid="uid://b41ugkahe4fpb" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
@@ -20,7 +20,7 @@ chance = 1
 [sub_resource type="Resource" id="Resource_l2i2w"]
 script = ExtResource("4_f32e1")
 spawnable = ExtResource("6_xpab5")
-chance = 0
+chance = 1
 
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
@@ -127,26 +127,6 @@ color = Color(0.102462, 0.119067, 0.29463, 1)
 position = Vector2(-410, 0)
 script = ExtResource("9_4yhvd")
 player = NodePath("../Player")
-
-[node name="Enemy" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(667, 1910)
-collision_mask = 2
-
-[node name="Enemy2" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(746, 1688)
-collision_mask = 2
-
-[node name="Enemy3" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(870, 1453)
-collision_mask = 2
-
-[node name="Enemy4" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(1003, 1222)
-collision_mask = 2
-
-[node name="Enemy5" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(1140, 999)
-collision_mask = 2
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_2iqa8")

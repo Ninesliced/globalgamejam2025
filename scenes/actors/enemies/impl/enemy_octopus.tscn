@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://b41ugkahe4fpb"]
+[gd_scene load_steps=4 format=3 uid="uid://bpjx6l40iycrn"]
 
-[node name="EnemyOctopus" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/actors/enemies/enemy.gd" id="1_mtuar"]
+[ext_resource type="Script" path="res://scenes/actors/components/hitbox_component.gd" id="2_wa8id"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0tlr"]
+
+[node name="EnemyOctopus" type="CharacterBody2D"]
+script = ExtResource("1_mtuar")
+
+[node name="HitboxComponent" type="Node2D" parent="."]
+script = ExtResource("2_wa8id")
+
+[node name="Area2D" type="Area2D" parent="HitboxComponent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent/Area2D"]
+scale = Vector2(2.68, 2.76)
+shape = SubResource("RectangleShape2D_x0tlr")
