@@ -40,7 +40,7 @@ func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: f
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-
+	damage_player = true
 	get_dashed_on((body))
 
 func get_dashed_on(body: Node2D) -> void:
@@ -54,7 +54,6 @@ func get_dashed_on(body: Node2D) -> void:
 			is_dashed_on = child.is_dashing
 
 	if not is_dashed_on:
-		damage_player = true
 		return
 
 	for child in body.get_children():
@@ -80,6 +79,7 @@ func get_dashed_on(body: Node2D) -> void:
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
 		return
+	print("player out of fish")
 	damage_player = false
 	get_dashed_on(body)
 
