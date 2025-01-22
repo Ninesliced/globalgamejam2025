@@ -40,3 +40,5 @@ offset_left = -22.0
 offset_top = -123.0
 offset_right = 18.0
 offset_bottom = -100.0
+
+[connection signal="body_entered" from="HitboxComponent/Area2D" to="." method="_on_body_entered"]
