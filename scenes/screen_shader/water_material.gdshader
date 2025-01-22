@@ -34,11 +34,14 @@ void fragment() {
         sin(UV.y + mod(noise(UV - texture_t), 0.05) - 0.025)
     ));
 
+    /*
     vec4 distort_vec = mix(
         texture(TEXTURE, texture_uv),
         vec4(0.0, 0.0, 0.0, 1.0),
         noise(UV + texture_t)
     );
+    */
+    distort_vec = texture(TEXTURE, texture_uv);
 
     COLOR = distort_vec;
 }
