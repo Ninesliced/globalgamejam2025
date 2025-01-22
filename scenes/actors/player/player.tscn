@@ -77,16 +77,16 @@ friction = 1500.0
 
 [node name="OxygenBar" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-32, -17)
+position = Vector2(-64.4233, -34.0846)
 rotation = -1.0821
-scale = Vector2(0.110343, 10.0557)
+scale = Vector2(0.22209, 19.2855)
 texture = SubResource("GradientTexture1D_a8h7k")
 
 [node name="OxygenBar2" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(32, -17)
+position = Vector2(63.2504, -33.1416)
 rotation = -2.06059
-scale = Vector2(0.110343, 10.0557)
+scale = Vector2(0.220865, 18.8255)
 texture = SubResource("GradientTexture1D_a8h7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -115,6 +115,7 @@ label_settings = SubResource("LabelSettings_yudvb")
 horizontal_alignment = 1
 
 [node name="ShootComponent" type="Node2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 script = ExtResource("6_u70v2")
 

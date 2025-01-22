@@ -22,8 +22,9 @@ var current_level = 0:
 	set(value):
 		current_level = value
 		emit_signal("level_change", value)
-		if not is_on_a_level:
+		if not is_on_a_level and len(levels) != 0 and levels[1] is Level and not levels[1].level_has_been_passed:
 			next_light_effect()
+			levels[1].level_has_been_passed = true
 
 var number_of_level = 25
 
