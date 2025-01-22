@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://kk4jiaqolcyf"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b28m1hgd2ce8k"]
 
 [ext_resource type="FontFile" uid="uid://byxlpc8sjny18" path="res://assets/fonts/KumbhSans-Regular.ttf" id="1_hw256"]
 
@@ -8,6 +8,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_guw5w"]
 texture = SubResource("CanvasTexture_0u6y3")
+modulate_color = Color(0.646, 0.8024, 0.85, 1)
 
 [resource]
 Button/fonts/font = ExtResource("1_hw256")

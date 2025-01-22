@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=22 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mdjn5erhyg8u" path="res://scenes/actors/bubbles/bubble.tscn" id="5_kyp5i"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
+[ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/enemy_linear.tscn" id="11_3eyet"]
 
 [sub_resource type="Resource" id="Resource_6s1yd"]
@@ -49,10 +50,10 @@ size = Vector2(128, 1093)
 size = Vector2(2176, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb3cr"]
-size = Vector2(134, 1080)
+size = Vector2(260, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcf6n"]
-size = Vector2(123, 1082)
+size = Vector2(274, 1082)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
@@ -107,12 +108,12 @@ shape = SubResource("RectangleShape2D_r1his")
 script = ExtResource("8_vk5iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(-893, 3)
+position = Vector2(-830, 3)
 shape = SubResource("RectangleShape2D_yb3cr")
 debug_color = Color(0.321257, 0.606285, 0.434478, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(900.5, 2)
+position = Vector2(825, 2)
 shape = SubResource("RectangleShape2D_dcf6n")
 debug_color = Color(0.288832, 0.608157, 0.471604, 0.42)
 
@@ -125,8 +126,28 @@ script = ExtResource("9_4yhvd")
 player = NodePath("../Player")
 
 [node name="Enemy" parent="." instance=ExtResource("11_3eyet")]
-position = Vector2(648, 1872)
+position = Vector2(667, 1910)
 collision_mask = 2
+
+[node name="Enemy2" parent="." instance=ExtResource("11_3eyet")]
+position = Vector2(746, 1688)
+collision_mask = 2
+
+[node name="Enemy3" parent="." instance=ExtResource("11_3eyet")]
+position = Vector2(870, 1453)
+collision_mask = 2
+
+[node name="Enemy4" parent="." instance=ExtResource("11_3eyet")]
+position = Vector2(1003, 1222)
+collision_mask = 2
+
+[node name="Enemy5" parent="." instance=ExtResource("11_3eyet")]
+position = Vector2(1140, 999)
+collision_mask = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2iqa8")
+autoplay = true
 
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_exited"]
