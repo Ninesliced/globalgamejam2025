@@ -15,6 +15,7 @@ fill_from = Vector2(0.5, 0.5)
 radius = 32.0
 
 [node name="UpgradesButton" type="Node2D"]
+position = Vector2(0, 64)
 script = ExtResource("1_b7wmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,5 +27,29 @@ texture = SubResource("GradientTexture2D_osxp2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_ky8dp")
+
+[node name="Bonus" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = -32.0
+offset_right = 48.0
+offset_bottom = -9.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Malus" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 48.0
+offset_bottom = 95.0
+metadata/_edit_use_anchors_ = true
+
+[node name="But" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 47.0
+text = "but"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

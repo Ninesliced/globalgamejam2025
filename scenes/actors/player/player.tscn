@@ -73,7 +73,6 @@ oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
 unique_name_in_owner = true
-max_oxygen = 10.0
 consumption_speed = 3.0
 
 [node name="Label" type="Label" parent="."]
