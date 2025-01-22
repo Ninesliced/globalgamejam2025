@@ -11,8 +11,9 @@ func _ready():
 		player = parent
 	else:
 		assert(false, "MovementController must be a child of Player")
-	pass # Replace with function body.
-
+	%OxygenBar.visible = false
+	%OxygenBar2.visible = true
+	
 func _process(delta):
 	pass
 
@@ -31,7 +32,7 @@ func handle_movement(delta,velocity):
 		player.sprite.flip_h = false
 		%OxygenBar.visible = true
 		%OxygenBar2.visible = false
-	else:
+	elif vec.x < 0:
 		player.sprite.flip_h = true
 		%OxygenBar.visible = false
 		%OxygenBar2.visible = true
