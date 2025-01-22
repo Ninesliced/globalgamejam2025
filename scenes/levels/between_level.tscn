@@ -11,14 +11,14 @@ size = Vector2(1922.5, 786.5)
 script = ExtResource("1_6fbk4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(958.75, 387.5)
+position = Vector2(960, 384)
 scale = Vector2(3.25635, 2.87778)
 texture = ExtResource("1_khbn4")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(958.75, 390.75)
+position = Vector2(960, 392)
 shape = SubResource("RectangleShape2D_j7c8c")
 
 [node name="UpgradesButton" parent="." instance=ExtResource("3_ru7lr")]
