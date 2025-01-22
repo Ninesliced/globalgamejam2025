@@ -111,6 +111,7 @@ unique_name_in_owner = true
 consumption_speed = 3.0
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -14.0
 offset_top = -125.0
 offset_right = 26.0
