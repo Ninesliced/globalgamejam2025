@@ -41,7 +41,7 @@ void fragment() {
         noise(UV + texture_t)
     );
     */
-    distort_vec = texture(TEXTURE, texture_uv);
+    vec4 distort_vec = texture(TEXTURE, texture_uv);
 
     COLOR = distort_vec;
 }
