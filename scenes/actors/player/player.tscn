@@ -37,7 +37,8 @@ font_size = 41
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_brhlp")
-speed = 450.0
+speed = 600.0
+acceleration = 1500.0
 friction = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,13 +65,16 @@ flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 
-[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("oxygen_component")]
+[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("movement_controller", "oxygen_component")]
 script = ExtResource("4_5qxf7")
+movement_controller = NodePath("../MovementController")
+dash_consumption = 4
+dash_duration = 0.2
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
 unique_name_in_owner = true
-consumption_speed = 10.0
+consumption_speed = 3.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -14.0

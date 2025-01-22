@@ -1,9 +1,9 @@
-@icon("res://_engine/icons/node_2D/icon_bubble.png")
+@icon("res://_engine/icons/node_2D/icon_o2.png")
 extends Component
 class_name OxygenComponent
 
-signal run_out_of_oxygen
-
+signal run_out_of_oxygen	
+	
 @export var max_oxygen := 100.0
 @export var initial_oxygen := 100.0
 var oxygen := 0.0:

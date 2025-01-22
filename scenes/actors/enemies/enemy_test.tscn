@@ -9,4 +9,3 @@
 
 [node name="CaptureOxygenComponent" parent="." index="5" node_paths=PackedStringArray("hitbox")]
 hitbox = NodePath("../HitboxComponent")
-oxygen_capture_threshold = 3.0

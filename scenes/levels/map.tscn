@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=18 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/SpawnableChance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://mdjn5erhyg8u" path="res://scenes/actors/bubbles/bubble.tscn" id="5_kyp5i"]
+[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="8_0jw7t"]
+[ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_4ogsd"]
 
 [sub_resource type="Resource" id="Resource_6s1yd"]
 script = ExtResource("4_f32e1")
@@ -16,11 +18,11 @@ chance = 1
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
 spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_6s1yd")])
-spawn_interval = 2.0
+spawn_interval = 0.1
 spawn_count = 1
 
 [sub_resource type="Gradient" id="Gradient_o0own"]
-offsets = PackedFloat32Array(0, 0.425, 0.585, 1)
+offsets = PackedFloat32Array(0, 0.644068, 0.728814, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j8vex"]
@@ -39,6 +41,9 @@ size = Vector2(128, 1093)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
 size = Vector2(2176, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5hru"]
+size = Vector2(108.375, 1079)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
@@ -59,7 +64,7 @@ unique_name_in_owner = true
 position = Vector2(0.00012207, 0)
 scale = Vector2(2.53976, 2.12739)
 texture = SubResource("GradientTexture2D_j8vex")
-texture_scale = 33.95
+texture_scale = 21.15
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(960, 544)
@@ -89,8 +94,24 @@ shape = SubResource("RectangleShape2D_gg7th")
 position = Vector2(-1152, -157)
 shape = SubResource("RectangleShape2D_r1his")
 
+[node name="Area2D" type="Area2D" parent="Camera2D"]
+position = Vector2(9, -292)
+script = ExtResource("8_4ogsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
+position = Vector2(-913.188, 294)
+shape = SubResource("RectangleShape2D_d5hru")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D"]
+position = Vector2(897, 294)
+shape = SubResource("RectangleShape2D_d5hru")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
+[node name="Enemy" parent="." instance=ExtResource("8_0jw7t")]
+position = Vector2(658, 1192)
+
 [connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="level_zone_change" from="." to="Spawner" method="_on_map_level_zone_change"]
+[connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]

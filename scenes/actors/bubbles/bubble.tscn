@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="1_g0w08"]
 [ext_resource type="Script" path="res://scenes/actors/bubbles/bubble.gd" id="1_g33ep"]
-[ext_resource type="PackedScene" uid="uid://dpyt52xy81e0a" path="res://scenes/actors/components/sine_movement_component.tscn" id="3_uh8av"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/sine_movement_component.tscn" id="3_uh8av"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qn20"]
 radius = 58.0086
@@ -28,21 +28,23 @@ slide_on_ceiling = false
 wall_min_slide_angle = 0.0
 safe_margin = 0.001
 script = ExtResource("1_g33ep")
-bubble_value = 30.0
+bubble_value = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_5qn20")
 
 [node name="Hitbox" type="Area2D" parent="."]
 physics_interpolation_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_l7bmd")
 debug_color = Color(0.799145, 0.421532, 3.85046e-07, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 2.38419e-07)
-scale = Vector2(2.03448, 2.06897)
+scale = Vector2(0.203, 0.206)
 sprite_frames = SubResource("SpriteFrames_j1d6u")
 
 [node name="SineMovementComponent" parent="." instance=ExtResource("3_uh8av")]
