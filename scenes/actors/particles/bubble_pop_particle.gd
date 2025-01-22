@@ -8,3 +8,4 @@ class_name BubblePop
 func play():
 	$BubbleCloudParticle.emitting = true
 	$PopStar.emitting = true
+	$PopSound.play()
