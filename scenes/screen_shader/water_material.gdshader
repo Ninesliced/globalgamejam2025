@@ -1,5 +1,8 @@
 shader_type canvas_item;
 
+uniform float timeScale : hint_range(0.0001, 5.0) = 0.1;
+uniform float warpAmplitude : hint_range(0.0, 0.5) = 0.05;
+
 float rand(in vec2 n) { 
 	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
@@ -28,11 +31,12 @@ void vertex() {
 }
 
 void fragment() {
-    float texture_t = TIME / 15.0;
-    vec2 texture_uv = abs(vec2(
-        sin(UV.x + mod(noise(UV + texture_t), 0.05) - 0.025),
-        sin(UV.y + mod(noise(UV - texture_t), 0.05) - 0.025)
-    ));
+    float texture_t = TIME * timeScale;
+    vec2 texture_uv = mod(abs(vec2(
+        /* Global warp */                                /* Granular warp */
+        UV.x + noise(UV.xy - texture_t) * warpAmplitude,
+        UV.y - noise(UV.xy + texture_t) * warpAmplitude
+    )), 1.0);
 
     /*
     vec4 distort_vec = mix(
