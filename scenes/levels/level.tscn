@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://mdow3uqace07"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_d2k7l"]
-[ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="2_nxare"]
+[ext_resource type="Material" path="res://scenes/screen_shader/water_material.tres" id="2_nxare"]
 [ext_resource type="Texture2D" uid="uid://ctcv86cq4vk1c" path="res://images/background/1000_F_305827311_gzhaRwKqzqXairHIVapU6qYQSIiybMf7 copy.jpg" id="2_qnpdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmtaw"]
