@@ -1,14 +1,16 @@
 @icon("res://_engine/icons/node_2D/icon_projectile.png")
 extends Component
+
 var player : Player = null
 var velocity = Vector2(0, 0)
+
+signal on_dash
 
 @export var dash_consumption = 10
 @export var dash_force = 1000
 @export var dash_mode : Global.PlayMode = Global.PlayMode.EIGHT_WAY
 @export var oxygen_component : OxygenComponent = null
 @export var minimum_dash_distance = 50
-signal on_dash
 
 func _ready():
 	super()
@@ -19,15 +21,15 @@ func _ready():
 		assert(false, "dash component must be a child of Player")
 	if oxygen_component == null:
 		assert(false, "dash component must have an oxygen component")
-	pass
 
 
 func _process(delta):
 	pass
 
+
 func _physics_process(delta):
 	handle_dash()
-	pass
+
 
 func handle_dash() -> void:
 	if Input.is_action_just_pressed("dash"):
@@ -46,10 +48,12 @@ func dash(velocity) -> Vector2:
 		if distance < minimum_dash_distance:
 			return Vector2.ZERO
 		vec = (mouse_position - player.global_position).normalized()
+	
 	if player.play_mode == Global.PlayMode.EIGHT_WAY:
 		vec = Input.get_vector("left", "right", "up", "down")
 		if vec == Vector2.ZERO:
 			vec = Vector2(1,0)
 		vec = vec.normalized()
+	
 	return vec * dash_force
 	
