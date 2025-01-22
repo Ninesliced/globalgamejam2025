@@ -12,8 +12,5 @@ collision_mask = 5
 [node name="Icon" parent="." index="1"]
 scale = Vector2(-1, 1)
 
-[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
-hitbox = NodePath("../HitboxComponent")
-
 [node name="MoveLinear" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1o2hb")]
 parent = NodePath("..")
