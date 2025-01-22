@@ -91,6 +91,7 @@ func enable_dash():
 	dash_timer.start()
 
 	$DashSound.play()
+	$DashParticles.emitting = true
 
 func _disable_dash():
 	is_dashing = false
@@ -102,4 +103,6 @@ func _disable_dash():
 	if movement_controller:
 		movement_controller.can_accelerate = old_acceleration
 		movement_controller.can_decelerate = old_decceleration
+	
+	$DashParticles.emitting = false
 	
