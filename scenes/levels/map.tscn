@@ -1,13 +1,35 @@
-[gd_scene load_steps=16 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=23 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
 [ext_resource type="PackedScene" uid="uid://bhbpuedpj1d3l" path="res://scenes/actors/player/player.tscn" id="2_xd5cu"]
+[ext_resource type="Script" path="res://scenes/utils/spawner/level_data.gd" id="3_sb12f"]
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
+[ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
+[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
-[ext_resource type="Texture2D" uid="uid://ctcv86cq4vk1c" path="res://images/background/1000_F_305827311_gzhaRwKqzqXairHIVapU6qYQSIiybMf7 copy.jpg" id="12_1echk"]
+[ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="11_3eyet"]
+[ext_resource type="Texture2D" uid="uid://cur1raapupyk4" path="res://images/background/1000_F_305827311_gzhaRwKqzqXairHIVapU6qYQSIiybMf7.jpg" id="12_c36nr"]
+
+[sub_resource type="Resource" id="Resource_rb20b"]
+script = ExtResource("4_f32e1")
+spawnable = ExtResource("11_3eyet")
+chance = 1
+
+[sub_resource type="Resource" id="Resource_l2i2w"]
+script = ExtResource("4_f32e1")
+spawnable = ExtResource("6_xpab5")
+chance = 1
+
+[sub_resource type="Resource" id="Resource_ba807"]
+script = ExtResource("3_sb12f")
+spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_rb20b"), SubResource("Resource_l2i2w")])
+spawn_count = Vector2i(1, 3)
+bubble_spawn_interval = 0.4
+bubble_spawn_count = 1
+bubble_air = Vector2i(2, 10)
 
 [sub_resource type="Gradient" id="Gradient_o0own"]
 offsets = PackedFloat32Array(0, 0.644068, 0.728814, 1)
@@ -42,6 +64,7 @@ player = NodePath("Player")
 camera = NodePath("Camera2D")
 
 [node name="Spawner" parent="." instance=ExtResource("2_rm8mk")]
+levels = Array[ExtResource("3_sb12f")]([SubResource("Resource_ba807")])
 
 [node name="Levels" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -115,20 +138,11 @@ autoplay = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="Fond" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(968.25, 2050)
-scale = Vector2(3.24788, 4.092)
-texture = ExtResource("12_1echk")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(964.25, 2798)
+scale = Vector2(3.23435, 5.604)
+texture = ExtResource("12_c36nr")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(0, 1100)
-
-[node name="Caves" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(968.25, 2050)
-scale = Vector2(3.24788, 4.092)
-texture = ExtResource("12_1echk")
-
+[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_exited"]
