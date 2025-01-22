@@ -27,7 +27,6 @@ animations = [{
 font_size = 41
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 0
 script = ExtResource("1_brhlp")
 speed = 450.0
 friction = 1500.0
@@ -60,4 +59,6 @@ horizontal_alignment = 1
 script = ExtResource("6_u70v2")
 
 [node name="Weapon" parent="ShootComponent" instance=ExtResource("7_uxkc3")]
+material = null
+use_parent_material = false
 weapon_resource = ExtResource("8_me6fi")

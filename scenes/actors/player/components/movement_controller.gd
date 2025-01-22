@@ -27,12 +27,16 @@ func handle_movement(delta,velocity):
 	vec = vec.normalized()
 	if vec.x > 0:
 		player.sprite.flip_h = false
-		# %OxygenBar.visible = true
-		# %OxygenBar2.visible = false
+		if %OxygenBar != null:
+			%OxygenBar.visible = true
+		if %OxygenBar2 != null:
+			%OxygenBar2.visible = false
 	else:
 		player.sprite.flip_h = true
-		# %OxygenBar.visible = false
-		# %OxygenBar2.visible = true
+		if %OxygenBar != null:
+			%OxygenBar.visible = false
+		if %OxygenBar2 != null:
+			%OxygenBar2.visible = true
 	if vec != Vector2(0, 0):
 		new_velocity = velocity.move_toward(vec * player.speed, player.acceleration * delta)
 	else:
