@@ -1,3 +1,4 @@
+@icon("res://_engine/icons/node_2D/canon_2.png")
 extends Component
 
 var _weapons : Array[Weapon] = []

@@ -1,3 +1,4 @@
+@icon("res://_engine/icons/node_2D/icon_bubble.png")
 extends Component
 class_name OxygenComponent
 

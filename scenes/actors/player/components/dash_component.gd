@@ -1,3 +1,4 @@
+@icon("res://_engine/icons/node_2D/icon_projectile.png")
 extends Component
 var player : Player = null
 var velocity = Vector2(0, 0)
