@@ -68,11 +68,13 @@ flip_h = true
 [node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("movement_controller", "oxygen_component")]
 script = ExtResource("4_5qxf7")
 movement_controller = NodePath("../MovementController")
+dash_consumption = 4
 dash_duration = 0.2
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
 max_oxygen = 10.0
+unique_name_in_owner = true
 consumption_speed = 3.0
 
 [node name="Label" type="Label" parent="."]
