@@ -29,6 +29,9 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	for child in body.get_children():
 		if child is OxygenComponent:
+			var is_captured = $CaptureOxygenComponent.is_captured
+			if not is_captured:
+				return
 			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored
 			if not oxygen_captured:
 				return
