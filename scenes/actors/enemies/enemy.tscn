@@ -45,3 +45,4 @@ offset_right = 18.0
 offset_bottom = -100.0
 
 [connection signal="body_entered" from="HitboxComponent/Area2D" to="." method="_on_body_entered"]
+[connection signal="captured" from="CaptureOxygenComponent" to="." method="disable_movement"]
