@@ -69,6 +69,7 @@ script = ExtResource("4_5qxf7")
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
+unique_name_in_owner = true
 consumption_speed = 10.0
 
 [node name="Label" type="Label" parent="."]
