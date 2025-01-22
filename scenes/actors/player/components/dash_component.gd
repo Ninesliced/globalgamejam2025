@@ -49,7 +49,7 @@ func _physics_process(delta):
 	_dash_direction = handle_dash()
 	if is_dashing:
 		player.velocity = ((_dash_direction * dash_distance) / dash_duration) * delta
-		print(player.velocity)
+		# print(player.velocity)
 	pass
 
 func handle_dash():

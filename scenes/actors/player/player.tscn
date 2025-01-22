@@ -99,8 +99,11 @@ flip_h = true
 
 [node name="MovementController" parent="." instance=ExtResource("3_sfvb3")]
 
-[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("oxygen_component")]
+[node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("movement_controller", "oxygen_component")]
 script = ExtResource("4_5qxf7")
+movement_controller = NodePath("../MovementController")
+dash_distance = 30000
+dash_duration = 0.3
 oxygen_component = NodePath("../OxygenComponent")
 
 [node name="OxygenComponent" parent="." instance=ExtResource("4_n4vdn")]
@@ -116,7 +119,6 @@ label_settings = SubResource("LabelSettings_yudvb")
 horizontal_alignment = 1
 
 [node name="ShootComponent" type="Node2D" parent="."]
-visible = false
 scale = Vector2(2, 2)
 script = ExtResource("6_u70v2")
 

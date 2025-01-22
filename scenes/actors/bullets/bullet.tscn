@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/actors/components/hurtbox_component.gd" id="2_8a75c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c4ml3"]
+radius = 41.0
 
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_kr2hq")
