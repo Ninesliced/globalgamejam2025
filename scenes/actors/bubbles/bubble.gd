@@ -2,7 +2,10 @@
 extends CharacterBody2D
 class_name Bubble
 
-@export var bubble_value := 20.0 
+@export var bubble_value := 20.0 :
+	set(value):
+		bubble_value = value
+		apply_scale(Vector2(value, value))
 
 var bubble_cloud_scene: PackedScene = preload("res://scenes/actors/particles/bubble_cloud_particle.tscn")
 
@@ -13,6 +16,9 @@ func _on_hitbox_body_entered(body:Node2D):
 				child.add_oxygen(bubble_value)
 		
 		_remove()
+	if body is Bubble and body != self:
+		bubble_value += body.bubble_value
+		body.queue_free()
 
 func _remove():
 	var bubble_cloud: CPUParticles2D = bubble_cloud_scene.instantiate()
