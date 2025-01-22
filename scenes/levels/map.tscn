@@ -55,7 +55,6 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 position = Vector2(952, 552)
-play_mode = null
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true
@@ -102,6 +101,3 @@ position = Vector2(658, 1192)
 position = Vector2(-410, 0)
 script = ExtResource("9_4yhvd")
 player = NodePath("../Player")
-
-[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
-[connection signal="level_zone_change" from="." to="Spawner" method="_on_map_level_zone_change"]
