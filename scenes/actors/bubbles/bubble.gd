@@ -4,8 +4,10 @@ class_name Bubble
 
 var size := 1.0
 
+@export var max_bubble_content := 20.0
 @export var bubble_value := 20.0 :
 	set(value):
+		value = clamp(value, 0, max_bubble_content)
 		bubble_value = value
 		size = 1.2 ** value / 10
 		scale = Vector2(size, size)

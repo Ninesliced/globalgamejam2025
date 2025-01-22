@@ -1,4 +1,5 @@
 @icon("res://_engine/icons/node_2D/icon_fish.png")
+
 extends CharacterBody2D
 class_name Enemy
 
@@ -12,6 +13,8 @@ var spin_time = 0.5
 var damage_player = false
 var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
+
+signal died
 
 func _physics_process(delta):
 	if spinning:
@@ -27,7 +30,7 @@ func _physics_process(delta):
 func _process(delta):
 	if $Label:
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
-	if damage_player:
+	if damage_player and not $CaptureOxygenComponent.is_captured:
 		var player = get_tree().current_scene.get_node("Player")
 		player.Oxygen_component.add_oxygen(-10 * delta)
 
@@ -71,6 +74,8 @@ func get_dashed_on(body: Node2D) -> void:
 			spinning = true
 
 			$DeathSound.play()
+			
+			died.emit()
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":
