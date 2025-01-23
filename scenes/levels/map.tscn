@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=21 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -6,59 +6,46 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/level_data.gd" id="3_sb12f"]
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
-[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="5_nl50u"]
+[ext_resource type="PackedScene" uid="uid://cy46bepri7nhg" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="5_elgam"]
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
+[ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
+[ext_resource type="PackedScene" uid="uid://dye72oeuu24j3" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="5_elgam"]
+[ext_resource type="PackedScene" uid="uid://dgawuat43rapu" path="res://scenes/actors/enemies/impl/enemy_passive.tscn" id="5_ygbcq"]
+[ext_resource type="PackedScene" uid="uid://b41ugkahe4fpb" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
-[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
-[ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="15_7vdwr"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
 [ext_resource type="Texture2D" uid="uid://b7x7x3a6fgr8v" path="res://assets/images/background/cave.png" id="16_7ex0l"]
 [ext_resource type="PackedScene" uid="uid://dt5on5kyic5ao" path="res://scenes/utils/meta/speed_probe.tscn" id="17_o6h7w"]
 
-[sub_resource type="Resource" id="Resource_iq7ql"]
-metadata/__load_path__ = "res://scenes/actors/components/movements/move_linear.tscn"
-
-[sub_resource type="PackedScene" id="PackedScene_s2obm"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Enemy", "damage_value", "HitboxComponent", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "Icon", "scale", "HealthComponent", "CaptureOxygenComponent", "capture_threshold", "Label", "DeathSound", "LinearMovement", "parent"),
-"node_count": 5,
-"node_paths": [NodePath("HitboxComponent")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, 0, 2147483647, 262147, -1, 2, 4, 2, 5, 2, 0, 0, 0, 2147483647, 524295, -1, 1, 8, 3, 0, 0, 0, 2147483647, 1310730, -1, 1, 11, 4, 0, 0, 0, 2147483647, 2097166, 5, 1, 1073741839, 6, 0),
-"variants": [ExtResource("5_nl50u"), 33.0, 5, Vector2(-1, 1), 4.0, SubResource("Resource_iq7ql"), NodePath("..")],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_rb20b"]
+[sub_resource type="Resource" id="Resource_y3njv"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("PackedScene_s2obm")
+spawnable = ExtResource("5_elgam")
+chance = 3
+
+[sub_resource type="Resource" id="Resource_isf03"]
+script = ExtResource("4_f32e1")
+spawnable = ExtResource("5_ygbcq")
+chance = 100
+
+[sub_resource type="Resource" id="Resource_q7jc5"]
+script = ExtResource("4_f32e1")
+spawnable = ExtResource("9_5bjie")
 chance = 1
 
 [sub_resource type="Resource" id="Resource_l2i2w"]
 script = ExtResource("4_f32e1")
 spawnable = ExtResource("6_xpab5")
-chance = 10
-
-[sub_resource type="Resource" id="Resource_isf03"]
-script = ExtResource("4_f32e1")
-spawnable = ExtResource("12_cx4an")
 chance = 1
-
-[sub_resource type="Resource" id="Resource_q7jc5"]
-script = ExtResource("4_f32e1")
-spawnable = ExtResource("9_5bjie")
-chance = 10
 
 [sub_resource type="Resource" id="Resource_ba807"]
 script = ExtResource("3_sb12f")
-spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_rb20b"), SubResource("Resource_l2i2w"), SubResource("Resource_isf03"), SubResource("Resource_q7jc5")])
-spawn_count = Vector2i(1, 3)
+spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_y3njv"), SubResource("Resource_isf03"), SubResource("Resource_q7jc5"), SubResource("Resource_l2i2w")])
+spawn_count = Vector2i(2, 4)
 bubble_spawn_interval = 3.0
 bubble_spawn_count = 1
 bubble_air = Vector2i(8, 16)
@@ -76,10 +63,10 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekr4v"]
-size = Vector2(128, 1104.12)
+size = Vector2(128, 10808.1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg7th"]
-size = Vector2(128, 1104)
+size = Vector2(128, 10800)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb3cr"]
 size = Vector2(256, 1104)
@@ -90,7 +77,7 @@ size = Vector2(256, 1104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
 size = Vector2(2176, 128)
 
-[node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera") groups=["Map"]]
 script = ExtResource("1_su3uq")
 player = NodePath("Player")
 camera = NodePath("Camera2D")
@@ -123,18 +110,17 @@ drag_right_margin = 1.0
 drag_bottom_margin = 1.0
 script = ExtResource("3_vjjyf")
 player = NodePath("../Player")
-scale_offset = 0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
 position = Vector2(1152, -451)
 collision_layer = 260
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(-128, 459)
+position = Vector2(-128, 5310.97)
 shape = SubResource("RectangleShape2D_ekr4v")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(-2176, 459)
+position = Vector2(-2176, 5307)
 shape = SubResource("RectangleShape2D_gg7th")
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]

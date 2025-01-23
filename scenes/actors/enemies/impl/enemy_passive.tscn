@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgawuat43rapu"]
+[gd_scene load_steps=4 format=3 uid="uid://dgawuat43rapu"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_bc5bm"]
 [ext_resource type="PackedScene" uid="uid://yxr5xmjc8vos" path="res://scenes/actors/components/movements/move_randomly.tscn" id="2_2c6yy"]
+[ext_resource type="Texture2D" uid="uid://2wd60mo21g67" path="res://assets/images/actors/enemies/enemy_derp.png" id="3_ta3fv"]
 
 [node name="EnemyPassive" instance=ExtResource("1_bc5bm")]
+collision_mask = 256
 damage_value = 0.0
 
 [node name="RandomMovement" parent="." index="0" node_paths=PackedStringArray("parent") instance=ExtResource("2_2c6yy")]
-speed_range = Vector2i(200, 400)
+speed_range = Vector2i(30, 70)
 parent = NodePath("..")
+
+[node name="Icon" parent="." index="2"]
+texture = ExtResource("3_ta3fv")
 
 [node name="CaptureOxygenComponent" parent="." index="5"]
 capture_threshold = 2.0
