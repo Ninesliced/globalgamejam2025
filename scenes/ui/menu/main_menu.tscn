@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://tmy5pmuxhk1t"]
+[gd_scene load_steps=4 format=3 uid="uid://tmy5pmuxhk1t"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/main_menu.gd" id="1_3dxpn"]
+[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="2_q5030"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_og1a6"]
 
@@ -18,8 +19,8 @@ modulate = Color(0.184314, 0.184314, 0.243137, 1)
 layout_mode = 2
 offset_left = -6.0
 offset_top = -1.0
-offset_right = 1146.0
-offset_bottom = 647.0
+offset_right = 1928.0
+offset_bottom = 1085.0
 texture = SubResource("CanvasTexture_og1a6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -39,6 +40,7 @@ size_flags_stretch_ratio = 6.29
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_q5030")
 text = "PLAY"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
