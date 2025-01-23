@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=58 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -7,14 +7,13 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://dgawuat43rapu" path="res://scenes/actors/enemies/impl/enemy_passive.tscn" id="5_ygbcq"]
-[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="6_fvlmr"]
-[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="PackedScene" uid="uid://b41ugkahe4fpb" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
-[ext_resource type="PackedScene" uid="uid://bwtvvdhu3f6yd" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
-[ext_resource type="PackedScene" uid="uid://c5o2qks5oijqu" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="9_lf3e3"]
+[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" uid="uid://23fyreui7rjv" path="res://scenes/actors/enemies/impl/enemy_shark.tscn" id="9_ckcdj"]
+[ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="9_lf3e3"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
-[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
 [ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="14_cv1cw"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
 [ext_resource type="Texture2D" uid="uid://b7x7x3a6fgr8v" path="res://assets/images/background/cave.png" id="16_7ex0l"]
@@ -61,9 +60,12 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("5_ygbcq")
 chance = 1
 
+[sub_resource type="Resource" id="Resource_1lcu0"]
+metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
+
 [sub_resource type="Resource" id="Resource_aiodl"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("12_cx4an")
+spawnable = SubResource("Resource_1lcu0")
 chance = 2
 
 [sub_resource type="Resource" id="Resource_65jxc"]
@@ -79,9 +81,12 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_lf3e3")
 chance = 7
 
+[sub_resource type="Resource" id="Resource_achnv"]
+metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
+
 [sub_resource type="Resource" id="Resource_g126e"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("12_cx4an")
+spawnable = SubResource("Resource_achnv")
 chance = 3
 
 [sub_resource type="Resource" id="Resource_vtoms"]
@@ -97,9 +102,12 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_lf3e3")
 chance = 5
 
+[sub_resource type="Resource" id="Resource_w33ar"]
+metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
+
 [sub_resource type="Resource" id="Resource_s27hv"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("12_cx4an")
+spawnable = SubResource("Resource_w33ar")
 chance = 5
 
 [sub_resource type="Resource" id="Resource_d3352"]
@@ -115,9 +123,12 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_5bjie")
 chance = 5
 
+[sub_resource type="Resource" id="Resource_i6nnm"]
+metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
+
 [sub_resource type="Resource" id="Resource_fg8ge"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("12_cx4an")
+spawnable = SubResource("Resource_i6nnm")
 chance = 1
 
 [sub_resource type="Resource" id="Resource_h20u1"]
@@ -150,7 +161,7 @@ chance = 4
 
 [sub_resource type="Resource" id="Resource_kt54d"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("6_fvlmr")
+spawnable = ExtResource("9_ckcdj")
 chance = 2
 
 [sub_resource type="Resource" id="Resource_mp7d8"]
@@ -173,7 +184,7 @@ chance = 3
 
 [sub_resource type="Resource" id="Resource_vmv70"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("6_fvlmr")
+spawnable = ExtResource("9_ckcdj")
 chance = 3
 
 [sub_resource type="Resource" id="Resource_bhb7l"]
@@ -216,7 +227,7 @@ script = ExtResource("1_su3uq")
 player = NodePath("Player")
 camera = NodePath("Camera2D")
 
-[node name="1" parent="." instance=ExtResource("2_rm8mk")]
+[node name="Spawner" parent="." instance=ExtResource("2_rm8mk")]
 levels = Array[ExtResource("3_sb12f")]([SubResource("Resource_obudi"), SubResource("Resource_5xvc8"), SubResource("Resource_65jxc"), SubResource("Resource_vtoms"), SubResource("Resource_d3352"), SubResource("Resource_7ycgt"), SubResource("Resource_mp7d8"), SubResource("Resource_bhb7l")])
 
 [node name="Levels" type="Node2D" parent="."]
@@ -308,7 +319,7 @@ texture = ExtResource("16_7ex0l")
 
 [node name="SpeedProbe" parent="." instance=ExtResource("17_o6h7w")]
 
-[connection signal="level_change" from="." to="1" method="_on_map_level_change"]
+[connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_exited"]
 [connection signal="slowness_detected" from="SpeedProbe" to="." method="_on_slowness_detected"]
