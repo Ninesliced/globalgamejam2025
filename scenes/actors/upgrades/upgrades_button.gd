@@ -1,12 +1,29 @@
 extends Node2D
 
-@export var win_upgrade = "Increase oxygen capacity" 
+@export var win_upgrade = "You're speed is fastest"
 @export var lose_upgrade = "You're speed is reduced" 
 
 var is_usable = true
 
+var win_upgrades = {
+	"Increase oxygen capacity": win_oxygen_capacity,
+	"Refill the oxygen": refill_oxygen,
+	"The dash costs less": dash_cost_less,
+	"The shoot costs less": shoot_cost_less,
+	"Your speed is faster": speed_fastest
+}
+
+var lose_upgrades = {
+	"Drain half of the oxygen reserve": lose_half_oxygen,
+	"The dash is more expensive": dash_cost_more,
+	"Shooting is more expensive": shoot_cost_more,
+	"Your vision is reduced": reduced_vision
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	win_upgrade = win_upgrades.keys().pick_random()
+	lose_upgrade = lose_upgrades.keys().pick_random()
 	%Bonus.text = win_upgrade
 	%Malus.text = lose_upgrade
 
@@ -14,53 +31,34 @@ func _ready():
 func _process(delta):
 	pass
 
-var win_upgrades = {
-	"Increase oxygen capacity": win_oxygen_capacity,
-	"Refill the oxygen": win_oxygen_capacity,
-	"The dash costs less": dash_cost_less,
-	"The shoot costs less": dash_cost_less,
-	"The dash is more powerfull": dash_cost_less,
-	"Your speed is fastest": dash_cost_less
-}
-
-var lose_upgrades = {
-	"Drain half of the oxygen reserve": lose_half_oxygen,
-	"The dash is more expensive": dash_cost_more,
-	"The shoot is more expensive": dash_cost_more,
-	"Your speed is reduced": dash_cost_less,
-	"Your vision is reduced": reduced_vision
-}
-
 # Oxygene
 # capacité max d'oxygene
 func win_oxygen_capacity(player):
-	var oldMaxOxygen = player.Oxygen_component.max_oxygen
 	player.Oxygen_component.max_oxygen += 0.5
+	
+func refill_oxygen(player):
+	player.Oxygen_component.oxygen = player.Oxygen_component.max_oxygen
+	
+func dash_cost_less(player):
+	player.Dash_component.dash_consumption = max(0, player.Dash_component.dash_consumption - 3)
+	
+func shoot_cost_less(player):
+	player.Weapon_component.weapon_resource.oxygen_comsuption = max(0.0, player.Weapon_component.weapon_resource.oxygen_comsuption - 0.2)
+	
+func speed_fastest(player):
+	player.speed = min(player.speed + 100., 1000.)
 	
 func lose_half_oxygen(player):
 	player.Oxygen_component.oxygen /= 2
 
-func win_oxygen_capacity_(player):
-	if player.Oxygen_component == null:
-		print("OxygeneComoneent is null")
-		return
-	var oldMaxOxygen = player.Oxygen_component.max_oxygen
-	player.Oxygen_component.max_oxygen *= 1.3
-	var gainOxygen = player.Oxygen_component.max_oxygen - oldMaxOxygen
-	player.Oxygen_component.oxygen += gainOxygen
-	
-func win_oxygen(player):
-	print("hello")
-	
-
-func dash_cost_less(player):
-	print("hello")
-	
 func dash_cost_more(player):
-	pass
+	player.Dash_component.dash_consumption = min(player.Dash_component.dash_consumption + 3, 50)
+
+func shoot_cost_more(player):
+	player.Weapon_component.weapon_resource.oxygen_comsuption = min(10.0, player.Weapon_component.weapon_resource.oxygen_comsuption + 0.2)
 
 func reduced_vision(player):
-	pass
+	player.get_parent().next_light_effect()
 
 func _on_area_2d_body_entered(body):
 	if body is Player and is_usable:

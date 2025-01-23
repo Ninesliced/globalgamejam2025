@@ -2,8 +2,8 @@ extends Resource
 class_name WeaponResource
 
 enum ShootType {
-    SEMI_AUTO = 0,
-    AUTO = 1,
+	SEMI_AUTO = 0,
+	AUTO = 1,
 }
 
 @export var bullet_scene: PackedScene 
