@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnkkw8qkiqhmn"]
+[gd_scene load_steps=5 format=3 uid="uid://drhb14pivhqv0"]
 
 [ext_resource type="Theme" uid="uid://bdxxnp2cr1ju4" path="res://resources/main_theme.tres" id="1_uw7vs"]
 [ext_resource type="Script" path="res://scenes/ui/menu/game_over_menu.gd" id="2_vs25s"]
@@ -75,5 +75,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.25
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_quit_pressed"]

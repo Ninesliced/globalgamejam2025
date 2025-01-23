@@ -3,7 +3,7 @@ class_name CameraManager
 
 @export var player : Player = null
 @export var scale_offset = 0.2
-@export var shake_deceleration_speed = 30.0
+@export var shake_deceleration_speed = 50.0
 
 var _center = Vector2(0, 0)
 var _rng = RandomNumberGenerator.new()

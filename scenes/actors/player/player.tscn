@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=32 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://ck143ckxsx7yo" path="res://assets/images/actors/player/player_dash.png" id="2_t67tn"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://bovy5vp72n7o6" path="res://assets/sounds/shoot/water_dash_03.ogg" id="9_0tun5"]
 [ext_resource type="AudioStream" uid="uid://dvdw1hctdcjgk" path="res://assets/sounds/shoot/water_dash_04.ogg" id="10_745s3"]
 [ext_resource type="AudioStream" uid="uid://cuxrwjlid2vm1" path="res://assets/sounds/shoot/water_dash_05.ogg" id="11_gylrd"]
+[ext_resource type="AudioStream" uid="uid://bysxpuo10g050" path="res://assets/sounds/shoot/player_damage_01.ogg" id="17_vgc8s"]
+[ext_resource type="AudioStream" uid="uid://bgt1lua02h6m5" path="res://assets/sounds/shoot/player_damage_02.ogg" id="18_5g1eu"]
+[ext_resource type="AudioStream" uid="uid://cssc4rb68aqo" path="res://assets/sounds/shoot/player_damage_03.ogg" id="19_xlqwp"]
 
 [sub_resource type="Gradient" id="Gradient_fil61"]
 interpolation_mode = 1
@@ -89,6 +92,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs3qp"]
 size = Vector2(78, 114)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dqndu"]
+streams_count = 3
+stream_0/stream = ExtResource("17_vgc8s")
+stream_1/stream = ExtResource("18_5g1eu")
+stream_2/stream = ExtResource("19_xlqwp")
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_brhlp")
@@ -160,3 +169,6 @@ weapon_resource = ExtResource("8_me6fi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gs3qp")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_dqndu")

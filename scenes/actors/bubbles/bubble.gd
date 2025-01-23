@@ -19,8 +19,8 @@ func _on_hitbox_body_entered(body:Node2D):
 		for child in body.get_children():
 			if child is OxygenComponent: 
 				child.add_oxygen(bubble_value)
-		
 		_remove()
+	
 	if body is Bubble and body != self:
 		bubble_value += body.bubble_value
 		body.queue_free()
@@ -34,6 +34,7 @@ func _remove():
 	bubble_cloud.pop_star.scale_amount_max = size
 	bubble_cloud.pop_star.scale_amount_min = size
 	bubble_cloud.play()
+
 	queue_free()
 
 func _process(delta):

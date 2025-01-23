@@ -3,6 +3,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+@export var damage_value = 15.0
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -11,7 +13,7 @@ var can_move = true
 var spinning = false
 var spin_time = 0.5
 var damage_player = false
-
+var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
 
 signal died
@@ -25,14 +27,15 @@ func _physics_process(delta):
 			queue_free()
 		return
 	if can_move:
-		move_and_slide()
+		collision = move_and_collide(velocity * delta)
 
 func _process(delta):
 	if $Label:
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player and not $CaptureOxygenComponent.is_captured:
 		var player = get_tree().current_scene.get_node("Player")
-		player.Oxygen_component.add_oxygen(-10 * delta)
+		player.damage(damage_value)
+		damage_player = false
 
 func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: float):
 	pass
@@ -40,7 +43,7 @@ func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: f
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-
+	damage_player = true
 	get_dashed_on((body))
 
 func get_dashed_on(body: Node2D) -> void:
@@ -54,7 +57,6 @@ func get_dashed_on(body: Node2D) -> void:
 			is_dashed_on = child.is_dashing
 
 	if not is_dashed_on:
-		damage_player = true
 		return
 
 	for child in body.get_children():
