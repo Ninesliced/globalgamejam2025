@@ -1,9 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nonhr1o4s7iq"]
-
-[ext_resource type="Texture2D" uid="uid://ddstqdrk3kgau" path="res://assets/images/ui/patch_rect_button.png" id="1_t6ayc"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://nonhr1o4s7iq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_km2rr"]
-texture = ExtResource("1_t6ayc")
 texture_margin_left = 24.0
 texture_margin_top = 16.0
 texture_margin_right = 24.0
