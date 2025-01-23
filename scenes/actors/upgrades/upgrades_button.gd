@@ -9,7 +9,7 @@ var bbc_default_string = "\n[outline_size=20][b][center][wave]{text}[/wave][/cen
 var win_upgrades = {
 	"Increase oxygen capacity": win_oxygen_capacity,
 	"Refill the oxygen": refill_oxygen,
-	"The das h costs less": dash_cost_less,
+	"The dash costs less": dash_cost_less,
 	"The shoot costs less": shoot_cost_less,
 	"Your speed is faster": speed_fastest
 }
