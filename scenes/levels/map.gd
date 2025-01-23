@@ -86,9 +86,6 @@ func _process(delta):
 	if len(levels) != 0:
 		current_level_node = get_current_level_node()
 		is_on_a_level = current_level_node is Level
-	# if Input.is_action_just_pressed("test_arkanyota"):
-	# 	next_light_effect()
-		
 
 
 	

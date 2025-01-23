@@ -11,6 +11,8 @@ class_name Player
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 var Oxygen_component
+var Dash_component
+var Weapon_component
 var is_flip_h = false
 var is_dashing = false
 
@@ -18,6 +20,8 @@ var _invincibility_time_left := 0.0
 
 func _ready():
 	Oxygen_component = %OxygenComponent
+	Dash_component = %DashComponent
+	Weapon_component = %Weapon
 
 func _process(delta):
 	move_and_slide()
@@ -64,4 +68,3 @@ func damage(amount: float):
 	var camera = get_viewport().get_camera_2d()
 	if camera is CameraManager:
 		camera.shake(damage_screenshake)
-
