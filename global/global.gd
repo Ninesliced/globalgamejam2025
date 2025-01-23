@@ -69,3 +69,6 @@ func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_di
 	old_mouse_pos = mouse_pos
 	old_direction = vec.normalized()
 	return vec
+
+func win_game():
+	reload_game()

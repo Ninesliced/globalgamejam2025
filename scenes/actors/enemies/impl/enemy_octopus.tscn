@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpjx6l40iycrn"]
+[gd_scene load_steps=6 format=3 uid="uid://bpjx6l40iycrn"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
 [ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
 [ext_resource type="PackedScene" uid="uid://b0u1tglshaqvw" path="res://scenes/actors/components/movements/🐙_movement.tscn" id="3_1e8b5"]
+[ext_resource type="PackedScene" uid="uid://be713sffa8dec" path="res://scenes/actors/enemies/impl/enemy_octopus_minion.tscn" id="4_46at4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_guni3"]
-radius = 103.044
+radius = 56.0
 
 [node name="OctopusEnemy" instance=ExtResource("1_8p5bd")]
 collision_mask = 256
@@ -20,5 +21,6 @@ shape = SubResource("CircleShape2D_guni3")
 capture_threshold = 5.0
 
 [node name="🐙Movement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1e8b5")]
-movement_rate = 2.0
+skid_rate = -0.05
+minion = ExtResource("4_46at4")
 parent = NodePath("..")

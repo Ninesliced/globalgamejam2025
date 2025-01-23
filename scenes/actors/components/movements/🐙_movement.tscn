@@ -1,12 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0u1tglshaqvw"]
+[gd_scene load_steps=3 format=3 uid="uid://b0u1tglshaqvw"]
 
 [ext_resource type="Script" path="res://scenes/actors/components/movements/🐙_movement.gd" id="1_1yxoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gesem"]
 
 [node name="🐙Movement" type="Node2D"]
 script = ExtResource("1_1yxoi")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="MovementTimer" type="Timer" parent="."]
 process_callback = 0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="MinionTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2.48, 2.48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(32.12, 32.08)
+shape = SubResource("CircleShape2D_gesem")
+debug_color = Color(0.973008, 0.157827, 0.113885, 0.42)
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MinionTimer" to="." method="_on_minion_timer_timeout"]
