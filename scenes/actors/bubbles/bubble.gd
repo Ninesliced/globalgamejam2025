@@ -34,7 +34,7 @@ func handle_refund_dash(body, oxygen_component):
 				if !child.is_dashing:
 					return
 				print("Refund dash")
-				oxygen_component.add_oxygen(child.dash_consumption)
+				oxygen_component.add_oxygen(child.dash_consumption / 2)
 
 func _remove():
 	var bubble_cloud : BubblePop = bubble_pop_scene.instantiate()
