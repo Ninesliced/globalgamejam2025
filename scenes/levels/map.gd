@@ -13,7 +13,7 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 
 var camera_depth: int           = 0
 var next_level_position: int    = 0
-var current_generate_level: int = 8
+var current_generate_level: int = 0
 
 var current_level_node:
 	set(value):
