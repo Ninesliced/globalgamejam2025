@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpon7sdcisbbw"]
+
+[ext_resource type="Script" path="res://scenes/levels/background_wall/background_wall.gd" id="1_t5pff"]
+[ext_resource type="Texture2D" uid="uid://cjh1tbqkpgliw" path="res://assets/images/background/1G.png" id="2_bvpo3"]
+[ext_resource type="Texture2D" uid="uid://bsovsqla13u74" path="res://assets/images/background/2G.png" id="3_0snes"]
+[ext_resource type="Texture2D" uid="uid://b2mlyjur0ckb0" path="res://assets/images/background/3G.png" id="4_5krvk"]
+[ext_resource type="Texture2D" uid="uid://lykk6p4bf4q1" path="res://assets/images/background/4G.png" id="5_yc7cw"]
+[ext_resource type="Texture2D" uid="uid://bxnpqf2o8oi0s" path="res://assets/images/background/1D.png" id="6_yiwpb"]
+[ext_resource type="Texture2D" uid="uid://c101yyr8e2ddd" path="res://assets/images/background/2D.png" id="7_gk8yy"]
+[ext_resource type="Texture2D" uid="uid://bm5ihsplpqtje" path="res://assets/images/background/3D.png" id="8_ybxlu"]
+[ext_resource type="Texture2D" uid="uid://b14hwqathape" path="res://assets/images/background/4D.png" id="9_fg3al"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hgva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bvpo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0snes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5krvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yc7cw")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yiwpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gk8yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ybxlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fg3al")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="BackgroundWall" type="Node2D"]
+script = ExtResource("1_t5pff")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_2hgva")
+animation = &"left"
