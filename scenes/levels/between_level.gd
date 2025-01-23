@@ -17,9 +17,12 @@ func _ready():
 		var coffre_last_level = coffre_last_levelPackedScene.instantiate()
 		coffre_last_level.position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y/2)
 		add_child(coffre_last_level)
-		
+
+	%ExplicationText.visible = false
+	%CurrentLevel.visible = true
 	if associated_level == 0:
 		%CheckpointElement.frame = 0
+		%ExplicationText.visible = true
 	elif associated_level <= 3:
 		%CheckpointElement.frame = 1
 	elif associated_level <= 5:
@@ -28,6 +31,8 @@ func _ready():
 		%CheckpointElement.frame = 3
 	else:
 		%CheckpointElement.frame = 4
+		%CurrentLevel.visible = false
+
 
 	if associated_level <= 3:
 		%PipesElement.frame = 0
