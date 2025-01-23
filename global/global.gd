@@ -75,10 +75,12 @@ func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_di
 	return vec
 
 func win_game():
-	timer.wait_time = 2.0
-	timer.timeout.connect(func():
-		timer.stop()
-		menu_manager.set_menu("WinMenu")
-	)
-	timer.one_shot = true
-	timer.start()
+	menu_manager.set_menu("WinMenu")
+	return 
+	# timer.wait_time = 2.0
+	# timer.timeout.connect(func():
+	# 	timer.stop()
+	# 	menu_manager.set_menu("WinMenu")
+	# )
+	# timer.one_shot = true
+	# timer.start()
