@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_6mlja"]
 [ext_resource type="Texture2D" uid="uid://sc2jfp4btt2a" path="res://assets/images/actors/enemies/star.png" id="2_2o7q0"]
-[ext_resource type="Script" path="res://scenes/actors/components/movements/pong_movement.gd" id="3_tygc1"]
+[ext_resource type="Script" path="res://scenes/actors/components/movements/pong_movement.gd" id="3_cwfa1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5wo5"]
 radius = 57.0
@@ -19,15 +19,14 @@ texture = ExtResource("2_2o7q0")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_f5wo5")
 
-[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
-hitbox = NodePath("../HitboxComponent")
+[node name="CaptureOxygenComponent" parent="." index="4"]
 capture_threshold = 2.0
 
 [node name="Label" parent="." index="5"]
 visible = false
 
 [node name="PongMovementComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("parent")]
-script = ExtResource("3_tygc1")
+script = ExtResource("3_cwfa1")
 speed = 200.0
 parent = NodePath("..")
 
