@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
 [ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
-[ext_resource type="PackedScene" uid="uid://dpyt52xy81e0a" path="res://scenes/actors/components/movements/sine_movement_component.tscn" id="3_rvfya"]
+[ext_resource type="PackedScene" uid="uid://cb7v4dbomb867" path="res://scenes/actors/components/movements/sine_movement_component.tscn" id="3_rvfya"]
 [ext_resource type="PackedScene" uid="uid://bu3x5brl8t20l" path="res://scenes/actors/components/movements/pong_movement.tscn" id="4_w8n8j"]
 
 [node name="OctopusEnemy" instance=ExtResource("1_8p5bd")]
