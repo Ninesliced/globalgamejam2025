@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=31 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
-[ext_resource type="PackedScene" uid="uid://dye72oeuu24j3" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
+[ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="15_7vdwr"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
 [ext_resource type="Texture2D" uid="uid://b7x7x3a6fgr8v" path="res://assets/images/background/cave.png" id="16_7ex0l"]
 
@@ -171,6 +172,7 @@ autoplay = true
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="Fond" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+material = ExtResource("15_7vdwr")
 position = Vector2(960, 2700)
 texture = ExtResource("15_oconm")
 
@@ -178,6 +180,7 @@ texture = ExtResource("15_oconm")
 motion_scale = Vector2(0.22, 0.22)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+visible = false
 position = Vector2(960, 5400)
 texture = ExtResource("16_7ex0l")
 

@@ -196,10 +196,10 @@ void fragment() {
         texture(TEXTURE, texture_uv_r).r,
         texture(TEXTURE, texture_uv_g).g,
         texture(TEXTURE, texture_uv_b).b,
-        1.0
+        texture(TEXTURE, texture_uv_b).a
     );
 
-    COLOR = base_color + distort_color;
+    COLOR = base_color * distort_color;
 }
 
 //void light() {
