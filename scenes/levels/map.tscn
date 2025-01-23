@@ -34,9 +34,9 @@ chance = 1
 script = ExtResource("3_sb12f")
 spawnables = Array[ExtResource("4_f32e1")]([SubResource("Resource_rb20b"), SubResource("Resource_l2i2w"), SubResource("Resource_isf03")])
 spawn_count = Vector2i(1, 3)
-bubble_spawn_interval = 0.4
+bubble_spawn_interval = 1.0
 bubble_spawn_count = 1
-bubble_air = Vector2i(2, 10)
+bubble_air = Vector2i(2, 4)
 
 [sub_resource type="Gradient" id="Gradient_o0own"]
 offsets = PackedFloat32Array(0, 0.644068, 0.728814, 1)

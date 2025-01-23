@@ -59,7 +59,8 @@ func handle_dash():
 		if _dash_direction == Vector2.ZERO:
 			return Vector2.ZERO
 		if oxygen_component.oxygen < dash_consumption: # tolerance for dash
-			oxygen_component.add_oxygen(min(oxygen_component.oxygen, dash_consumption / 2))
+			var to_consumme = oxygen_component.oxygen - 4
+			oxygen_component.add_oxygen(to_consumme)
 		else:
 			oxygen_component.add_oxygen(-dash_consumption)
 		dash_entered.emit()
