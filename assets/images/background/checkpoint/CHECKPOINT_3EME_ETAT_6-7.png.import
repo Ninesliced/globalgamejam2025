@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl0n2c1w060xe"
-path="res://.godot/imported/ennemie_shark.png-8451149d24da8a1b6530dda48726a7e5.ctex"
+uid="uid://cv17t1nurd4ya"
+path="res://.godot/imported/CHECKPOINT_3EME_ETAT_6-7.png-19f88bc1edde9289d2135ac00639d0dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/actors/enemies/ennemie_shark.png"
-dest_files=["res://.godot/imported/ennemie_shark.png-8451149d24da8a1b6530dda48726a7e5.ctex"]
+source_file="res://assets/images/background/checkpoint/CHECKPOINT_3EME_ETAT_6-7.png"
+dest_files=["res://.godot/imported/CHECKPOINT_3EME_ETAT_6-7.png-19f88bc1edde9289d2135ac00639d0dc.ctex"]
 
 [params]
 

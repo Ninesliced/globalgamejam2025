@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl0n2c1w060xe"
-path="res://.godot/imported/ennemie_shark.png-8451149d24da8a1b6530dda48726a7e5.ctex"
+uid="uid://dfa7fxritb0e3"
+path="res://.godot/imported/PIPE_Vide.png-953428a26782496295e7c59bfcbad926.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/actors/enemies/ennemie_shark.png"
-dest_files=["res://.godot/imported/ennemie_shark.png-8451149d24da8a1b6530dda48726a7e5.ctex"]
+source_file="res://assets/images/background/checkpoint/PIPE_Vide.png"
+dest_files=["res://.godot/imported/PIPE_Vide.png-953428a26782496295e7c59bfcbad926.ctex"]
 
 [params]
 
