@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3j2q17grqc2i"]
+[gd_scene load_steps=6 format=3 uid="uid://d3j2q17grqc2i"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud/hud.gd" id="1_diqqf"]
 [ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="2_7xrxq"]
 [ext_resource type="Texture2D" uid="uid://bwddnio7rn4tj" path="res://assets/images/ui/oxygen_bar_y.png" id="2_jurgs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5r0u"]
+font_size = 32
+font_color = Color(0.686275, 0.592157, 0.6, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tcpn"]
+font_size = 38
+font_color = Color(0.901961, 0.8, 0.745098, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_diqqf")
@@ -52,3 +64,47 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 20
 value = 50.0
 fill_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="ZoneCounter" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Zone 1"
+label_settings = SubResource("LabelSettings_j5r0u")
+horizontal_alignment = 2
+
+[node name="ProgressCounter" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100 m"
+label_settings = SubResource("LabelSettings_0tcpn")
+horizontal_alignment = 2
+
+[node name="ProgressionSlider" type="VSlider" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("2_7xrxq")
+max_value = 1.0
+step = 0.001
+value = 0.675
+editable = false
+scrollable = false

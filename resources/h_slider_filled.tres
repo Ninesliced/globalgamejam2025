@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dvfo25l250qjq"]
+
+[ext_resource type="Texture2D" uid="uid://e4wfoafbfw0c" path="res://assets/images/ui/slider_x_filled.png" id="1_xqspl"]
+
+[resource]
+texture = ExtResource("1_xqspl")
+texture_margin_left = 16.0
+texture_margin_top = 7.0
+texture_margin_right = 14.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 85, 18)
