@@ -4,6 +4,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var damage_value = 15.0
+@export var the_derp = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -16,6 +17,7 @@ var damage_player = false
 var oxygen_added = false
 var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
+
 
 signal died
 
@@ -67,7 +69,7 @@ func get_dashed_on(body: Node2D) -> void:
 			var is_captured = $CaptureOxygenComponent.is_captured
 			if not is_captured:
 				return
-			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption
+			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption + 3
 			if not oxygen_captured:
 				return
 
@@ -83,6 +85,8 @@ func get_dashed_on(body: Node2D) -> void:
 			$DeathSound.play()
 			
 			died.emit()
+			if the_derp:
+				Global.win_game()
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":

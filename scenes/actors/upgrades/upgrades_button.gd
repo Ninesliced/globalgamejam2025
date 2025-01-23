@@ -67,6 +67,7 @@ func reduced_vision(player):
 
 func _on_area_2d_body_entered(body):
 	if body is Player and is_usable:
+		print("someone passes")
 		var is_dashed_on = false
 		for child in body.get_children():
 			if child is DashComponent:
