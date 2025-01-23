@@ -18,4 +18,5 @@ capture_threshold = 5.0
 sine_amplitude = 20.0
 
 [node name="LinearMovement" parent="." index="8" node_paths=PackedStringArray("parent") instance=ExtResource("4_xj16j")]
+flipped = true
 parent = NodePath("..")
