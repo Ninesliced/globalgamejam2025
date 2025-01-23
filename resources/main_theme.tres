@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=15 format=3 uid="uid://nonhr1o4s7iq"]
 
-[ext_resource type="StyleBox" uid="uid://ctnqmvs1f2vmg" path="res://resources/yellow_button_style_box.tres" id="1_jdcs0"]
+[ext_resource type="StyleBox" path="res://resources/yellow_button_style_box.tres" id="1_jdcs0"]
 [ext_resource type="Texture2D" uid="uid://bfvodtv4f7183" path="res://assets/images/ui/patch_rect_button_lighter.png" id="2_lgy32"]
-[ext_resource type="StyleBox" uid="uid://dvfo25l250qjq" path="res://resources/h_slider_filled.tres" id="4_evluj"]
+[ext_resource type="StyleBox" path="res://resources/h_slider_filled.tres" id="4_evluj"]
 [ext_resource type="Texture2D" uid="uid://lhrbp4eaqrw7" path="res://assets/images/ui/slider_grabber.png" id="4_wu5qc"]
 [ext_resource type="Texture2D" uid="uid://crwd41xfvecpr" path="res://assets/images/ui/slider_x.png" id="5_0dobu"]
 [ext_resource type="Texture2D" uid="uid://bjigtrr4nbxpq" path="res://assets/images/ui/slider.png" id="5_qass7"]

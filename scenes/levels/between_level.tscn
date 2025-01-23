@@ -89,7 +89,7 @@ scale = Vector2(1, -1)
 unique_name_in_owner = true
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_vjuxb")
-frame = 3
+frame = 4
 frame_progress = 1.0
 
 [node name="UpgradesButton" parent="." instance=ExtResource("3_ru7lr")]
@@ -121,6 +121,18 @@ disabled = true
 [node name="CoffreLastLevel" parent="." instance=ExtResource("6_geje2")]
 visible = false
 position = Vector2(864, 704)
+
+[node name="ExplicationText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = 176.0
+offset_top = 32.0
+offset_right = 672.0
+offset_bottom = 312.0
+bbcode_enabled = true
+text = "
+[font_size=40][outline_size=20][b][center][wave]
+Suffocate him, then dash into the mob to finish him off.
+[/wave][/center][/b][/outline_size][/font_size]"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
