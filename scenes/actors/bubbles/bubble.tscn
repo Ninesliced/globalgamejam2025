@@ -65,9 +65,10 @@ scale = Vector2(1.39224, 1.39224)
 sprite_frames = SubResource("SpriteFrames_j1d6u")
 animation = &"big"
 
-[node name="SineMovementComponent" parent="." instance=ExtResource("3_uh8av")]
+[node name="SineMovementComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_uh8av")]
 movement_speed = 100.0
 sine_amplitude = 80.0
 sine_wavelength = 3
+parent = NodePath("..")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
