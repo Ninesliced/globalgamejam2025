@@ -4,6 +4,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var damage_value = 15.0
+@export var the_derp = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -16,6 +17,7 @@ var damage_player = false
 var oxygen_added = false
 var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
+
 
 signal died
 
@@ -83,6 +85,8 @@ func get_dashed_on(body: Node2D) -> void:
 			$DeathSound.play()
 			
 			died.emit()
+			if the_derp:
+				Global.win_game()
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.name != "Player":

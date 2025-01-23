@@ -226,10 +226,6 @@ unique_name_in_owner = true
 position = Vector2(952, 552)
 speed = 500.0
 
-[node name="DashComponent" parent="Player" index="4" node_paths=PackedStringArray("movement_controller", "oxygen_component")]
-movement_controller = NodePath("../MovementController")
-oxygen_component = NodePath("../OxygenComponent")
-
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true
 position = Vector2(0.00012207, 0)
