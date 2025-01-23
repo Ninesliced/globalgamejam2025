@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnut16fydm6d4" path="res://assets/images/actors/bubbles/bubble_normal.png" id="1_g0w08"]
 [ext_resource type="Script" path="res://scenes/actors/bubbles/bubble.gd" id="1_g33ep"]
 [ext_resource type="Texture2D" uid="uid://dfqi66r8sc8qq" path="res://assets/images/actors/bubbles/bubble_big.png" id="2_cbxwt"]
-[ext_resource type="PackedScene" uid="uid://dpyt52xy81e0a" path="res://scenes/actors/components/movements/sine_movement_component.tscn" id="3_uh8av"]
+[ext_resource type="PackedScene" uid="uid://cb7v4dbomb867" path="res://scenes/actors/components/movements/sine_movement_component.tscn" id="3_uh8av"]
 [ext_resource type="Texture2D" uid="uid://gxiid86rmt8y" path="res://assets/images/actors/bubbles/bubble_small.png" id="4_ecjmk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qn20"]
