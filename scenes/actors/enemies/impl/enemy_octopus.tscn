@@ -16,8 +16,7 @@ texture = ExtResource("2_34h7d")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_guni3")
 
-[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
-hitbox = NodePath("../HitboxComponent")
+[node name="CaptureOxygenComponent" parent="." index="4"]
 capture_threshold = 5.0
 
 [node name="PongMovement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("4_w8n8j")]
