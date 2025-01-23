@@ -76,4 +76,4 @@ func _on_bubble_delay_timeout() -> void:
 		get_tree().current_scene.add_child(bubble_instance)
 		bubble_instance.global_position  = Vector2(pos_x, camera_pos.y + viewport.size.y / 2)
 		bubble_instance.bubble_value 	 = randi_range(level_data.bubble_air.x, level_data.bubble_air.y)
-		print(bubble_instance.bubble_value)
+		# print(bubble_instance.bubble_value)

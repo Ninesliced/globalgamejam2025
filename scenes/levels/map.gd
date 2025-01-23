@@ -14,7 +14,7 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 var camera_depth: int           = 0
 var next_level_position: int    = 0
 var current_generate_level: int = 0
-var next_current_level_node
+
 var current_level_node:
 	set(value):
 		current_level_node = value
@@ -84,7 +84,14 @@ func _process(delta):
 			load_next_level()
 			print("Next level is loading")
 	if len(levels) != 0:
+		var old_current_level_node = current_level_node
 		current_level_node = get_current_level_node()
+		if old_current_level_node != current_level_node and old_current_level_node != null:
+			print("change_map")
+			# if old_current_level_node.associated_level < current_level_node.associated_level:
+			#	print("new_map")
+				# camera.global_position.y = current_level_node.position.y + get_viewport_rect().size.y / 2
+			camera.camera_move_here = current_level_node.position.y + get_viewport_rect().size.y / 2
 		is_on_a_level = current_level_node is Level
 
 
