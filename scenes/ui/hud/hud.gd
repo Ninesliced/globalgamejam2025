@@ -11,8 +11,9 @@ func set_oxygen_bar(value: float, max_value: float):
 	%OxygenBar.max_value = max_value
 
 func set_depth_bar(value: float, max_value: float):
-	# print("depth ", value, " ", max_value)
-	pass
+	print("depth ", value/100)#, " ", max_value)
+	%ProgressionSlider.value = 1 - value/max_value
+	%ProgressCounter.text = "{0} m".format([round(value/100)])
 
 func _process(delta):
 	_time += delta
@@ -24,7 +25,6 @@ func _process(delta):
 			%OxygenBar.modulate = Color("ffb282")
 	else:
 		%OxygenBar.modulate = Color.WHITE
-
 
 	# Depth
 	# TODO

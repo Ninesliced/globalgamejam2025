@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://nonhr1o4s7iq"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://nonhr1o4s7iq"]
 
 [ext_resource type="StyleBox" uid="uid://ctnqmvs1f2vmg" path="res://resources/yellow_button_style_box.tres" id="1_jdcs0"]
 [ext_resource type="Texture2D" uid="uid://ddstqdrk3kgau" path="res://assets/images/ui/patch_rect_button.png" id="1_s2h24"]
 [ext_resource type="Texture2D" uid="uid://bfvodtv4f7183" path="res://assets/images/ui/patch_rect_button_lighter.png" id="2_lgy32"]
+[ext_resource type="Texture2D" uid="uid://lhrbp4eaqrw7" path="res://assets/images/ui/slider_grabber.png" id="4_wu5qc"]
+[ext_resource type="Texture2D" uid="uid://bjigtrr4nbxpq" path="res://assets/images/ui/slider.png" id="5_qass7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67ut4"]
 texture = ExtResource("2_lgy32")
@@ -30,6 +32,21 @@ region_rect = Rect2(1, 0, 127, 128)
 texture = SubResource("CanvasTexture_0u6y3")
 modulate_color = Color(0.646, 0.8024, 0.85, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwvm3"]
+texture = ExtResource("5_qass7")
+texture_margin_left = 9.0
+texture_margin_top = 12.0
+texture_margin_right = 8.0
+texture_margin_bottom = 14.0
+region_rect = Rect2(0, 0, 18, 85)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pio82"]
+texture = ExtResource("5_qass7")
+texture_margin_left = 9.0
+texture_margin_top = 16.0
+texture_margin_right = 8.0
+texture_margin_bottom = 17.0
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 32
@@ -41,3 +58,9 @@ Button/styles/pressed = SubResource("StyleBoxTexture_edlyo")
 Label/fonts/font = null
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_oaoje")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_guw5w")
+VSlider/icons/grabber = ExtResource("4_wu5qc")
+VSlider/icons/grabber_disabled = ExtResource("4_wu5qc")
+VSlider/icons/grabber_highlight = ExtResource("4_wu5qc")
+VSlider/icons/tick = ExtResource("4_wu5qc")
+VSlider/styles/grabber_area = SubResource("StyleBoxTexture_bwvm3")
+VSlider/styles/slider = SubResource("StyleBoxTexture_pio82")
