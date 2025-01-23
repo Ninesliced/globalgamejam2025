@@ -8,7 +8,7 @@ signal dash_entered
 signal dash_exited
 @export var movement_controller : MovementController = null
 
-@export var dash_consumption = 10
+@export var dash_consumption = 25
 @export var dash_distance = 20000
 @export var dash_duration = 0.1
 @export var keep_velocity_scale = 1
@@ -38,10 +38,10 @@ func _ready():
 	dash_timer.set_one_shot(true)
 	add_child(dash_timer)
 	dash_timer.timeout.connect(_disable_dash)
-	pass
 
 
 func _process(delta):
+	print("Dash consumption", dash_consumption)
 	pass
 
 
@@ -51,6 +51,7 @@ func _physics_process(delta):
 		player.velocity = ((_dash_direction * dash_distance) / dash_duration) * delta
 		# print(player.velocity)
 	pass
+
 
 func handle_dash():
 	if Input.is_action_just_pressed("dash") and not is_dashing:
@@ -63,7 +64,7 @@ func handle_dash():
 		enable_dash()
 		return _dash_direction
 	return _dash_direction
-		
+
 
 func get_dash_direction(velocity) -> Vector2:
 	var vec = Vector2(0, 0)
@@ -81,6 +82,7 @@ func get_dash_direction(velocity) -> Vector2:
 		vec = vec.normalized()
 	return vec
 
+
 func enable_dash():
 	if movement_controller:
 		old_acceleration = movement_controller.can_accelerate
@@ -92,6 +94,7 @@ func enable_dash():
 
 	$DashSound.play()
 	$DashParticles.emitting = true
+
 
 func _disable_dash():
 	is_dashing = false
@@ -105,4 +108,3 @@ func _disable_dash():
 		movement_controller.can_decelerate = old_decceleration
 	
 	$DashParticles.emitting = false
-	

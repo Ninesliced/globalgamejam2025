@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var win_upgrade = "You're speed is fastest"
-@export var lose_upgrade = "You're speed is reduced" 
+@export var win_upgrade = "Your speed is fastest"
+@export var lose_upgrade = "Your speed is reduced" 
 
 var is_usable = true
 
@@ -40,7 +40,7 @@ func refill_oxygen(player):
 	player.Oxygen_component.oxygen = player.Oxygen_component.max_oxygen
 	
 func dash_cost_less(player):
-	player.Dash_component.dash_consumption = max(0, player.Dash_component.dash_consumption - 3)
+	player.Dash_component.dash_consumption = max(0, player.Dash_component.dash_consumption - 5)
 	
 func shoot_cost_less(player):
 	player.Weapon_component.weapon_resource.oxygen_comsuption = max(0.0, player.Weapon_component.weapon_resource.oxygen_comsuption - 0.2)
@@ -52,7 +52,7 @@ func lose_half_oxygen(player):
 	player.Oxygen_component.oxygen /= 2
 
 func dash_cost_more(player):
-	player.Dash_component.dash_consumption = min(player.Dash_component.dash_consumption + 3, 50)
+	player.Dash_component.dash_consumption = min(player.Dash_component.dash_consumption + 5, 50)
 
 func shoot_cost_more(player):
 	player.Weapon_component.weapon_resource.oxygen_comsuption = min(10.0, player.Weapon_component.weapon_resource.oxygen_comsuption + 0.2)
