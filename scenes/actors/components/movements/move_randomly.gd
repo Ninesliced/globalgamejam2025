@@ -10,6 +10,8 @@ extends MovementComponent
 var target_point : Vector2
 var direction : float = 0.0
 
+var padding : int = 250
+
 
 func _process(delta: float) -> void:
 	if not parent:
@@ -21,10 +23,16 @@ func _process(delta: float) -> void:
 	var target_dir: float = (target_point - parent.global_position).angle()
 	direction = lerp_angle(direction, target_dir, rotation_speed_interval * delta)
 	
-	speed = lerp(speed, randf_range(speed_range.x, speed_range.y), speed_change_interval * delta)
+	speed = clamp(lerp(speed, randf_range(speed_range.x, speed_range.y), speed_change_interval * delta), speed_range.x, speed_range.y)
 	
-	var movement := Vector2(speed, 0).rotated(direction) * delta
-	parent.position += movement
+	var movement := Vector2(speed, 0).rotated(direction)
+	if parent is Enemy:
+		if movement.x > 0:
+			parent.icon.flip_h = true
+		else:
+			parent.icon.flip_h = false
+
+	parent.velocity = movement
 	parent.move_and_slide()
 
 
@@ -37,7 +45,10 @@ func get_camera_bounds() -> Rect2:
 
 func get_level_bounds() -> Rect2:
 	var map : Map = get_tree().get_root().get_node("Map") as Map
-	return map.get_current_level_bounds()
+	var bounds := map.get_current_level_bounds()
+	bounds.position += Vector2(padding, padding)
+	bounds.size -= Vector2(padding * 2, padding * 2)
+	return bounds
 
 
 func find_new_target() -> Vector2:
