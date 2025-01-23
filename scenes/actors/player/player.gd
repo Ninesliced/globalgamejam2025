@@ -15,6 +15,7 @@ var Dash_component
 var Weapon_component
 var is_flip_h = false
 var is_dashing = false
+var totalsize # Total size of the map
 
 var _invincibility_time_left := 0.0
 
@@ -22,11 +23,13 @@ func _ready():
 	Oxygen_component = %OxygenComponent
 	Dash_component = %DashComponent
 	Weapon_component = %Weapon
+	totalsize = get_parent().level_size * get_parent().number_of_level + get_parent().betweenlevel_size * (get_parent().number_of_level+1)
 
 func _process(delta):
 	move_and_slide()
 
 	Global.hud.set_oxygen_bar($OxygenComponent.oxygen, $OxygenComponent.max_oxygen)
+	Global.hud.set_depth_bar(position.y, totalsize.y)
 	
 	sprite.flip_h = ($ShootComponent.aim_direction.x <= 0)
 	is_flip_h = ($ShootComponent.aim_direction.x <= 0)
