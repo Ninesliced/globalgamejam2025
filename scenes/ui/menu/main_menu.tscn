@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://tmy5pmuxhk1t"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/main_menu.gd" id="1_3dxpn"]
+[ext_resource type="Texture2D" uid="uid://wubb1uaw4w3b" path="res://assets/images/menu_backgrounds/main_background.png" id="2_n2mrk"]
 [ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="2_q5030"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_og1a6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,13 +14,12 @@ grow_vertical = 2
 script = ExtResource("1_3dxpn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.184314, 0.184314, 0.243137, 1)
 layout_mode = 2
 offset_left = -6.0
 offset_top = -1.0
 offset_right = 1928.0
 offset_bottom = 1085.0
-texture = SubResource("CanvasTexture_og1a6")
+texture = ExtResource("2_n2mrk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
