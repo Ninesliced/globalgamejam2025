@@ -40,6 +40,8 @@ func _process(delta):
 func reload_game():
 	get_tree().reload_current_scene()
 
+func quit():
+	get_tree().quit()
 
 func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_distance_to_mouse = 50) -> Vector2:
 	var vec = old_direction

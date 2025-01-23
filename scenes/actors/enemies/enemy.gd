@@ -69,7 +69,7 @@ func get_dashed_on(body: Node2D) -> void:
 			var is_captured = $CaptureOxygenComponent.is_captured
 			if not is_captured:
 				return
-			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption
+			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption + 3
 			if not oxygen_captured:
 				return
 

@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ctnqmvs1f2vmg"]
+
+[ext_resource type="Texture2D" uid="uid://ddstqdrk3kgau" path="res://assets/images/ui/patch_rect_button.png" id="1_ywxwr"]
+
+[resource]
+texture = ExtResource("1_ywxwr")
+texture_margin_left = 24.0
+texture_margin_top = 16.0
+texture_margin_right = 24.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 128, 128)
