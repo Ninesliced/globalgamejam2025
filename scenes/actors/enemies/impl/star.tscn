@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5wo5"]
 radius = 40.0
 
-[node name="Enemy" instance=ExtResource("1_6mlja")]
+[node name="Enemy2" instance=ExtResource("1_6mlja")]
 collision_mask = 4
 
 [node name="Icon" parent="." index="1"]
