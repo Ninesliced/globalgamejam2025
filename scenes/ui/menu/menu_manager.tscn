@@ -73,5 +73,3 @@ layout_mode = 1
 
 [node name="WinMenu" parent="Menus" instance=ExtResource("5_f5ytr")]
 layout_mode = 1
-
-[node name="Timer" type="Timer" parent="Menus/WinMenu"]

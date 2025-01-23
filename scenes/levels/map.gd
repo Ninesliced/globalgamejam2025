@@ -31,7 +31,7 @@ var current_level: int   = 0:
 			levels[1].level_has_been_passed = true
 			print("level is passeds")
 
-var number_of_level: int = 0
+var number_of_level: int = 8
 
 var next_current_level: int  = 0
 var next_is_on_a_level: bool = false

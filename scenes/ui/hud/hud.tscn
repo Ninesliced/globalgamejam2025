@@ -108,3 +108,4 @@ step = 0.001
 value = 0.675
 editable = false
 scrollable = false
+tick_count = 9
