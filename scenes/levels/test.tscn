@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqpquksmfq373"]
+
+[ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="1_vomm0"]
+[ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="2_b7whs"]
+
+[sub_resource type="Gradient" id="Gradient_j3fo8"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bgyyq"]
+gradient = SubResource("Gradient_j3fo8")
+
+[node name="Test" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = ExtResource("1_vomm0")
+position = Vector2(-328, 1696)
+texture = ExtResource("2_b7whs")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(6.29237, -8.41469)
+texture = SubResource("GradientTexture1D_bgyyq")
+texture_scale = 2.26

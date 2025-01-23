@@ -6,6 +6,14 @@ var menu_manager: MenuManager
 var hud_file = preload("res://scenes/ui/hud/hud.tscn")
 var hud: HUD
 
+enum ControllerType {
+	MOUSE = 0,
+	CONTROLLER = 1,
+}
+var old_direction = Vector2(0, 0)
+var old_mouse_pos = Vector2(0, 0)
+var controller_type: ControllerType = ControllerType.MOUSE
+
 enum PlayMode {
 	EIGHT_WAY = 0,
 	MOUSE = 1,
@@ -34,3 +42,30 @@ func reload_game():
 
 func quit():
 	get_tree().quit()
+
+func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_distance_to_mouse = 50) -> Vector2:
+	var vec = old_direction
+	var new_vec = Input.get_vector("left_visor", "right_visor", "up_visor", "down_visor")
+	
+	if new_vec != Vector2.ZERO:
+		controller_type = ControllerType.CONTROLLER
+		vec = new_vec.normalized()
+
+	elif play_mode == Global.PlayMode.MOUSE and old_mouse_pos != mouse_pos:
+		controller_type = ControllerType.MOUSE
+		var mouse_position = mouse_pos
+		var distance = (mouse_position - current_pos).length()
+		if distance < minimum_dash_distance_to_mouse:
+			return vec
+		vec = (mouse_position - current_pos).normalized()
+		old_direction = vec.normalized()
+
+	# if play_mode == Global.PlayMode.EIGHT_WAY:
+	# 	print("eight way")
+	# 	new_vec = Input.get_vector("left", "right", "up", "down")
+	# 	if new_vec != Vector2.ZERO:
+	# 		vec = new_vec.normalized()
+
+	old_mouse_pos = mouse_pos
+	old_direction = vec.normalized()
+	return vec

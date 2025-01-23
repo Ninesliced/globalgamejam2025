@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://mdow3uqace07"]
+[gd_scene load_steps=4 format=3 uid="uid://mdow3uqace07"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_d2k7l"]
-[ext_resource type="Texture2D" uid="uid://82myjobl684h" path="res://assets/images/menu_backgrounds/wall.png" id="4_gqhh5"]
-[ext_resource type="Texture2D" uid="uid://wot8jvgnwa0w" path="res://assets/images/menu_backgrounds/wall_simple.png" id="5_5riuf"]
+[ext_resource type="PackedScene" uid="uid://dpon7sdcisbbw" path="res://scenes/levels/background_wall/background_wall.tscn" id="2_ed3im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmtaw"]
-size = Vector2(1944, 3218)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogmwl"]
-load_path = "res://.godot/imported/Illustration_sans_titre.png-91a441689f7bc12fb2e585f742cf8db0.ctex"
+size = Vector2(1920, 4320)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_d2k7l")
@@ -16,42 +12,39 @@ script = ExtResource("1_d2k7l")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(968, 1608)
+position = Vector2(960, 2160)
 shape = SubResource("RectangleShape2D_hmtaw")
 
 [node name="right" type="Node2D" parent="."]
-visible = false
 position = Vector2(1928, 0)
 
-[node name="IllustrationSansTitre" type="Sprite2D" parent="right"]
-position = Vector2(-150, 536)
-texture = SubResource("CompressedTexture2D_ogmwl")
+[node name="BackgroundWall" parent="right" instance=ExtResource("2_ed3im")]
+position = Vector2(-1928, 0)
 
-[node name="IllustrationSansTitre3" type="Sprite2D" parent="right"]
-position = Vector2(-148, 2692)
-texture = SubResource("CompressedTexture2D_ogmwl")
+[node name="BackgroundWall2" parent="right" instance=ExtResource("2_ed3im")]
+position = Vector2(-1928, 1080)
 
-[node name="IllustrationSansTitre2" type="Sprite2D" parent="right"]
-position = Vector2(-150, 1616)
-texture = ExtResource("4_gqhh5")
+[node name="BackgroundWall3" parent="right" instance=ExtResource("2_ed3im")]
+position = Vector2(-1928, 2160)
+
+[node name="BackgroundWall4" parent="right" instance=ExtResource("2_ed3im")]
+position = Vector2(-1928, 3240)
 
 [node name="left" type="Node2D" parent="."]
-visible = false
-position = Vector2(-16, 0)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
-[node name="IllustrationSansTitre" type="Sprite2D" parent="left"]
-position = Vector2(-164.008, 535.995)
-texture = ExtResource("4_gqhh5")
+[node name="BackgroundWall" parent="left" instance=ExtResource("2_ed3im")]
+position = Vector2(-1920, -0.00486755)
 
-[node name="IllustrationSansTitre3" type="Sprite2D" parent="left"]
-position = Vector2(-162.008, 2692)
-texture = ExtResource("4_gqhh5")
+[node name="BackgroundWall2" parent="left" instance=ExtResource("2_ed3im")]
+position = Vector2(-1920, 1080)
 
-[node name="IllustrationSansTitre2" type="Sprite2D" parent="left"]
-position = Vector2(-164.008, 1615.99)
-texture = ExtResource("5_5riuf")
+[node name="BackgroundWall3" parent="left" instance=ExtResource("2_ed3im")]
+position = Vector2(-1920.01, 2160)
+
+[node name="BackgroundWall4" parent="left" instance=ExtResource("2_ed3im")]
+position = Vector2(-1920.01, 3240)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

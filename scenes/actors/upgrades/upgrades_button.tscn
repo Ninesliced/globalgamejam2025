@@ -1,55 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcmcovokpl6wj"]
+[gd_scene load_steps=3 format=3 uid="uid://bcmcovokpl6wj"]
 
 [ext_resource type="Script" path="res://scenes/actors/upgrades/upgrades_button.gd" id="1_b7wmy"]
 
-[sub_resource type="Gradient" id="Gradient_rstfb"]
-offsets = PackedFloat32Array(0, 0.7)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_osxp2"]
-gradient = SubResource("Gradient_rstfb")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ky8dp"]
-radius = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p65aw"]
+size = Vector2(216, 104)
 
 [node name="UpgradesButton" type="Node2D"]
 position = Vector2(0, 64)
 script = ExtResource("1_b7wmy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
-texture = SubResource("GradientTexture2D_osxp2")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ky8dp")
-
-[node name="Bonus" type="Label" parent="."]
+[node name="NotTaken" type="Node2D" parent="."]
 unique_name_in_owner = true
-offset_left = 8.0
+
+[node name="Area2D" type="Area2D" parent="NotTaken"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NotTaken/Area2D"]
+position = Vector2(108, -12)
+shape = SubResource("RectangleShape2D_p65aw")
+
+[node name="Bonus" type="RichTextLabel" parent="NotTaken"]
+unique_name_in_owner = true
+offset_top = -64.0
+offset_right = 216.0
+offset_bottom = -8.0
+bbcode_enabled = true
+text = "
+[outline_size=20][b][center][wave]{teste
+qslkdjfmlkjt}[/wave][/center][/b][/outline_size]"
+
+[node name="Malus" type="RichTextLabel" parent="NotTaken"]
+unique_name_in_owner = true
+offset_top = -16.0
+offset_right = 216.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "
+[outline_size=20][b][center][wave]{teste
+qslkdjfmlkjt}[/wave][/center][/b][/outline_size]"
+
+[node name="NoItem" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 80.0
 offset_top = -32.0
-offset_right = 48.0
-offset_bottom = -9.0
-metadata/_edit_use_anchors_ = true
+offset_right = 128.0
+offset_bottom = 16.0
+bbcode_enabled = true
+text = "
+[outline_size=20][b][center][wave]∅[/wave][/center][/b][/outline_size]"
 
-[node name="Malus" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 48.0
-offset_bottom = 95.0
-metadata/_edit_use_anchors_ = true
-
-[node name="But" type="Label" parent="."]
-offset_left = -32.0
-offset_top = 24.0
-offset_right = 8.0
-offset_bottom = 47.0
-text = "but"
-metadata/_edit_use_anchors_ = true
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="NotTaken/Area2D" to="." method="_on_area_2d_body_entered"]

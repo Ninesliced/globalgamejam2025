@@ -6,15 +6,19 @@ class_name MovementComponent
 
 var movement_velocity := Vector2(0, 0)
 var disabled = false
+
 func _ready():
-	
 	pass
+
+
+func _do_check():
+	assert(parent is not Node2D, "Please set a parent to your actor/scene that uses MovementComponent")
 
 
 func _process(delta):
 	if disabled:
 		return
-	pass
+
 
 func disable():
 	disabled = true

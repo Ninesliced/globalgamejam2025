@@ -8,9 +8,14 @@ class_name CameraManager
 var _center = Vector2(0, 0)
 var _rng = RandomNumberGenerator.new()
 var shake_amount = 0.0
+var camera_move_here = null
+
+
+var map_component
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	map_component = get_parent()
 	pass # Replace with function body.
 
 
@@ -19,9 +24,16 @@ func _process(delta):
 	if player == null:
 		return
 	_center = get_screen_center_position()
-	if player.global_position.y > _center.y - get_viewport_rect().size.y * scale_offset:
-		global_position.y = player.global_position.y + get_viewport_rect().size.y * scale_offset
-	
+	if map_component.is_on_a_level:
+		if player.global_position.y > _center.y - get_viewport_rect().size.y * scale_offset:
+			if camera_move_here != null:
+				global_position.y = max(player.global_position.y + get_viewport_rect().size.y * scale_offset, camera_move_here)
+			else: 
+				global_position.y = player.global_position.y + get_viewport_rect().size.y * scale_offset
+	else:
+		if camera_move_here != null:
+			global_position.y = camera_move_here
+
 	_update_shake(delta)
 
 

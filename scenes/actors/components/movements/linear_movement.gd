@@ -1,12 +1,14 @@
 extends MovementComponent
-@export var direction = Vector2(1, 0)
+
+@export var direction := Vector2(1, 0)
+@export var flipped := false
 
 @onready var right_ray_cast : RayCast2D = $Right
 @onready var left_ray_cast : RayCast2D = $Left
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	assert(parent is Node2D, "Please set a parent to your MovementComponent")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,14 +16,14 @@ func _process(delta):
 		direction.x = -1
 	elif direction.x < 0 and left_ray_cast.is_colliding():
 		direction.x = 1
-	pass
+	
 	parent.velocity = direction.normalized() * speed
 	if parent is Enemy:
 		var enemy = parent as Enemy
-		enemy.icon.flip_h = direction.x < 0
+		enemy.icon.flip_h = flipped != (direction.x < 0)
 
 
 func _get_configuration_warnings():
 	if not parent:
-		return ["Please set a parent object in your MovementComponent/MoveLinear object"]
+		return ["Please set a parent object in your MovementCsomponent/MoveLinear object"]
 	return []

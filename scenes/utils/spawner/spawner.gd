@@ -7,6 +7,7 @@ extends Node2D
 
 var map : Map
 var padding : int = 250
+var additional_top_padding : int = 400
 
 
 func _ready() -> void:
@@ -33,11 +34,20 @@ func _on_map_level_change(level: int) -> void:
 	
 	level_pos.x += padding
 	level_size.x -= padding * 2
-	level_pos.y += padding
-	level_size.y -= padding * 2
+	level_pos.y += padding + additional_top_padding
+	level_size.y -= padding * 2 + additional_top_padding
 	
 	for i in range(randi_range(level_data.spawn_count.x, level_data.spawn_count.y)):
-		var enemy_instance : Node2D = get_random_spawnable(level_data).instantiate() as Node2D
+		var scene = get_random_spawnable(level_data)
+		if not scene is PackedScene:
+			printerr("No enemy to spawn")
+			continue
+		var enemy_instance : Node2D = scene.instantiate() as Node2D
+		
+		if enemy_instance == null:
+			printerr("Error while spawning enemy")
+			continue
+			
 		var pos_x : float 			= randf_range(level_pos.x, level_pos.x + level_size.x)
 		var pos_y : float 			= randf_range(level_pos.y, level_pos.y + level_size.y)
 		get_tree().current_scene.add_child(enemy_instance)
@@ -76,4 +86,4 @@ func _on_bubble_delay_timeout() -> void:
 		get_tree().current_scene.add_child(bubble_instance)
 		bubble_instance.global_position  = Vector2(pos_x, camera_pos.y + viewport.size.y / 2)
 		bubble_instance.bubble_value 	 = randi_range(level_data.bubble_air.x, level_data.bubble_air.y)
-		print(bubble_instance.bubble_value)
+		# print(bubble_instance.bubble_value)

@@ -13,6 +13,7 @@ var can_move = true
 var spinning = false
 var spin_time = 0.5
 var damage_player = false
+var oxygen_added = false
 var collision : KinematicCollision2D = null
 @onready var icon : Sprite2D = $Icon
 
@@ -47,6 +48,7 @@ func _on_body_entered(body: Node2D) -> void:
 	get_dashed_on((body))
 
 func get_dashed_on(body: Node2D) -> void:
+	var dash_consumption = 0
 	if not body.is_in_group("has_DashComponent"):
 		return
 
@@ -55,6 +57,7 @@ func get_dashed_on(body: Node2D) -> void:
 	for child in body.get_children():
 		if child is DashComponent:
 			is_dashed_on = child.is_dashing
+			dash_consumption = child.dash_consumption
 
 	if not is_dashed_on:
 		return
@@ -64,11 +67,13 @@ func get_dashed_on(body: Node2D) -> void:
 			var is_captured = $CaptureOxygenComponent.is_captured
 			if not is_captured:
 				return
-			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 4
+			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption + 3
 			if not oxygen_captured:
 				return
 
-			child.add_oxygen(oxygen_captured)
+			if not oxygen_added:
+				child.add_oxygen(oxygen_captured)
+			oxygen_added = true
 			var bubble_cloud = bubble_pop_scene.instantiate()
 			get_parent().add_child(bubble_cloud)
 			bubble_cloud.global_position = global_position
@@ -95,3 +100,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+func get_normal():
+	if !collision:
+		return null
+	return collision.get_normal()

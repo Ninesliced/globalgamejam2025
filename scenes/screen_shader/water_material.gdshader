@@ -170,7 +170,7 @@ float swarp(vec2 uv, float time) {
     return max(0.0, perlin(
         uv * 3.0,
         time * 0.2
-    ) * 0.0005 - 0.0005);
+    ) * 0.00015 - 0.00015);
 }
 
 void vertex() {
@@ -181,28 +181,23 @@ void fragment() {
     float texture_t = TIME * time_scale;
 
     vec2 target_uv = mod(abs(vec2(
-        UV.x + noise(UV - texture_t) * warp_amplitude,
-        UV.y - noise(UV + texture_t) * warp_amplitude
+        UV.x + noise(UV * spectrum_multiplier - texture_t) * warp_amplitude,
+        UV.y - noise(UV * spectrum_multiplier + texture_t) * warp_amplitude
     )), 1.0);
 
     float texture_swarp = swarp(UV, texture_t);
 
-    vec2 texture_uv_r = mod(target_uv * texture_scale + swarp(UV, texture_t - 0.1), 1.0);
-    vec2 texture_uv_g = mod(target_uv * texture_scale + swarp(UV, texture_t - 0.05), 1.0);
-    vec2 texture_uv_b = mod(target_uv * texture_scale + swarp(UV, texture_t + 0.2), 1.0);
+    vec2 texture_uv_r = abs(target_uv * texture_scale + swarp(UV, texture_t - 0.1));
+    vec2 texture_uv_g = abs(target_uv * texture_scale + swarp(UV, texture_t - 0.05));
+    vec2 texture_uv_b = abs(target_uv * texture_scale + swarp(UV, texture_t + 0.2));
 
     vec4 base_color = texture(TEXTURE, texture_swarp * target_uv);
     vec4 distort_color = vec4(
         texture(TEXTURE, texture_uv_r).r,
         texture(TEXTURE, texture_uv_g).g,
         texture(TEXTURE, texture_uv_b).b,
-        1.0
+        texture(TEXTURE, texture_uv_b).a
     );
 
-    COLOR = base_color + distort_color;
+    COLOR = base_color * distort_color;
 }
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
