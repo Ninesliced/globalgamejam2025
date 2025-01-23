@@ -6,12 +6,12 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/level_data.gd" id="3_sb12f"]
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
-[ext_resource type="PackedScene" uid="uid://d3xojrrd0vnld" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
-[ext_resource type="PackedScene" uid="uid://c1jbyrgdmhmrp" path="res://scenes/actors/enemies/impl/star.tscn" id="7_ghpoy"]
+[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_fish.tscn" id="11_3eyet"]
+[ext_resource type="PackedScene" uid="uid://c1jbyrgdmhmrp" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
 
 [sub_resource type="Resource" id="Resource_rb20b"]
 script = ExtResource("4_f32e1")
@@ -25,7 +25,7 @@ chance = 1
 
 [sub_resource type="Resource" id="Resource_isf03"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("7_ghpoy")
+spawnable = ExtResource("12_cx4an")
 chance = 1
 
 [sub_resource type="Resource" id="Resource_ba807"]
@@ -54,14 +54,14 @@ size = Vector2(125, 1088.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg7th"]
 size = Vector2(128, 1093)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
-size = Vector2(2176, 142)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb3cr"]
 size = Vector2(260, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcf6n"]
 size = Vector2(274, 1082)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
+size = Vector2(2176, 142)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
@@ -99,7 +99,7 @@ scale_offset = -0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
 position = Vector2(1152, -451)
-collision_layer = 4
+collision_layer = 260
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
 position = Vector2(-128, 453.75)
@@ -108,10 +108,6 @@ shape = SubResource("RectangleShape2D_ekr4v")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
 position = Vector2(-2176, 448.5)
 shape = SubResource("RectangleShape2D_gg7th")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(-1152, -157)
-shape = SubResource("RectangleShape2D_r1his")
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]
 script = ExtResource("8_vk5iy")
@@ -125,6 +121,13 @@ debug_color = Color(0.321257, 0.606285, 0.434478, 0.42)
 position = Vector2(825, 2)
 shape = SubResource("RectangleShape2D_dcf6n")
 debug_color = Color(0.288832, 0.608157, 0.471604, 0.42)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(0, -608)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_r1his")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.102462, 0.119067, 0.29463, 1)

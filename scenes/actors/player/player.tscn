@@ -129,6 +129,7 @@ label_settings = SubResource("LabelSettings_yudvb")
 horizontal_alignment = 1
 
 [node name="DashComponent" type="Node2D" parent="." node_paths=PackedStringArray("movement_controller", "oxygen_component")]
+unique_name_in_owner = true
 script = ExtResource("4_5qxf7")
 movement_controller = NodePath("../MovementController")
 dash_distance = 30000
@@ -163,6 +164,7 @@ scale = Vector2(2, 2)
 script = ExtResource("6_u70v2")
 
 [node name="Weapon" parent="ShootComponent" instance=ExtResource("7_uxkc3")]
+unique_name_in_owner = true
 weapon_resource = ExtResource("8_me6fi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

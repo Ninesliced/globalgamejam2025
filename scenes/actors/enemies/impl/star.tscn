@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1jbyrgdmhmrp"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_6mlja"]
-[ext_resource type="Texture2D" uid="uid://bg1lujw05htx1" path="res://assets/images/actors/enemies/star.png" id="2_2o7q0"]
+[ext_resource type="Texture2D" uid="uid://sc2jfp4btt2a" path="res://assets/images/actors/enemies/star.png" id="2_2o7q0"]
 [ext_resource type="Script" path="res://scenes/actors/components/movements/pong_movement.gd" id="3_tygc1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5wo5"]
 radius = 40.0
 
 [node name="Enemy2" instance=ExtResource("1_6mlja")]
-collision_mask = 4
+collision_mask = 256
 
 [node name="Icon" parent="." index="1"]
 position = Vector2(1.13687e-13, 5.96046e-08)
@@ -21,8 +21,8 @@ shape = SubResource("CircleShape2D_f5wo5")
 [node name="Label" parent="." index="5"]
 visible = false
 
-[node name="MovementComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("parent")]
+[node name="PongMovementComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("parent")]
 script = ExtResource("3_tygc1")
 parent = NodePath("..")
 
-[connection signal="body_entered" from="HitboxComponent/Area2D" to="MovementComponent" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HitboxComponent/Area2D" to="PongMovementComponent" method="_on_area_2d_body_entered"]
