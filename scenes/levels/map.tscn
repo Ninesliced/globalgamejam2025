@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=30 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
-[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" uid="uid://dye72oeuu24j3" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
+[ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
+[ext_resource type="Texture2D" uid="uid://b7x7x3a6fgr8v" path="res://assets/images/background/cave.png" id="16_7ex0l"]
 
 [sub_resource type="PackedScene" id="PackedScene_s2obm"]
 _bundled = {
@@ -82,16 +84,12 @@ size = Vector2(256, 1104)
 size = Vector2(256, 1104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1his"]
-size = Vector2(2224, 128)
+size = Vector2(2176, 128)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_su3uq")
 player = NodePath("Player")
 camera = NodePath("Camera2D")
-
-[node name="Enemy2" parent="." instance=ExtResource("12_cx4an")]
-position = Vector2(1224, 912)
-scale = Vector2(2.53976, 2.12739)
 
 [node name="Spawner" parent="." instance=ExtResource("2_rm8mk")]
 levels = Array[ExtResource("3_sb12f")]([SubResource("Resource_ba807")])
@@ -128,7 +126,7 @@ position = Vector2(1152, -451)
 collision_layer = 260
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(-80, 458.938)
+position = Vector2(-128, 459)
 shape = SubResource("RectangleShape2D_ekr4v")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
@@ -144,7 +142,7 @@ shape = SubResource("RectangleShape2D_yb3cr")
 debug_color = Color(0.321257, 0.606285, 0.434478, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(880, 8)
+position = Vector2(832, 8)
 shape = SubResource("RectangleShape2D_dcf6n")
 debug_color = Color(0.288832, 0.608157, 0.471604, 0.42)
 
@@ -153,7 +151,6 @@ position = Vector2(0, -608)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D2"]
-position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_r1his")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -167,6 +164,22 @@ player = NodePath("../Player")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_2iqa8")
 autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Fond" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(960, 2700)
+texture = ExtResource("15_oconm")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.22, 0.22)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(960, 5400)
+texture = ExtResource("16_7ex0l")
 
 [connection signal="level_change" from="." to="Spawner" method="_on_map_level_change"]
 [connection signal="body_entered" from="Camera2D/Area2D" to="Camera2D/Area2D" method="_on_body_entered"]

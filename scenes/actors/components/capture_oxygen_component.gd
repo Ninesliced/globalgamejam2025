@@ -34,6 +34,9 @@ func _process(delta):
 	var old_is_captured = is_captured
 	is_captured = (oxygen_stored >= capture_threshold)
 
+	if is_captured:
+		get_parent().rotate(delta * 0.3)
+
 	if not old_is_captured and is_captured:
 		captured.emit()
 
