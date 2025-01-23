@@ -15,7 +15,7 @@ func _ready():
 	if associated_level == get_parent().get_parent().number_of_level:
 		var coffre_last_levelPackedScene = load("res://scenes/levels/coffre_last_level.tscn")
 		var coffre_last_level = coffre_last_levelPackedScene.instantiate()
-		coffre_last_level.position = Vector2(584, 184)
+		coffre_last_level.position = Vector2(0,0)
 		add_child(coffre_last_level)
 
 	%ExplicationText.visible = false
