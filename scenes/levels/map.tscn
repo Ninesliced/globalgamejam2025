@@ -7,15 +7,17 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="5_nl50u"]
-[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/linear_movement.tscn" id="6_nlyto"]
-[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="PackedScene" uid="uid://b41ugkahe4fpb" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
-[ext_resource type="PackedScene" uid="uid://dye72oeuu24j3" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
-[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
+[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/star.tscn" id="12_cx4an"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
 [ext_resource type="Texture2D" uid="uid://b7x7x3a6fgr8v" path="res://assets/images/background/cave.png" id="16_7ex0l"]
+
+[sub_resource type="Resource" id="Resource_iq7ql"]
+metadata/__load_path__ = "res://scenes/actors/components/movements/move_linear.tscn"
 
 [sub_resource type="PackedScene" id="PackedScene_s2obm"]
 _bundled = {
@@ -27,7 +29,7 @@ _bundled = {
 "node_count": 5,
 "node_paths": [NodePath("HitboxComponent")],
 "nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, 0, 2147483647, 262147, -1, 2, 4, 2, 5, 2, 0, 0, 0, 2147483647, 524295, -1, 1, 8, 3, 0, 0, 0, 2147483647, 1310730, -1, 1, 11, 4, 0, 0, 0, 2147483647, 2097166, 5, 1, 1073741839, 6, 0),
-"variants": [ExtResource("5_nl50u"), 33.0, 5, Vector2(-1, 1), 4.0, ExtResource("6_nlyto"), NodePath("..")],
+"variants": [ExtResource("5_nl50u"), 33.0, 5, Vector2(-1, 1), 4.0, SubResource("Resource_iq7ql"), NodePath("..")],
 "version": 3
 }
 
