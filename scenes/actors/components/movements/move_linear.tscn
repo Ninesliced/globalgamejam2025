@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://35paj1apcxlo"]
+
+[ext_resource type="Script" path="res://scenes/actors/components/movements/move_linear.gd" id="1_2n8av"]
+
+[node name="MoveLinear" type="Node2D"]
+script = ExtResource("1_2n8av")
+
+[node name="Right" type="RayCast2D" parent="."]
+target_position = Vector2(256, 2.08165e-12)
+collision_mask = 4
+
+[node name="Left" type="RayCast2D" parent="."]
+target_position = Vector2(-256, 2.08165e-12)
+collision_mask = 4

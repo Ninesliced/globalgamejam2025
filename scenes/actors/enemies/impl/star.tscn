@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1jbyrgdmhmrp"]
+[gd_scene load_steps=5 format=3 uid="uid://04or753ha6ns"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_6mlja"]
 [ext_resource type="Texture2D" uid="uid://sc2jfp4btt2a" path="res://assets/images/actors/enemies/star.png" id="2_2o7q0"]
