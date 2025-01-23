@@ -11,7 +11,8 @@ func set_oxygen_bar(value: float, max_value: float):
 	%OxygenBar.max_value = max_value
 
 func set_depth_bar(value: float, max_value: float):
-	print("depth ", value, " ", max_value)
+	# print("depth ", value, " ", max_value)
+	pass
 
 func _process(delta):
 	_time += delta
