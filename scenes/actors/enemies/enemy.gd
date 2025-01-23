@@ -70,7 +70,6 @@ func get_dashed_on(body: Node2D) -> void:
 				return
 
 			if not oxygen_added:
-				print("adding o2")
 				child.add_oxygen(oxygen_captured)
 			oxygen_added = true
 			var bubble_cloud = bubble_pop_scene.instantiate()
