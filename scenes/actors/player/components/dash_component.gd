@@ -41,7 +41,6 @@ func _ready():
 
 
 func _process(delta):
-	print("Dash consumption", dash_consumption)
 	pass
 
 
