@@ -30,27 +30,26 @@ shape = SubResource("CircleShape2D_ky8dp")
 
 [node name="Bonus" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 80)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -69.0
-offset_top = -41.0
+offset_top = -60.0
 offset_right = 131.0
-offset_bottom = 9.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 bbcode_enabled = true
-text = "[center][wave][/wave][/center]"
-fit_content = true
+text = "[outline_size=20][b][center][wave]{testet}[/wave][/center][/b][/outline_size]"
 
 [node name="Malus" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 60)
 offset_left = -68.0
 offset_top = 65.0
 offset_right = 132.0
@@ -58,7 +57,6 @@ offset_bottom = 115.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 bbcode_enabled = true
-fit_content = true
 metadata/_edit_use_anchors_ = true
 
 [node name="But" type="Label" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpyt52xy81e0a"]
+[gd_scene load_steps=2 format=3 uid="uid://cb7v4dbomb867"]
 
 [ext_resource type="Script" path="res://scenes/actors/components/movements/sine_movement_component.gd" id="1_b2qji"]
 
