@@ -37,7 +37,11 @@ func _on_map_level_change(level: int) -> void:
 	level_size.y -= padding * 2
 	
 	for i in range(randi_range(level_data.spawn_count.x, level_data.spawn_count.y)):
-		var enemy_instance : Node2D = get_random_spawnable(level_data).instantiate() as Node2D
+		var scene = get_random_spawnable(level_data)
+		if not scene is PackedScene:
+			printerr("No enemy to spawn")
+			continue
+		var enemy_instance : Node2D = scene.instantiate() as Node2D
 		var pos_x : float 			= randf_range(level_pos.x, level_pos.x + level_size.x)
 		var pos_y : float 			= randf_range(level_pos.y, level_pos.y + level_size.y)
 		get_tree().current_scene.add_child(enemy_instance)

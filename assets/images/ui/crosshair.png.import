@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sc2jfp4btt2a"
-path="res://.godot/imported/star.png-973099a12d6cd9a6b0aafa1467523db7.ctex"
+uid="uid://b0rfge7r3affx"
+path="res://.godot/imported/crosshair.png-49b6f88d9cf28d1c374470083c5cc422.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/actors/enemies/star.png"
-dest_files=["res://.godot/imported/star.png-973099a12d6cd9a6b0aafa1467523db7.ctex"]
+source_file="res://assets/images/ui/crosshair.png"
+dest_files=["res://.godot/imported/crosshair.png-49b6f88d9cf28d1c374470083c5cc422.ctex"]
 
 [params]
 

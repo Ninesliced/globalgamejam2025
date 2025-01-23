@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxpppf4um03f6"]
+[gd_scene load_steps=3 format=3 uid="uid://lp5qwldrayps"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_phiae"]
-[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/move_linear.tscn" id="2_hdkqs"]
+[ext_resource type="PackedScene" uid="uid://35paj1apcxlo" path="res://scenes/actors/components/movements/move_linear.tscn" id="2_hdkqs"]
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
 
@@ -12,8 +12,8 @@ collision_mask = 5
 [node name="Icon" parent="." index="1"]
 scale = Vector2(-1, 1)
 
-[node name="MoveLinear" parent="." index="3" node_paths=PackedStringArray("parent") instance=ExtResource("2_hdkqs")]
-parent = NodePath("..")
+[node name="MoveLinear" parent="." index="3" instance=ExtResource("2_hdkqs")]
+script = null
 
 [node name="CaptureOxygenComponent" parent="." index="5" node_paths=PackedStringArray("hitbox")]
 hitbox = NodePath("../HitboxComponent")
