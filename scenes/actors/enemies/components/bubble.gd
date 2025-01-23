@@ -13,5 +13,5 @@ func _process(delta):
 func set_size(size: Vector2):
 	var tween = get_tree().create_tween()
 
-	tween.tween_property(self, "scale", size, 0.8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", size, 1.4).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	pass
