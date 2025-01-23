@@ -6,8 +6,8 @@ class_name MovementComponent
 
 var movement_velocity := Vector2(0, 0)
 var disabled = false
+
 func _ready():
-	
 	pass
 
 

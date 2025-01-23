@@ -14,7 +14,7 @@ func _process(delta):
 		direction.x = -1
 	elif direction.x < 0 and left_ray_cast.is_colliding():
 		direction.x = 1
-	pass
+	
 	parent.velocity = direction.normalized() * speed
 	if parent is Enemy:
 		var enemy = parent as Enemy
@@ -23,5 +23,5 @@ func _process(delta):
 
 func _get_configuration_warnings():
 	if not parent:
-		return ["Please set a parent object in your MovementComponent/MoveLinear object"]
+		return ["Please set a parent object in your MovementCsomponent/MoveLinear object"]
 	return []
