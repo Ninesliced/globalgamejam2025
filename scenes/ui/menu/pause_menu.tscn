@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b64p3bg6pqutj"]
+[gd_scene load_steps=6 format=3 uid="uid://b64p3bg6pqutj"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/pause_menu.gd" id="1_cjlbg"]
 [ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_xcqqo"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_0a4bq"]
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7w7j"]
+font_size = 32
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -84,6 +87,7 @@ size_flags_stretch_ratio = 0.33
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Volume"
+label_settings = SubResource("LabelSettings_q7w7j")
 
 [node name="VolumeSlider" type="HSlider" parent="VBoxContainer"]
 unique_name_in_owner = true
