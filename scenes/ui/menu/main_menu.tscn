@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://tmy5pmuxhk1t"]
+[gd_scene load_steps=6 format=3 uid="uid://tmy5pmuxhk1t"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/main_menu.gd" id="1_3dxpn"]
 [ext_resource type="Texture2D" uid="uid://ctsk4hpwabynt" path="res://assets/images/menu_backgrounds/Acceuil_du_jeu.png" id="2_c3yen"]
 [ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="2_q5030"]
+[ext_resource type="Texture2D" uid="uid://wvk7xqjikp5d" path="res://assets/images/logo.png" id="3_bks42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfpx6"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,6 +25,15 @@ offset_top = -1.0
 offset_right = 1928.0
 offset_bottom = 1085.0
 texture = ExtResource("2_c3yen")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 298.0
+offset_top = -96.0
+offset_right = 1582.0
+offset_bottom = 974.0
+texture = ExtResource("3_bks42")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -52,6 +66,12 @@ text = "QUIT"
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.22
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "A game by Alexis, ArkanYota, NotGoyome, Megablowking, Theobosse, Yolwoocle"
+label_settings = SubResource("LabelSettings_gfpx6")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
