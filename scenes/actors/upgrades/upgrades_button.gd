@@ -76,4 +76,5 @@ func _on_area_2d_body_entered(body):
 		is_usable = false
 		win_upgrades[win_upgrade].call(body)
 		lose_upgrades[lose_upgrade].call(body)
-		queue_free()
+		%NotTaken.visible = false
+		%NoItem.visible = true
