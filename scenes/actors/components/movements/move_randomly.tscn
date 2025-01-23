@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://yxr5xmjc8vos"]
+
+[ext_resource type="PackedScene" uid="uid://c78lwthhh6xj5" path="res://scenes/actors/components/movements/movement_component.tscn" id="1_srx3n"]
+[ext_resource type="Script" path="res://scenes/actors/components/movements/move_randomly.gd" id="2_8jpjm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77kyp"]
+
+[node name="MovementComponent" instance=ExtResource("1_srx3n")]
+script = ExtResource("2_8jpjm")
+speed_range = Vector2i(100, 10)
+rotation_speed_interval = 0.5
+speed_change_interval = 1.0
+
+[node name="PanicZone" type="Area2D" parent="." index="0"]
+
+[node name="Shape" type="CollisionShape2D" parent="PanicZone" index="0"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_77kyp")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+one_shot = true
+
+[connection signal="body_entered" from="PanicZone" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -57,7 +57,7 @@ func _update_invicibility(delta):
 		modulate = Color.WHITE
 
 func damage(amount: float):
-	if _invincibility_time_left > 0:
+	if _invincibility_time_left > 0 or amount == 0:
 		return
 	
 	$OxygenComponent.add_oxygen(-amount)

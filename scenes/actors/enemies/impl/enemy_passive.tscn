@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgawuat43rapu"]
+
+[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_bc5bm"]
+[ext_resource type="PackedScene" uid="uid://yxr5xmjc8vos" path="res://scenes/actors/components/movements/move_randomly.tscn" id="2_2c6yy"]
+
+[node name="EnemyPassive" instance=ExtResource("1_bc5bm")]
+damage_value = 0.0
+
+[node name="RandomMovement" parent="." index="0" node_paths=PackedStringArray("parent") instance=ExtResource("2_2c6yy")]
+speed_range = Vector2i(200, 400)
+parent = NodePath("..")
+
+[node name="CaptureOxygenComponent" parent="." index="5"]
+capture_threshold = 2.0

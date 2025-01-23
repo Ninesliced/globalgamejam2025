@@ -31,3 +31,28 @@ func _process(delta):
 
 func reload_game():
 	get_tree().reload_current_scene()
+
+
+func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_distance_to_mouse = 50) -> Vector2:
+	var vec = Vector2(1, 0)
+	var new_vec = Input.get_vector("left_visor", "right_visor", "up_visor", "down_visor")
+	if new_vec != Vector2.ZERO:
+		return new_vec.normalized()	
+
+	if play_mode == Global.PlayMode.MOUSE:
+		var mouse_position = mouse_pos
+		var distance = (mouse_position - current_pos).length()
+		if distance < minimum_dash_distance_to_mouse:
+			return vec
+		vec = (mouse_position - current_pos).normalized()
+		print(vec)
+		return vec
+	
+	if play_mode == Global.PlayMode.EIGHT_WAY:
+		print("eight way")
+		new_vec = Input.get_vector("left", "right", "up", "down")
+		if new_vec != Vector2.ZERO:
+			vec = new_vec.normalized() 
+		return vec
+
+	return vec
