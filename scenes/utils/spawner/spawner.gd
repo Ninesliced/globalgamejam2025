@@ -43,6 +43,11 @@ func _on_map_level_change(level: int) -> void:
 			printerr("No enemy to spawn")
 			continue
 		var enemy_instance : Node2D = scene.instantiate() as Node2D
+		
+		if enemy_instance == null:
+			printerr("Error while spawning enemy")
+			continue
+			
 		var pos_x : float 			= randf_range(level_pos.x, level_pos.x + level_size.x)
 		var pos_y : float 			= randf_range(level_pos.y, level_pos.y + level_size.y)
 		get_tree().current_scene.add_child(enemy_instance)
