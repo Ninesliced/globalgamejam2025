@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="5_nl50u"]
-[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/linear_movement.tscn" id="6_nlyto"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/movements/linear_movement.tscn" id="6_nlyto"]
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
