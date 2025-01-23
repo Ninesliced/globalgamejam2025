@@ -4,7 +4,7 @@ extends Node2D
 @export var lose_upgrade = "Your speed is reduced" 
 
 var is_usable = true
-var bbc_default_string = "[b][center][wave]{text}[/wave][/center][/b]"
+var bbc_default_string = "[outline_size=20][b][center][wave]{text}[/wave][/center][/b][/outline_size]"
 
 var win_upgrades = {
 	"Increase oxygen capacity": win_oxygen_capacity,
