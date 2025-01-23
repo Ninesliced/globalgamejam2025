@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhbpuedpj1d3l"]
+[gd_scene load_steps=34 format=3 uid="uid://bhbpuedpj1d3l"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_brhlp"]
 [ext_resource type="Texture2D" uid="uid://ck143ckxsx7yo" path="res://assets/images/actors/player/player_dash.png" id="2_t67tn"]
@@ -98,6 +98,14 @@ stream_0/stream = ExtResource("17_vgc8s")
 stream_1/stream = ExtResource("18_5g1eu")
 stream_2/stream = ExtResource("19_xlqwp")
 
+[sub_resource type="Animation" id="Animation_wt110"]
+resource_name = "death"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwr4t"]
+_data = {
+"death": SubResource("Animation_wt110")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_brhlp")
@@ -172,3 +180,8 @@ shape = SubResource("RectangleShape2D_gs3qp")
 
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dqndu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jwr4t")
+}
