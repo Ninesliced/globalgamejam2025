@@ -5,6 +5,7 @@ func _ready():
 
 
 func _on_quit_pressed():
+	Global.reload_game()
 	Global.menu_manager.set_menu("MainMenu")
 
 
