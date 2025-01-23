@@ -89,6 +89,10 @@ script = ExtResource("1_su3uq")
 player = NodePath("Player")
 camera = NodePath("Camera2D")
 
+[node name="Enemy2" parent="." instance=ExtResource("12_cx4an")]
+position = Vector2(1224, 912)
+scale = Vector2(2.53976, 2.12739)
+
 [node name="Spawner" parent="." instance=ExtResource("2_rm8mk")]
 levels = Array[ExtResource("3_sb12f")]([SubResource("Resource_ba807")])
 
