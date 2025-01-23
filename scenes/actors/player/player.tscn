@@ -186,3 +186,5 @@ stream = SubResource("AudioStreamRandomizer_dqndu")
 libraries = {
 "": SubResource("AnimationLibrary_jwr4t")
 }
+
+[connection signal="run_out_of_oxygen" from="OxygenComponent" to="." method="do_death_animation"]

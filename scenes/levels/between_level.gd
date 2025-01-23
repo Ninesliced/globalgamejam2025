@@ -22,13 +22,29 @@ func _ready():
 		%CheckpointElement.frame = 0
 	elif associated_level <= 3:
 		%CheckpointElement.frame = 1
-	else:
+	elif associated_level <= 5:
 		%CheckpointElement.frame = 2
+	elif associated_level <= 7:
+		%CheckpointElement.frame = 3
+	else:
+		%CheckpointElement.frame = 4
 
 	if associated_level <= 3:
 		%PipesElement.frame = 0
-	else:
+	elif associated_level <= 5:
 		%PipesElement.frame = 1
+	elif associated_level <= 7:
+		%PipesElement.frame = 2
+	else:
+		%PipesElement.frame = 3	
+		
+	if %UpgradesButton:
+		if associated_level <= 6:
+			%UpgradesButton.position = Vector2(1296, 256)
+			%UpgradesButton.rotation = deg_to_rad(8)
+		else:
+			%UpgradesButton.position = Vector2(1232, 344)
+			%UpgradesButton.rotation = deg_to_rad(-19.7)
 
 func _on_area_2d_body_entered(body):
 	if body is Player:		

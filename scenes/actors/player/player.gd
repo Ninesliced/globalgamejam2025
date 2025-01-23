@@ -17,6 +17,8 @@ var is_flip_h = false
 var is_dashing = false
 var totalsize # Total size of the map
 
+var _dead_player_anim = preload("res://scenes/actors/player/dying_player.tscn")
+
 var _invincibility_time_left := 0.0
 
 func _ready():
@@ -49,6 +51,11 @@ func _process(delta):
 func do_death_animation():
 	process_mode = PROCESS_MODE_DISABLED
 	hide()
+
+	var node: Node2D = _dead_player_anim.instantiate()
+	node.global_position = global_position
+	get_parent().add_child(node)
+	node.play()
 
 func _update_invicibility(delta):
 	_invincibility_time_left = max(0.0, _invincibility_time_left - delta)
