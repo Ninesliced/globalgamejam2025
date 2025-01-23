@@ -31,7 +31,7 @@ var current_level: int   = 0:
 			levels[1].level_has_been_passed = true
 			print("level is passeds")
 
-var number_of_level: int = 25
+var number_of_level: int = 8
 
 var next_current_level: int  = 0
 var next_is_on_a_level: bool = false
@@ -59,14 +59,16 @@ var light_radius: float = 0.7:
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
 
+var level_size = get_size_of_level(PackedScenelevel.instantiate())
+var betweenlevel_size = get_size_of_level(PackedScenebetween_level.instantiate())
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	light_radius = 0.7
 	load_next_level()
 	load_next_level()
 	load_next_level()
-	
-	var mapsize: Vector2 = get_size_of_level(PackedScenelevel.instantiate())
+	Global.hud.map_component = self
 	# print(mapsize)
 	pass # Replace with function body.
 
