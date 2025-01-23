@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/move_linear.tscn" id="3_1o2hb"]
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
+damage_value = 33.0
 
 [node name="Area2D" parent="HitboxComponent" index="0"]
 collision_layer = 5
@@ -14,6 +15,7 @@ scale = Vector2(-1, 1)
 
 [node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
 hitbox = NodePath("../HitboxComponent")
+capture_threshold = 4.0
 
 [node name="MoveLinear" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1o2hb")]
 parent = NodePath("..")

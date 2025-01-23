@@ -57,7 +57,10 @@ func handle_dash():
 		_dash_direction = get_dash_direction(player.velocity)
 		if _dash_direction == Vector2.ZERO:
 			return Vector2.ZERO
-		oxygen_component.add_oxygen(-dash_consumption)
+		if oxygen_component.oxygen < dash_consumption: # tolerance for dash
+			oxygen_component.add_oxygen(min(oxygen_component.oxygen, dash_consumption / 2))
+		else:
+			oxygen_component.add_oxygen(-dash_consumption)
 		dash_entered.emit()
 
 		enable_dash()
