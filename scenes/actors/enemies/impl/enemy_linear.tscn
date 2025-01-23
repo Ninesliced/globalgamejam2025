@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5o2qks5oijqu"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_phiae"]
-[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/linear_movement.tscn" id="3_1o2hb"]
+[ext_resource type="PackedScene" uid="uid://c8w7mywnf2c0d" path="res://scenes/actors/components/movements/linear_movement.tscn" id="3_1o2hb"]
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
 damage_value = 33.0
@@ -13,7 +13,8 @@ collision_mask = 5
 [node name="Icon" parent="." index="1"]
 scale = Vector2(-1, 1)
 
-[node name="CaptureOxygenComponent" parent="." index="4"]
+[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
+hitbox = NodePath("../HitboxComponent")
 capture_threshold = 4.0
 
 [node name="LinearMovement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1o2hb")]

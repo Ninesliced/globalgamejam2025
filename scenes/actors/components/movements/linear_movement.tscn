@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://caarjj2glbq3t"]
+[gd_scene load_steps=2 format=3 uid="uid://c8w7mywnf2c0d"]
 
 [ext_resource type="Script" path="res://scenes/actors/components/movements/linear_movement.gd" id="1_myc0k"]
 

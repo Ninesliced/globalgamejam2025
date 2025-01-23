@@ -9,13 +9,16 @@ size = Vector2(216, 104)
 position = Vector2(0, 64)
 script = ExtResource("1_b7wmy")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="NotTaken" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D" type="Area2D" parent="NotTaken"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NotTaken/Area2D"]
 position = Vector2(108, -12)
 shape = SubResource("RectangleShape2D_p65aw")
 
-[node name="Bonus" type="RichTextLabel" parent="."]
+[node name="Bonus" type="RichTextLabel" parent="NotTaken"]
 unique_name_in_owner = true
 offset_top = -64.0
 offset_right = 216.0
@@ -25,7 +28,7 @@ text = "
 [outline_size=20][b][center][wave]{teste
 qslkdjfmlkjt}[/wave][/center][/b][/outline_size]"
 
-[node name="Malus" type="RichTextLabel" parent="."]
+[node name="Malus" type="RichTextLabel" parent="NotTaken"]
 unique_name_in_owner = true
 offset_top = -16.0
 offset_right = 216.0
@@ -35,4 +38,15 @@ text = "
 [outline_size=20][b][center][wave]{teste
 qslkdjfmlkjt}[/wave][/center][/b][/outline_size]"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="NoItem" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 80.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 16.0
+bbcode_enabled = true
+text = "
+[outline_size=20][b][center][wave]∅[/wave][/center][/b][/outline_size]"
+
+[connection signal="body_entered" from="NotTaken/Area2D" to="." method="_on_area_2d_body_entered"]
