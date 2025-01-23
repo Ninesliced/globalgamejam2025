@@ -20,14 +20,14 @@ var win_upgrades = {
 	"The dash costs less": dash_cost_less,
 	"The shoot costs less": dash_cost_less,
 	"The dash is more powerfull": dash_cost_less,
-	"You're speed is fastest": dash_cost_less
+	"Your speed is fastest": dash_cost_less
 }
 
 var lose_upgrades = {
 	"Drain half of the oxygen reserve": lose_half_oxygen,
 	"The dash is more expensive": dash_cost_more,
 	"The shoot is more expensive": dash_cost_more,
-	"You're speed is reduced": dash_cost_less,
+	"Your speed is reduced": dash_cost_less,
 	"Your vision is reduced": reduced_vision
 }
 
