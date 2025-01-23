@@ -17,5 +17,5 @@ scale = Vector2(-1, 1)
 hitbox = NodePath("../HitboxComponent")
 capture_threshold = 4.0
 
-[node name="MoveLinear" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1o2hb")]
-parent = NodePath("..")
+[node name="MoveLinear" parent="." index="7" instance=ExtResource("3_1o2hb")]
+script = null
