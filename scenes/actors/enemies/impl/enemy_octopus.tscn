@@ -20,5 +20,5 @@ shape = SubResource("CircleShape2D_guni3")
 capture_threshold = 5.0
 
 [node name="🐙Movement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1e8b5")]
-movement_rate = 2.0
+skid_rate = -0.05
 parent = NodePath("..")
