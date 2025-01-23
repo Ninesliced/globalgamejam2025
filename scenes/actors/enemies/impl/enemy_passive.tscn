@@ -15,6 +15,5 @@ parent = NodePath("..")
 [node name="Icon" parent="." index="2"]
 texture = ExtResource("3_ta3fv")
 
-[node name="CaptureOxygenComponent" parent="." index="5" node_paths=PackedStringArray("hitbox")]
-hitbox = NodePath("../HitboxComponent")
+[node name="CaptureOxygenComponent" parent="." index="5"]
 capture_threshold = 2.0
