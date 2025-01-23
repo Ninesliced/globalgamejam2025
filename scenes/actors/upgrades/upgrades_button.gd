@@ -15,7 +15,7 @@ var win_upgrades = {
 }
 
 var lose_upgrades = {
-	"Drain half of the oxygen reserve": lose_half_oxygen,
+	"Halve the oxygen reserve": lose_half_oxygen,
 	"The dash is more expensive": dash_cost_more,
 	"Shooting is more expensive": shoot_cost_more,
 	"Your vision is reduced": reduced_vision

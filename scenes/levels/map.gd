@@ -65,7 +65,7 @@ func _ready():
 	load_next_level()
 	
 	var mapsize: Vector2 = get_size_of_level(PackedScenelevel.instantiate())
-	print(mapsize)
+	# print(mapsize)
 	pass # Replace with function body.
 
 

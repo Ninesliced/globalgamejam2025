@@ -45,7 +45,7 @@ func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_di
 		if distance < minimum_dash_distance_to_mouse:
 			return vec
 		vec = (mouse_position - current_pos).normalized()
-		print(vec)
+		# print(vec)
 		return vec
 	
 	if play_mode == Global.PlayMode.EIGHT_WAY:
