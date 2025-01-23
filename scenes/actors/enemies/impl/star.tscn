@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://04or753ha6ns"]
+[gd_scene load_steps=5 format=3 uid="uid://c1jbyrgdmhmrp"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_6mlja"]
 [ext_resource type="Texture2D" uid="uid://sc2jfp4btt2a" path="res://assets/images/actors/enemies/star.png" id="2_2o7q0"]
-[ext_resource type="Script" path="res://scenes/actors/enemies/components/pong_movement.gd" id="3_tygc1"]
+[ext_resource type="Script" path="res://scenes/actors/components/movements/pong_movement.gd" id="3_tygc1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5wo5"]
 radius = 57.0

@@ -10,13 +10,13 @@ var win_upgrades = {
 	"Refill the oxygen": refill_oxygen,
 	"The dash costs less": dash_cost_less,
 	"The shoot costs less": shoot_cost_less,
-	"You're speed is fastest": speed_fastest
+	"Your speed is faster": speed_fastest
 }
 
 var lose_upgrades = {
 	"Drain half of the oxygen reserve": lose_half_oxygen,
 	"The dash is more expensive": dash_cost_more,
-	"The shoot is more expensive": shoot_cost_more,
+	"Shooting is more expensive": shoot_cost_more,
 	"Your vision is reduced": reduced_vision
 }
 
@@ -30,7 +30,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 # Oxygene
 # capacité max d'oxygene
