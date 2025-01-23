@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=58 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -7,11 +7,12 @@
 [ext_resource type="Script" path="res://scenes/levels/camera_manager.gd" id="3_vjjyf"]
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://dgawuat43rapu" path="res://scenes/actors/enemies/impl/enemy_passive.tscn" id="5_ygbcq"]
-[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="PackedScene" uid="uid://b41ugkahe4fpb" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
-[ext_resource type="PackedScene" uid="uid://bwtvvdhu3f6yd" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
-[ext_resource type="PackedScene" uid="uid://c5o2qks5oijqu" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="9_lf3e3"]
+[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
+[ext_resource type="PackedScene" uid="uid://23fyreui7rjv" path="res://scenes/actors/enemies/impl/enemy_shark.tscn" id="9_ckcdj"]
+[ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="9_lf3e3"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="14_cv1cw"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
@@ -158,12 +159,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_5bjie")
 chance = 4
 
-[sub_resource type="Resource" id="Resource_i5hyy"]
-metadata/__load_path__ = "res://scenes/actors/enemies/impl/enemy_shark.tscn"
-
 [sub_resource type="Resource" id="Resource_kt54d"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_i5hyy")
+spawnable = ExtResource("9_ckcdj")
 chance = 2
 
 [sub_resource type="Resource" id="Resource_mp7d8"]
@@ -184,12 +182,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_5bjie")
 chance = 3
 
-[sub_resource type="Resource" id="Resource_shbqo"]
-metadata/__load_path__ = "res://scenes/actors/enemies/impl/enemy_shark.tscn"
-
 [sub_resource type="Resource" id="Resource_vmv70"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_shbqo")
+spawnable = ExtResource("9_ckcdj")
 chance = 3
 
 [sub_resource type="Resource" id="Resource_bhb7l"]
@@ -200,12 +195,12 @@ bubble_spawn_interval = 2.0
 bubble_spawn_count = 1
 bubble_air = Vector2i(1, 2)
 
-[sub_resource type="Gradient" id="Gradient_d64th"]
+[sub_resource type="Gradient" id="Gradient_o0own"]
 offsets = PackedFloat32Array(0, 0.644068, 0.728814, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j8vex"]
-gradient = SubResource("Gradient_d64th")
+gradient = SubResource("Gradient_o0own")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
