@@ -1,5 +1,7 @@
 extends MovementComponent
-@export var direction = Vector2(1, 0)
+
+@export var direction := Vector2(1, 0)
+@export var flipped := false
 
 @onready var right_ray_cast : RayCast2D = $Right
 @onready var left_ray_cast : RayCast2D = $Left
@@ -18,7 +20,7 @@ func _process(delta):
 	parent.velocity = direction.normalized() * speed
 	if parent is Enemy:
 		var enemy = parent as Enemy
-		enemy.icon.flip_h = direction.x < 0
+		enemy.icon.flip_h = flipped != (direction.x < 0)
 
 
 func _get_configuration_warnings():
