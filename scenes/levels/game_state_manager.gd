@@ -18,7 +18,7 @@ func _ready():
 		oxygen_component = player.get_node("OxygenComponent")
 		if oxygen_component != null:
 			print("connect")
-			oxygen_component.connect("run_out_of_oxygen", set_lose_state)
+			# oxygen_component.connect("run_out_of_oxygen", set_lose_state)
 			return
 		else:
 			printerr("No oxygen component in the player, shouldn't print this error, it does mean that comopnents system not working")
