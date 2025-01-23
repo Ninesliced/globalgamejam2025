@@ -21,22 +21,8 @@ func _ready():
 			assert(false, "dash component must be a child of Player")
 
 func _process(delta):
-	aim_direction = handle_direction()
+	aim_direction = Global.get_direction(player.global_position, player.play_mode, get_global_mouse_position())
 	handle_weapon_shoot(aim_direction)
-
-func handle_direction():
-	var direction : Vector2 = Vector2(1,0)
-	if player.play_mode == Global.PlayMode.MOUSE:
-		direction = (get_global_mouse_position() - player.global_position)
-		if direction == Vector2.ZERO:
-			direction = Vector2(1,0)
-
-	if player.play_mode == Global.PlayMode.EIGHT_WAY:
-		var vec = Input.get_vector("left", "right", "up", "down") # SCOTCH FAIRE UNE FONC GLOBAL POUR CA
-		if vec == Vector2.ZERO:
-			vec = Vector2(1,0)
-		direction = vec.normalized()
-	return direction
 
 func handle_weapon_shoot(direction):
 	if _weapons.size() == 0:
