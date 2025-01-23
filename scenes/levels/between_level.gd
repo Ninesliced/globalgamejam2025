@@ -18,6 +18,18 @@ func _ready():
 		coffre_last_level.position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y/2)
 		add_child(coffre_last_level)
 		
+	if associated_level == 0:
+		%CheckpointElement.frame = 0
+	elif associated_level <= 3:
+		%CheckpointElement.frame = 1
+	else:
+		%CheckpointElement.frame = 2
+
+	if associated_level <= 3:
+		%PipesElement.frame = 0
+	else:
+		%PipesElement.frame = 1
+
 func _on_area_2d_body_entered(body):
 	if body is Player:		
 		get_parent().get_parent().next_current_level = associated_level

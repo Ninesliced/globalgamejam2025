@@ -1,22 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmwktqs3nsqef"]
+[gd_scene load_steps=15 format=3 uid="uid://dmwktqs3nsqef"]
 
 [ext_resource type="Script" path="res://scenes/levels/between_level.gd" id="1_6fbk4"]
 [ext_resource type="PackedScene" uid="uid://dpon7sdcisbbw" path="res://scenes/levels/background_wall/background_wall.tscn" id="3_0a63k"]
+[ext_resource type="Texture2D" uid="uid://bjdrbparimbs3" path="res://assets/images/background/checkpoint/PIPE_2ND_ETAT.png" id="3_ampln"]
+[ext_resource type="Texture2D" uid="uid://clbp13jm38m0y" path="res://assets/images/background/checkpoint/BASE_0.png" id="3_eabrh"]
 [ext_resource type="PackedScene" uid="uid://bcmcovokpl6wj" path="res://scenes/actors/upgrades/upgrades_button.tscn" id="3_ru7lr"]
 [ext_resource type="LabelSettings" uid="uid://c4klti45f7nbl" path="res://resources/label/game_over_label.tres" id="4_41i0a"]
-[ext_resource type="Texture2D" uid="uid://jr8ai3nlw325" path="res://assets/images/background/checkpoint.png" id="5_27tfy"]
+[ext_resource type="Texture2D" uid="uid://bwchlide3suhu" path="res://assets/images/background/checkpoint/CHECKPOINT_1ER_ETAT_1-3.png" id="4_a3pl0"]
 [ext_resource type="PackedScene" uid="uid://dy1s02m06kix2" path="res://scenes/levels/coffre_last_level.tscn" id="6_geje2"]
+[ext_resource type="Texture2D" uid="uid://cvlvhp6ygmwkr" path="res://assets/images/background/checkpoint/CHECKPOINT_2ND_ETAT_4-5.png" id="6_qp06r"]
+[ext_resource type="Texture2D" uid="uid://44dokq2f5sv6" path="res://assets/images/background/checkpoint/PIPE_1ER_ETAT.png" id="8_b3egs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7c8c"]
 size = Vector2(1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgs5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_b3egs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ampln")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vjuxb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_27tfy")
+"texture": ExtResource("3_eabrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a3pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qp06r")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -34,6 +58,11 @@ position = Vector2(960, 540)
 shape = SubResource("RectangleShape2D_j7c8c")
 debug_color = Color(0.938204, 1.44392e-05, 0.624696, 0.42)
 
+[node name="PipesElement" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_fgs5v")
+
 [node name="BackgroundWall" parent="." instance=ExtResource("3_0a63k")]
 position = Vector2(1920, 0)
 rotation = -3.14159
@@ -42,6 +71,7 @@ scale = Vector2(1, -1)
 [node name="BackgroundWall2" parent="." instance=ExtResource("3_0a63k")]
 
 [node name="CheckpointElement" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_vjuxb")
 
