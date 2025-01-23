@@ -1,12 +1,14 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://nonhr1o4s7iq"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://nonhr1o4s7iq"]
 
-[ext_resource type="StyleBox" path="res://resources/yellow_button_style_box.tres" id="1_jdcs0"]
-[ext_resource type="Texture2D" uid="uid://ddstqdrk3kgau" path="res://assets/images/ui/patch_rect_button.png" id="1_s2h24"]
+[ext_resource type="StyleBox" uid="uid://ctnqmvs1f2vmg" path="res://resources/yellow_button_style_box.tres" id="1_jdcs0"]
 [ext_resource type="Texture2D" uid="uid://bfvodtv4f7183" path="res://assets/images/ui/patch_rect_button_lighter.png" id="2_lgy32"]
+[ext_resource type="StyleBox" uid="uid://dvfo25l250qjq" path="res://resources/h_slider_filled.tres" id="4_evluj"]
 [ext_resource type="Texture2D" uid="uid://lhrbp4eaqrw7" path="res://assets/images/ui/slider_grabber.png" id="4_wu5qc"]
+[ext_resource type="Texture2D" uid="uid://crwd41xfvecpr" path="res://assets/images/ui/slider_x.png" id="5_0dobu"]
 [ext_resource type="Texture2D" uid="uid://bjigtrr4nbxpq" path="res://assets/images/ui/slider.png" id="5_qass7"]
+[ext_resource type="FontFile" uid="uid://l1qifah2kis3" path="res://assets/fonts/Not Jam UI 12.ttf" id="7_l3dk3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67ut4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60n1n"]
 texture = ExtResource("2_lgy32")
 texture_margin_left = 24.0
 texture_margin_top = 16.0
@@ -14,15 +16,13 @@ texture_margin_right = 24.0
 texture_margin_bottom = 16.0
 region_rect = Rect2(0, 0, 128, 128)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdaqn"]
-texture = ExtResource("1_s2h24")
-texture_margin_left = 16.0
-texture_margin_top = 20.0
-texture_margin_right = 19.0
-texture_margin_bottom = 32.0
-region_rect = Rect2(1, 0, 127, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edlyo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7k7f"]
+texture = ExtResource("5_0dobu")
+texture_margin_left = 17.0
+texture_margin_top = 7.0
+texture_margin_right = 13.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 85, 18)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oaoje"]
 
@@ -50,12 +50,18 @@ texture_margin_bottom = 17.0
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 32
-Button/fonts/font = null
+Button/fonts/font = ExtResource("7_l3dk3")
 Button/styles/disabled = ExtResource("1_jdcs0")
-Button/styles/hover = SubResource("StyleBoxTexture_67ut4")
-Button/styles/normal = SubResource("StyleBoxTexture_kdaqn")
-Button/styles/pressed = SubResource("StyleBoxTexture_edlyo")
-Label/fonts/font = null
+Button/styles/hover = SubResource("StyleBoxTexture_60n1n")
+Button/styles/normal = ExtResource("1_jdcs0")
+Button/styles/pressed = ExtResource("1_jdcs0")
+HSlider/icons/grabber = ExtResource("4_wu5qc")
+HSlider/icons/grabber_disabled = ExtResource("4_wu5qc")
+HSlider/icons/grabber_highlight = ExtResource("4_wu5qc")
+HSlider/styles/grabber_area = ExtResource("4_evluj")
+HSlider/styles/grabber_area_highlight = ExtResource("4_evluj")
+HSlider/styles/slider = SubResource("StyleBoxTexture_d7k7f")
+Label/fonts/font = ExtResource("7_l3dk3")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_oaoje")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_guw5w")
 VSlider/icons/grabber = ExtResource("4_wu5qc")

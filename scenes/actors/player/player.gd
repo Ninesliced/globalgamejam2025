@@ -46,6 +46,10 @@ func _process(delta):
 	_update_invicibility(delta)
 
 
+func do_death_animation():
+	process_mode = PROCESS_MODE_DISABLED
+	hide()
+
 func _update_invicibility(delta):
 	_invincibility_time_left = max(0.0, _invincibility_time_left - delta)
 	if _invincibility_time_left > 0:
