@@ -48,6 +48,7 @@ func _on_body_entered(body: Node2D) -> void:
 	get_dashed_on((body))
 
 func get_dashed_on(body: Node2D) -> void:
+	var dash_consumption = 0
 	if not body.is_in_group("has_DashComponent"):
 		return
 
@@ -56,6 +57,7 @@ func get_dashed_on(body: Node2D) -> void:
 	for child in body.get_children():
 		if child is DashComponent:
 			is_dashed_on = child.is_dashing
+			dash_consumption = child.dash_consumption
 
 	if not is_dashed_on:
 		return
@@ -65,7 +67,7 @@ func get_dashed_on(body: Node2D) -> void:
 			var is_captured = $CaptureOxygenComponent.is_captured
 			if not is_captured:
 				return
-			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + 5
+			var oxygen_captured = $CaptureOxygenComponent.oxygen_stored * 3 + dash_consumption
 			if not oxygen_captured:
 				return
 
