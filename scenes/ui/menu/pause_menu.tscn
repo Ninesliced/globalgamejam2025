@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b64p3bg6pqutj"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu/pause_menu.gd" id="1_cjlbg"]
-[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_xcqqo"]
+[ext_resource type="Theme" uid="uid://bdxxnp2cr1ju4" path="res://resources/main_theme.tres" id="1_xcqqo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj5t5"]
 

@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
 
 [node name="Enemy3" instance=ExtResource("1_8p5bd")]
+damage_value = 25.0
 
 [node name="Icon" parent="." index="1"]
 texture = ExtResource("2_34h7d")
+
+[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
+hitbox = NodePath("../HitboxComponent")
+capture_threshold = 5.0
