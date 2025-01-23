@@ -30,6 +30,7 @@ texture = ExtResource("2_jurgs")
 
 [node name="OxygenBar" type="ProgressBar" parent="Control/NinePatchRect"]
 unique_name_in_owner = true
+modulate = Color(1, 0.697833, 0.51, 1)
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
