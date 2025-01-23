@@ -1,30 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy1s02m06kix2"]
+[gd_scene load_steps=8 format=3 uid="uid://dy1s02m06kix2"]
 
 [ext_resource type="Script" path="res://scenes/levels/coffre_last_level.gd" id="1_as2vv"]
 [ext_resource type="Texture2D" uid="uid://82myjobl684h" path="res://assets/images/menu_backgrounds/wall.png" id="1_sa4a4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xspt"]
-size = Vector2(306.99, 1087.77)
+[ext_resource type="Texture2D" uid="uid://xwgdmixh2oph" path="res://assets/images/background/coffre/coffre_frame_1.png" id="3_0lgyj"]
+[ext_resource type="Texture2D" uid="uid://tvoe7buvviob" path="res://assets/images/background/coffre/coffre_frame_2.png" id="4_5de1e"]
+[ext_resource type="Texture2D" uid="uid://c8melk57fw6la" path="res://assets/images/background/coffre/coffre_frame_1.5.png" id="4_mh3sh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r41sn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0lgyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mh3sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5de1e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xspt"]
+size = Vector2(226.203, 808.059)
 
 [node name="CoffreLastLevel" type="Node2D"]
 script = ExtResource("1_as2vv")
 
 [node name="Wall" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(151.5, 141)
 scale = Vector2(0.99026, 0.257407)
 texture = ExtResource("1_sa4a4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 544)
+sprite_frames = SubResource("SpriteFrames_r41sn")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(151.5, 141)
 scale = Vector2(0.99026, 0.257407)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.504913, -3.88489)
+position = Vector2(646.8, 819.714)
 shape = SubResource("RectangleShape2D_0xspt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_r41sn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
