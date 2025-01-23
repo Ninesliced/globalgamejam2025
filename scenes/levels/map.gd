@@ -54,6 +54,8 @@ var light_radius: float = 0.7:
 			printerr("No light in the scene")
 		# gradient.set_offset(4, 1.0) #was out of bounds
 
+@onready var shaderedParallaxSprite = $ParallaxBackground/ParallaxLayer/Fond
+
 func next_light_effect():
 	light_radius = max(0.1, light_radius-0.9/number_of_level)
 
@@ -142,3 +144,8 @@ func get_current_level_bounds() -> Rect2:
 	var size := get_size_of_level(current_level_node)
 	var pos := (current_level_node as Level).global_position
 	return Rect2(pos, size)
+
+
+func _on_slowness_detected() -> void:
+	print("Disabled background shader")
+	shaderedParallaxSprite.material = null
