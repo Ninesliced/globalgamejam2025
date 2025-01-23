@@ -66,6 +66,34 @@ size_flags_vertical = 3
 theme = ExtResource("1_xcqqo")
 text = "RESUME"
 
+[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("1_xcqqo")
+text = "RESTART
+"
+
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("1_xcqqo")
+text = "MAIN MENU
+"
+
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -102,4 +130,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.25
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
