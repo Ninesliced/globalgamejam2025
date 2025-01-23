@@ -13,11 +13,9 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if parent is Enemy:
-		var enemy = parent as Enemy
-		if enemy.collision:
-			movement_velocity = movement_velocity.bounce(enemy.collision.get_normal())
-	
+	if parent and parent.has_method("get_normal") and parent.get_normal() != null:
+		movement_velocity = movement_velocity.bounce(parent.get_normal())
+		print("bounce")
 	parent.rotate(1 * delta)
 	parent.velocity = movement_velocity * speed
 	if parent.position.x < -300 or parent.position.x > 3000:
