@@ -8,11 +8,11 @@
 [ext_resource type="LabelSettings" uid="uid://c4klti45f7nbl" path="res://resources/label/game_over_label.tres" id="4_41i0a"]
 [ext_resource type="Texture2D" uid="uid://bwchlide3suhu" path="res://assets/images/background/checkpoint/CHECKPOINT_1ER_ETAT_1-3.png" id="4_a3pl0"]
 [ext_resource type="Texture2D" uid="uid://cxgl5g5y3f3fh" path="res://assets/images/background/checkpoint/PIPE_3EME_ETAT.png" id="4_w6pg7"]
-[ext_resource type="Texture2D" uid="uid://dfa7fxritb0e3" path="res://assets/images/background/checkpoint/PIPE_Vide.png" id="5_i0kss"]
-[ext_resource type="PackedScene" uid="uid://dy1s02m06kix2" path="res://scenes/levels/coffre_last_level.tscn" id="6_geje2"]
+[ext_resource type="Texture2D" uid="uid://oct3njmnmlcl" path="res://assets/images/background/checkpoint/Pipe_Fin.png" id="5_v2b0n"]
 [ext_resource type="Texture2D" uid="uid://cvlvhp6ygmwkr" path="res://assets/images/background/checkpoint/CHECKPOINT_2ND_ETAT_4-5.png" id="6_qp06r"]
 [ext_resource type="Texture2D" uid="uid://44dokq2f5sv6" path="res://assets/images/background/checkpoint/PIPE_1ER_ETAT.png" id="8_b3egs"]
 [ext_resource type="Texture2D" uid="uid://cv17t1nurd4ya" path="res://assets/images/background/checkpoint/CHECKPOINT_3EME_ETAT_6-7.png" id="9_65c05"]
+[ext_resource type="Texture2D" uid="uid://ceqcvqm1y0hl1" path="res://assets/images/background/checkpoint/CHECKPOINT_DERNIER_ETAT_8.png" id="11_pn6jn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7c8c"]
 size = Vector2(1920, 1080)
@@ -30,7 +30,7 @@ animations = [{
 "texture": ExtResource("4_w6pg7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_i0kss")
+"texture": ExtResource("5_v2b0n")
 }],
 "loop": true,
 "name": &"default",
@@ -53,7 +53,7 @@ animations = [{
 "texture": ExtResource("9_65c05")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_65c05")
+"texture": ExtResource("11_pn6jn")
 }],
 "loop": false,
 "name": &"default",
@@ -117,10 +117,6 @@ unique_name_in_owner = true
 position = Vector2(960, 1200)
 shape = SubResource("RectangleShape2D_bxw8o")
 disabled = true
-
-[node name="CoffreLastLevel" parent="." instance=ExtResource("6_geje2")]
-visible = false
-position = Vector2(864, 704)
 
 [node name="ExplicationText" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
