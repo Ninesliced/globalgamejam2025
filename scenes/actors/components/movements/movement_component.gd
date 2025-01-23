@@ -11,10 +11,14 @@ func _ready():
 	pass
 
 
+func _do_check():
+	assert(parent is not Node2D, "Please set a parent to your actor/scene that uses MovementComponent")
+
+
 func _process(delta):
 	if disabled:
 		return
-	pass
+
 
 func disable():
 	disabled = true

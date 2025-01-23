@@ -4,6 +4,7 @@ extends Node2D
 @export var lose_upgrade = "Your speed is reduced" 
 
 var is_usable = true
+var bbc_default_string = "[b][center][wave]{text}[/wave][/center][/b]"
 
 var win_upgrades = {
 	"Increase oxygen capacity": win_oxygen_capacity,
@@ -24,8 +25,12 @@ var lose_upgrades = {
 func _ready():
 	win_upgrade = win_upgrades.keys().pick_random()
 	lose_upgrade = lose_upgrades.keys().pick_random()
-	%Bonus.text = win_upgrade
-	%Malus.text = lose_upgrade
+	var win_upgrade_text = "+ " + win_upgrade
+	var lose_upgrade_text = "- " + lose_upgrade
+	win_upgrade_text = "[color=#63c74d]" + win_upgrade_text + "[/color]"
+	lose_upgrade_text = "[color=#ff0044]" + lose_upgrade_text + "[/color]"
+	%Bonus.text = bbc_default_string.replace("{text}", win_upgrade_text)
+	%Malus.text = bbc_default_string.replace("{text}", lose_upgrade_text)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
