@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wvk7xqjikp5d" path="res://assets/images/logo.png" id="3_bks42"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfpx6"]
-font_size = 32
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
@@ -69,7 +69,7 @@ size_flags_stretch_ratio = 1.22
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "A game by Alexis, ArkanYota, NotGoyome, Megablowking, Theobosse, Yolwoocle"
+text = "A game by Ninesliced: Alexis, ArkanYota, NotGoyome, Megablowking, Theobosse, Yolwoocle"
 label_settings = SubResource("LabelSettings_gfpx6")
 horizontal_alignment = 1
 
