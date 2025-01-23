@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpjx6l40iycrn"]
+[gd_scene load_steps=5 format=3 uid="uid://bpjx6l40iycrn"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
 [ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
 [ext_resource type="PackedScene" uid="uid://dpyt52xy81e0a" path="res://scenes/actors/components/movements/sine_movement_component.tscn" id="3_rvfya"]
+[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/linear_movement.tscn" id="4_xj16j"]
 
 [node name="Enemy3" instance=ExtResource("1_8p5bd")]
 damage_value = 25.0
@@ -14,3 +15,8 @@ texture = ExtResource("2_34h7d")
 capture_threshold = 5.0
 
 [node name="SineMovementComponent" parent="." index="7" instance=ExtResource("3_rvfya")]
+sine_amplitude = 20.0
+
+[node name="LinearMovement" parent="." index="8" node_paths=PackedStringArray("parent") instance=ExtResource("4_xj16j")]
+flipped = true
+parent = NodePath("..")

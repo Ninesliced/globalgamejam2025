@@ -22,4 +22,3 @@ func _process(delta):
 
 	assert(get_parent() is CharacterBody2D, "Parent is not a CharacterBody2D")
 	get_parent().velocity = orthogonal_vector * sine_value + direction_vector * movement_speed
-	

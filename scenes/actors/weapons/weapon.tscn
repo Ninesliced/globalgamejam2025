@@ -8,7 +8,7 @@
 script = ExtResource("3_jxbdc")
 bullet_scene = ExtResource("2_de15r")
 fire_rate = 0.5
-oxygen_comsuption = 5.0
+oxygen_comsuption = 3.0
 weapon_shoot_type = 1
 
 [node name="Weapon" type="Node2D"]
