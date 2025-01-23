@@ -3,6 +3,8 @@ extends Node2D
 @export var win_upgrade = "Your speed is fastest"
 @export var lose_upgrade = "Your speed is reduced" 
 
+var bubble_pop_scene: PackedScene = preload("res://scenes/actors/particles/bubble_pop_particle.tscn")
+
 var is_usable = true
 var bbc_default_string = "\n[outline_size=20][b][center][wave]{text}[/wave][/center][/b][/outline_size]"
 
@@ -74,8 +76,20 @@ func _on_area_2d_body_entered(body):
 				is_dashed_on = child.is_dashing
 		if not is_dashed_on:
 			return
+		
 		is_usable = false
 		win_upgrades[win_upgrade].call(body)
 		lose_upgrades[lose_upgrade].call(body)
 		%NotTaken.visible = false
 		%NoItem.visible = true
+
+		var bubble_cloud = bubble_pop_scene.instantiate()
+		get_parent().add_child(bubble_cloud)
+		bubble_cloud.global_position = global_position
+		bubble_cloud.play()
+
+		var camera = get_viewport().get_camera_2d()
+		if camera is CameraManager:
+			camera.shake(20)
+		
+		$CollectSound.play()
