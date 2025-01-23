@@ -1,22 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://drhb14pivhqv0"]
+[gd_scene load_steps=5 format=3 uid="uid://b2xj07jdqk5dw"]
 
-[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_uw7vs"]
-[ext_resource type="Script" path="res://scenes/ui/menu/game_over_menu.gd" id="2_vs25s"]
+[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_406q8"]
+[ext_resource type="Script" path="res://scenes/ui/menu/win_menu.gd" id="2_4sgy5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj5t5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gq0ul"]
 font_size = 42
 
-[node name="GameOverMenu" type="Control"]
+[node name="WinMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_uw7vs")
-script = ExtResource("2_vs25s")
+theme = ExtResource("1_406q8")
+script = ExtResource("2_4sgy5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -42,7 +42,7 @@ theme_override_constants/margin_bottom = 64
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Game Over!"
+text = "Congratulations!"
 label_settings = SubResource("LabelSettings_gq0ul")
 horizontal_alignment = 1
 uppercase = true
@@ -51,6 +51,20 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "You found the treasure... Was it worth it?"
+label_settings = SubResource("LabelSettings_gq0ul")
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
 
 [node name="Replay" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 75)
