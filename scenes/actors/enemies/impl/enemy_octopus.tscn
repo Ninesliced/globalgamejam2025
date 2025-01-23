@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
 [ext_resource type="Texture2D" uid="uid://bmuxn1e7kl6yr" path="res://assets/images/actors/enemies/ennemi_3.png" id="2_34h7d"]
-[ext_resource type="PackedScene" uid="uid://bu3x5brl8t20l" path="res://scenes/actors/components/movements/pong_movement.tscn" id="4_w8n8j"]
+[ext_resource type="PackedScene" uid="uid://b0u1tglshaqvw" path="res://scenes/actors/components/movements/🐙_movement.tscn" id="3_1e8b5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_guni3"]
 radius = 103.044
@@ -19,7 +19,6 @@ shape = SubResource("CircleShape2D_guni3")
 [node name="CaptureOxygenComponent" parent="." index="4"]
 capture_threshold = 5.0
 
-[node name="PongMovement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("4_w8n8j")]
-direction = Vector2(1, -0.5)
-randomize_bounce = true
+[node name="🐙Movement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1e8b5")]
+movement_rate = 2.0
 parent = NodePath("..")
