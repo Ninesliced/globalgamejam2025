@@ -22,18 +22,22 @@ func _ready():
 		%CheckpointElement.frame = 0
 	elif associated_level <= 3:
 		%CheckpointElement.frame = 1
-	elif associated_level <= 6:
+	elif associated_level <= 5:
 		%CheckpointElement.frame = 2
-	else:
+	elif associated_level <= 7:
 		%CheckpointElement.frame = 3
+	else:
+		%CheckpointElement.frame = 4
 
 	if associated_level <= 3:
 		%PipesElement.frame = 0
-	elif associated_level <= 6:
+	elif associated_level <= 5:
 		%PipesElement.frame = 1
-	else:
+	elif associated_level <= 7:
 		%PipesElement.frame = 2
-	
+	else:
+		%PipesElement.frame = 3	
+		
 	if %UpgradesButton:
 		if associated_level <= 6:
 			%UpgradesButton.position = Vector2(1296, 256)
