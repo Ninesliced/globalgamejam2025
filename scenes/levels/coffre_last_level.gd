@@ -24,8 +24,8 @@ func _on_area_2d_body_entered(body):
 		var derpPakedScene = load("res://scenes/actors/enemies/impl/the_tresure_derp.tscn")
 		var derp = derpPakedScene.instantiate()
 		derp.the_derp = true
-		derp.position = Vector2(500, 400)
+		derp.position = body.get_parent().current_level_node.global_position + Vector2(500, 400)
 		%AnimatedSprite2D.play()
-		body.get_parent().get_parent().add_child(derp)
+		body.get_parent().add_child(derp)
 		
 		
