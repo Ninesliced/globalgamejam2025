@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bwchlide3suhu" path="res://assets/images/background/checkpoint/CHECKPOINT_1ER_ETAT_1-3.png" id="4_a3pl0"]
 [ext_resource type="Texture2D" uid="uid://cxgl5g5y3f3fh" path="res://assets/images/background/checkpoint/PIPE_3EME_ETAT.png" id="4_w6pg7"]
 [ext_resource type="Texture2D" uid="uid://dfa7fxritb0e3" path="res://assets/images/background/checkpoint/PIPE_Vide.png" id="5_i0kss"]
-[ext_resource type="PackedScene" uid="uid://dy1s02m06kix2" path="res://scenes/levels/coffre_last_level.tscn" id="6_geje2"]
+[ext_resource type="PackedScene" path="res://scenes/levels/coffre_last_level.tscn" id="6_geje2"]
 [ext_resource type="Texture2D" uid="uid://cvlvhp6ygmwkr" path="res://assets/images/background/checkpoint/CHECKPOINT_2ND_ETAT_4-5.png" id="6_qp06r"]
 [ext_resource type="Texture2D" uid="uid://44dokq2f5sv6" path="res://assets/images/background/checkpoint/PIPE_1ER_ETAT.png" id="8_b3egs"]
 [ext_resource type="Texture2D" uid="uid://cv17t1nurd4ya" path="res://assets/images/background/checkpoint/CHECKPOINT_3EME_ETAT_6-7.png" id="9_65c05"]
@@ -124,14 +124,18 @@ position = Vector2(864, 704)
 
 [node name="ExplicationText" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-offset_left = 176.0
-offset_top = 32.0
-offset_right = 672.0
-offset_bottom = 312.0
+offset_left = 1121.0
+offset_top = 83.0
+offset_right = 1734.0
+offset_bottom = 603.0
 bbcode_enabled = true
 text = "
 [font_size=40][outline_size=20][b][center][wave]
-Suffocate him, then dash into the mob to finish him off.
+[WASD/Arrows]: move
+[Left click]: shoot
+[Right click]: dash
+
+To kill enemies, suffocate them with oxygen, then dash into them to finish them off.
 [/wave][/center][/b][/outline_size][/font_size]"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
