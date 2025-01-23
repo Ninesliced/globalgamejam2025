@@ -11,9 +11,13 @@ func set_oxygen_bar(value: float, max_value: float):
 	%OxygenBar.max_value = max_value
 
 func set_depth_bar(value: float, max_value: float):
-	print("depth ", value/100)#, " ", max_value)
+	print("depth ", value/100)
 	%ProgressionSlider.value = 1 - value/max_value
-	%ProgressCounter.text = "{0} m".format([round(value/100)])
+
+	var map = get_tree().current_scene
+	%ProgressCounter.text = "{0} m".format([round(value/100),])
+	if map:
+		%ZoneCounter.text = "Zone {0}".format([map.current_level])
 
 func _process(delta):
 	_time += delta
