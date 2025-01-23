@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_28p2i")
-shader_parameter/texture_scale = Vector2(1, 2)
-shader_parameter/time_scale = 1.5
-shader_parameter/warp_amplitude = 0.03
-shader_parameter/spectrum_multiplier = 120.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/time_scale = 0.8201
+shader_parameter/warp_amplitude = 0.007
+shader_parameter/spectrum_multiplier = 0.0
