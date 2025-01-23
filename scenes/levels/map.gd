@@ -64,7 +64,7 @@ func _ready():
 	load_next_level()
 	load_next_level()
 	
-	var mapsize = get_size_of_level(PackedScenelevel.instantiate())
+	var mapsize: Vector2 = get_size_of_level(PackedScenelevel.instantiate())
 	print(mapsize)
 	pass # Replace with function body.
 
@@ -74,11 +74,11 @@ func get_current_level_node():
 		var level_elt = levels[i]
 		if player.position.y > level_elt.position.y:
 			return level_elt
-		
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var camera_top_left = camera.get_screen_center_position() - get_viewport_rect().size / 2
+func _process(_delta):
+	var camera_top_left: Vector2 = camera.get_screen_center_position() - get_viewport_rect().size / 2
 	if len(levels) >= 3:
 		if levels[0].position.y + get_size_of_level(levels[0]).y < camera_top_left.y:
 			load_next_level()
@@ -113,10 +113,10 @@ func load_next_level():
 		current_generate_level += 1
 
 	if len(levels) != 0:
-		var size = get_size_of_level(levels[-1])
+		var size: Vector2 = get_size_of_level(levels[-1])
 		node.set_position(Vector2(0, levels[-1].position.y + size.y))
 	else:
-		var size = get_size_of_level(node)
+		var size: Vector2 = get_size_of_level(node)
 		node.set_position(Vector2(0, 0))
 		
 	%Levels.add_child(node)
@@ -134,3 +134,11 @@ func get_size_of_level(level_node) -> Vector2:
 		size = Vector2(2,2)
 		print("Is not a fucking shape")
 	return size
+
+func get_current_level_bounds() -> Rect2:
+	if current_level_node == null or not current_level_node is Level:
+		return Rect2()
+	
+	var size := get_size_of_level(current_level_node)
+	var pos := (current_level_node as Level).global_position
+	return Rect2(pos, size)
