@@ -9,11 +9,15 @@ class_name Player
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 var Oxygen_component
+var Dash_component
+var Weapon_component
 var is_flip_h = false
 var is_dashing = false
 
 func _ready():
 	Oxygen_component = %OxygenComponent
+	Dash_component = %DashComponent
+	Weapon_component = %Weapon
 
 func _process(delta):
 	move_and_slide()
@@ -31,3 +35,5 @@ func _process(delta):
 	else:
 		sprite.play("swim")
 		is_dashing = false
+	
+		
