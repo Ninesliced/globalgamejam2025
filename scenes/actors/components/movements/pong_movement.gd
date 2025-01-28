@@ -2,8 +2,13 @@ extends MovementComponent
 
 @export var direction : Vector2 = Vector2(0, 1)
 @export var randomize_bounce = false
+@export var random_direction_x = false
+
 func _ready():
 	super()
+	if random_direction_x:
+		var random_var = -1 if randf() > 0.5 else 1
+		direction = Vector2(random_var * direction.x, direction.y)
 	
 	# var rand_x = 1 if randf() > 0.5 else -1
 	movement_velocity = direction
