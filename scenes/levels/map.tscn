@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://hooy7ane5khx"]
+[gd_scene load_steps=55 format=3 uid="uid://hooy7ane5khx"]
 
 [ext_resource type="Script" path="res://scenes/levels/map.gd" id="1_su3uq"]
 [ext_resource type="PackedScene" uid="uid://1dlw0dqlf84k" path="res://scenes/utils/spawner/spawner.tscn" id="2_rm8mk"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://dgawuat43rapu" path="res://scenes/actors/enemies/impl/enemy_passive.tscn" id="5_ygbcq"]
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
+[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="7_kadjw"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="PackedScene" uid="uid://bwtvvdhu3f6yd" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
-[ext_resource type="PackedScene" path="res://scenes/actors/enemies/impl/enemy_shark.tscn" id="9_ckcdj"]
+[ext_resource type="PackedScene" uid="uid://23fyreui7rjv" path="res://scenes/actors/enemies/impl/enemy_shark.tscn" id="9_ckcdj"]
 [ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_fish.tscn" id="9_lf3e3"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="14_cv1cw"]
@@ -60,12 +61,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("5_ygbcq")
 chance = 1
 
-[sub_resource type="Resource" id="Resource_1lcu0"]
-metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
-
 [sub_resource type="Resource" id="Resource_aiodl"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_1lcu0")
+spawnable = ExtResource("7_kadjw")
 chance = 2
 
 [sub_resource type="Resource" id="Resource_65jxc"]
@@ -81,12 +79,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_lf3e3")
 chance = 7
 
-[sub_resource type="Resource" id="Resource_achnv"]
-metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
-
 [sub_resource type="Resource" id="Resource_g126e"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_achnv")
+spawnable = ExtResource("7_kadjw")
 chance = 3
 
 [sub_resource type="Resource" id="Resource_vtoms"]
@@ -102,12 +97,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_lf3e3")
 chance = 5
 
-[sub_resource type="Resource" id="Resource_w33ar"]
-metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
-
 [sub_resource type="Resource" id="Resource_s27hv"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_w33ar")
+spawnable = ExtResource("7_kadjw")
 chance = 5
 
 [sub_resource type="Resource" id="Resource_d3352"]
@@ -123,12 +115,9 @@ script = ExtResource("4_f32e1")
 spawnable = ExtResource("9_5bjie")
 chance = 5
 
-[sub_resource type="Resource" id="Resource_i6nnm"]
-metadata/__load_path__ = "res://scenes/actors/enemies/star.tscn"
-
 [sub_resource type="Resource" id="Resource_fg8ge"]
 script = ExtResource("4_f32e1")
-spawnable = SubResource("Resource_i6nnm")
+spawnable = ExtResource("7_kadjw")
 chance = 1
 
 [sub_resource type="Resource" id="Resource_h20u1"]
