@@ -16,10 +16,19 @@ var spin_time = 0.5
 var damage_player = false
 var oxygen_added = false
 var collision : KinematicCollision2D = null
+var is_captured = false
 @onready var icon : Sprite2D = $Icon
 
 
 signal died
+
+func _ready():
+	var set_is_captured = func():
+		is_captured = true
+		print("is_captured")
+	if $CaptureOxygenComponent:
+		$CaptureOxygenComponent.captured.connect(set_is_captured)
+	pass
 
 func _physics_process(delta):
 	if spinning:
@@ -37,8 +46,11 @@ func _process(delta):
 		$Label.text = str($CaptureOxygenComponent.oxygen_stored)
 	if damage_player and not $CaptureOxygenComponent.is_captured:
 		var player = get_tree().current_scene.get_node("Player")
-		player.damage(damage_value)
+		if damage_value and player:
+			player.damage(damage_value)
 		damage_player = false
+	if !is_captured and $CaptureOxygenComponent.is_captured:
+		is_captured = true
 
 func _on_hitbox_component_recieved_damage(damager_area: Area2D, damage_amount: float):
 	pass
@@ -85,6 +97,7 @@ func get_dashed_on(body: Node2D) -> void:
 			$DeathSound.play()
 			
 			died.emit()
+			var is_dead 
 			if the_derp:
 				Global.win_game()
 

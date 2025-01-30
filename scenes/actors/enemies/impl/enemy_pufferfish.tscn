@@ -7,6 +7,8 @@
 load_path = "res://.godot/imported/ennemi_2.png-045c14883914edb704b6e3b2ac3fb82c.ctex"
 
 [node name="Enemy4" instance=ExtResource("1_pblhb")]
+damage_value = null
+the_derp = null
 
 [node name="Icon" parent="." index="1"]
 scale = Vector2(-1, 1)

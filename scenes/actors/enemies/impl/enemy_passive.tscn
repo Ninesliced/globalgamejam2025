@@ -7,6 +7,7 @@
 [node name="EnemyPassive" instance=ExtResource("1_bc5bm")]
 collision_mask = 256
 damage_value = 0.0
+the_derp = null
 
 [node name="RandomMovement" parent="." index="0" node_paths=PackedStringArray("parent") instance=ExtResource("2_2c6yy")]
 speed_range = Vector2i(30, 70)

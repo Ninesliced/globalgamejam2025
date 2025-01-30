@@ -235,12 +235,6 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("2_xd5cu")]
 position = Vector2(952, 552)
-speed = 150000.0
-acceleration = 15000.0
-
-[node name="OxygenComponent" parent="Player" index="2"]
-max_oxygen = 2e+07
-initial_oxygen = 2e+06
 
 [node name="DashComponent" parent="Player" index="4" node_paths=PackedStringArray("movement_controller", "oxygen_component")]
 movement_controller = NodePath("../MovementController")

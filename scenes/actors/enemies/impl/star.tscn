@@ -10,6 +10,7 @@ radius = 57.0
 [node name="Enemy2" instance=ExtResource("1_6mlja")]
 collision_mask = 256
 damage_value = 25.0
+the_derp = null
 
 [node name="Icon" parent="." index="1"]
 position = Vector2(3, -10)

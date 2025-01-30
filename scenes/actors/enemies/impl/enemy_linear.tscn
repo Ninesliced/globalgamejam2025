@@ -5,6 +5,7 @@
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
 damage_value = 33.0
+the_derp = null
 
 [node name="Area2D" parent="HitboxComponent" index="0"]
 collision_layer = 5
