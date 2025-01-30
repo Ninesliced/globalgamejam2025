@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ghi2leayyp4e" path="res://scenes/actors/components/movements/movement_agressive.tscn" id="2_5wwja"]
 [ext_resource type="Texture2D" uid="uid://bl0n2c1w060xe" path="res://assets/images/actors/enemies/ennemie_shark.png" id="3_xrvlm"]
 
-[node name="Shark" instance=ExtResource("1_q3lcd")]
+[node name="Shark" groups=["enemy"] instance=ExtResource("1_q3lcd")]
 damage_value = 40.0
 
 [node name="MovementComponent" parent="." index="0" node_paths=PackedStringArray("parent") instance=ExtResource("2_5wwja")]
