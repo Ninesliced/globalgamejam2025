@@ -9,3 +9,15 @@ func _on_play_pressed():
 
 func _on_quit_button_pressed():
 	Global.quit()
+
+
+func _on_terminator_pressed():
+	Global.challenge_mode = Global.ChallengeMode.TERMINATOR
+	Global.menu_manager.exit_menu()
+	pass # Replace with function body.
+
+func _on_pacific_pressed():
+	Global.challenge_mode = Global.ChallengeMode.PACIFIC
+	Global.menu_manager.exit_menu()
+
+	pass # Replace with function body.

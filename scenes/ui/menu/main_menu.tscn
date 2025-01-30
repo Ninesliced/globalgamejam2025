@@ -55,6 +55,22 @@ size_flags_horizontal = 4
 theme = ExtResource("2_q5030")
 text = "PLAY"
 
+[node name="Pacific" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_q5030")
+text = "Pacific Play
+"
+
+[node name="Terminator" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_q5030")
+text = "Terminator Play
+"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
@@ -74,4 +90,6 @@ label_settings = SubResource("LabelSettings_gfpx6")
 horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Pacific" to="." method="_on_pacific_pressed"]
+[connection signal="pressed" from="VBoxContainer/Terminator" to="." method="_on_terminator_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
