@@ -33,4 +33,5 @@ func _on_area_2d_body_entered(body):
 		body.get_parent().add_child(derp)
 		is_opened = true
 		
-		
+		if Global.challenge_mode == Global.ChallengeMode.PACIFIC:
+			Global.win_game()

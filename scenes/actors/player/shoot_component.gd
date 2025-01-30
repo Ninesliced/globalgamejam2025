@@ -24,10 +24,10 @@ func _process(delta):
 	aim_direction = Global.get_direction(player.global_position, player.play_mode, get_global_mouse_position())
 	handle_weapon_shoot(aim_direction)
 
-func handle_weapon_shoot(direction):
+func handle_weapon_shoot(direction) -> void:
 	if _weapons.size() == 0:
 		return
-	var weapon = _weapons[0]
+	var weapon: Weapon = _weapons[0]
 	weapon.handle_shoot(direction)
 	weapon.set_weapon_angle(direction)
 

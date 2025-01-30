@@ -80,6 +80,12 @@ func get_current_level_node():
 		if player.position.y > level_elt.position.y:
 			return level_elt
 
+func is_remaining_alive_enemies() -> bool:
+	for node in get_tree().get_nodes_in_group("enemy"):
+		if not node.is_captured:
+			return true
+	return false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -102,9 +108,14 @@ func _process(_delta):
 			#	print("new_map")
 				# camera.global_position.y = current_level_node.position.y + get_viewport_rect().size.y / 2
 			camera.camera_move_here = current_level_node.position.y + get_viewport_rect().size.y / 2
-		is_on_a_level = current_level_node is Level
-		if !is_on_a_level:
+		
+		var is_level = current_level_node is Level
+		if !is_level and Global.challenge_mode == Global.ChallengeMode.TERMINATOR and is_remaining_alive_enemies():
+			get_tree().current_scene.get_node("Player").Oxygen_component.add_oxygen(-1000)
+		if !is_level:
 			Global.kill_tags("enemy")
+		
+		is_on_a_level = is_level
 
 
 	

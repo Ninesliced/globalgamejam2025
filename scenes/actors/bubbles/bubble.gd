@@ -23,9 +23,6 @@ func _on_hitbox_body_entered(body:Node2D):
 				child.add_oxygen(bubble_value)
 		handle_refund_dash(body, oxygen_component)
 		_remove()
-	if body is Bubble and body != self:
-		bubble_value += body.bubble_value
-		body.queue_free()
 
 func handle_refund_dash(body, oxygen_component):
 	if body.is_in_group("has_DashComponent"):

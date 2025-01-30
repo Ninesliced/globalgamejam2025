@@ -26,7 +26,7 @@ func shoot(direction: Vector2):
 	pass
 
 func handle_shoot(vector: Vector2):
-	if not can_shoot:
+	if not can_shoot or Global.challenge_mode == Global.ChallengeMode.PACIFIC:
 		return
 	if weapon_resource.weapon_shoot_type == weapon_resource.ShootType.SEMI_AUTO:
 		if Input.is_action_just_pressed("shoot"):

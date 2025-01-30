@@ -1,17 +1,17 @@
 extends Node
 
-var menu_manager_file = preload("res://scenes/ui/menu/menu_manager.tscn")
+var menu_manager_file := preload("res://scenes/ui/menu/menu_manager.tscn")
 var menu_manager: MenuManager
 
-var hud_file = preload("res://scenes/ui/hud/hud.tscn")
+var hud_file := preload("res://scenes/ui/hud/hud.tscn")
 var hud: HUD
 
 enum ControllerType {
 	MOUSE = 0,
 	CONTROLLER = 1,
 }
-var old_direction = Vector2(0, 0)
-var old_mouse_pos = Vector2(0, 0)
+var old_direction := Vector2(0, 0)
+var old_mouse_pos := Vector2(0, 0)
 var controller_type: ControllerType = ControllerType.MOUSE
 
 var timer = Timer.new()
@@ -20,6 +20,14 @@ enum PlayMode {
 	EIGHT_WAY = 0,
 	MOUSE = 1,
 }
+
+enum ChallengeMode {
+	DEFAULT = 0,
+	PACIFIC = 1,
+	TERMINATOR = 2,
+}
+
+var challenge_mode: ChallengeMode = ChallengeMode.PACIFIC
 
 func _ready() -> void:
 	print("===========[  GlobalGameJam2025  ]===========")
