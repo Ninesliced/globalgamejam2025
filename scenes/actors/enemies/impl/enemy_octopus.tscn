@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpjx6l40iycrn"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_8p5bd"]
-[ext_resource type="Texture2D" uid="uid://bunyxwasnsws2" path="res://assets/images/actors/enemies/enemy_octopus.png" id="2_gpan1"]
-[ext_resource type="PackedScene" uid="uid://b0u1tglshaqvw" path="res://scenes/actors/components/movements/🐙_movement.tscn" id="3_1e8b5"]
+[ext_resource type="Texture2D" uid="uid://cnafwt2k1gnhf" path="res://assets/images/actors/enemies/enemy_octopus.png" id="2_gpan1"]
+[ext_resource type="PackedScene" path="res://scenes/actors/components/movements/🐙_movement.tscn" id="3_1e8b5"]
 [ext_resource type="PackedScene" uid="uid://wd1p67twfght" path="res://scenes/actors/enemies/impl/enemy_octopus_minion.tscn" id="4_kx1sy"]
 [ext_resource type="PackedScene" uid="uid://bhbpuedpj1d3l" path="res://scenes/actors/player/player.tscn" id="5_4u28c"]
 
@@ -19,7 +19,8 @@ texture = ExtResource("2_gpan1")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_guni3")
 
-[node name="CaptureOxygenComponent" parent="." index="4"]
+[node name="CaptureOxygenComponent" parent="." index="4" node_paths=PackedStringArray("hitbox")]
+hitbox = NodePath("../HitboxComponent")
 capture_threshold = 5.0
 
 [node name="🐙Movement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_1e8b5")]
