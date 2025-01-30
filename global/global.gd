@@ -27,7 +27,7 @@ enum ChallengeMode {
 	TERMINATOR = 2,
 }
 
-var challenge_mode: ChallengeMode = ChallengeMode.PACIFIC
+var challenge_mode: ChallengeMode = ChallengeMode.DEFAULT
 
 func _ready() -> void:
 	print("===========[  GlobalGameJam2025  ]===========")
