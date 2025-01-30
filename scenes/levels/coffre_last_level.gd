@@ -18,7 +18,7 @@ func _on_area_2d_body_entered(body):
 	
 	if body is Player:
 		print("someone want to take the chest")
-		var is_dashed_on = false
+		var is_dashed_on: bool = false
 		for child in body.get_children():
 			if child is DashComponent:
 				is_dashed_on = child.is_dashing

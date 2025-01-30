@@ -14,6 +14,7 @@ var PackedScenebetween_level: PackedScene = preload("res://scenes/levels/between
 var camera_depth: int           = 0
 var next_level_position: int    = 0
 var current_generate_level: int = 0
+var game_timer: float           = 0
 
 var current_level_node:
 	set(value):
@@ -83,6 +84,11 @@ func get_current_level_node():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var camera_top_left: Vector2 = camera.get_screen_center_position() - get_viewport_rect().size / 2
+	
+	if is_on_a_level:
+		game_timer += _delta
+		Global.hud.set_timer(game_timer)
+	
 	if len(levels) >= 3:
 		if levels[0].position.y + get_size_of_level(levels[0]).y < camera_top_left.y:
 			load_next_level()
