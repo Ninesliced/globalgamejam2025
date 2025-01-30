@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2xj07jdqk5dw"]
+
+[ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_406q8"]
+[ext_resource type="Script" path="res://scenes/ui/menu/win_menu.gd" id="2_4sgy5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vj5t5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq0ul"]
+font_size = 42
+
+[node name="WinMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_406q8")
+script = ExtResource("2_4sgy5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.282353, 0.262745, 0.329412, 0.490196)
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_vj5t5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Congratulations!"
+label_settings = SubResource("LabelSettings_gq0ul")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "You found the treasure... Was it worth it?"
+label_settings = SubResource("LabelSettings_gq0ul")
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="Replay" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "REPLAY
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "MAIN MENU"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.25
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_quit_pressed"]

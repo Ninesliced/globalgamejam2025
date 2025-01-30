@@ -1,18 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://be713sffa8dec"]
+[gd_scene load_steps=7 format=3 uid="uid://wd1p67twfght"]
 
-[ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="1_othxk"]
+[ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_lfc5w"]
+[ext_resource type="Texture2D" uid="uid://bunyxwasnsws2" path="res://assets/images/actors/enemies/enemy_octopus.png" id="2_4pp4a"]
+[ext_resource type="PackedScene" uid="uid://b0u1tglshaqvw" path="res://scenes/actors/components/movements/🐙_movement.tscn" id="3_td8bc"]
+[ext_resource type="PackedScene" uid="uid://bhbpuedpj1d3l" path="res://scenes/actors/player/player.tscn" id="4_1rvtu"]
+[ext_resource type="PackedScene" uid="uid://mdjn5erhyg8u" path="res://scenes/actors/bubbles/bubble.tscn" id="5_q87c4"]
 
-[node name="MinionOctopusEnemy" instance=ExtResource("1_othxk")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_guni3"]
+radius = 56.0
+
+[node name="OctopusEnemy2" instance=ExtResource("1_lfc5w")]
+collision_mask = 256
 
 [node name="CollisionShape2D" parent="HitboxComponent/Area2D" index="0"]
-scale = Vector2(-0.274603, -0.274603)
+scale = Vector2(0.643623, 0.643623)
 
 [node name="Icon" parent="." index="1"]
-position = Vector2(0, 0)
-scale = Vector2(0.2, 0.2)
+position = Vector2(1.35525e-20, 9.53674e-07)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("2_4pp4a")
 
 [node name="CollisionShape2D" parent="." index="2"]
-scale = Vector2(0.649543, 0.649543)
+shape = SubResource("CircleShape2D_guni3")
 
-[node name="🐙Movement" parent="." index="7"]
-scale = Vector2(0.14706, 0.14706)
+[node name="CaptureOxygenComponent" parent="." index="4"]
+capture_threshold = 5.0
+bubble_scale_max = 1.5
+bubble_scale_threshold = 1.0
+
+[node name="🐙Movement" parent="." index="7" node_paths=PackedStringArray("parent") instance=ExtResource("3_td8bc")]
+scale = Vector2(0.280001, 0.280001)
+movement_amplitude = 0.2
+movement_rate = 0.1
+skid_rate = 0.02
+minion_spawn_rate = 0.0
+target_list = Array[PackedScene]([ExtResource("4_1rvtu"), ExtResource("5_q87c4")])
+parent = NodePath("..")

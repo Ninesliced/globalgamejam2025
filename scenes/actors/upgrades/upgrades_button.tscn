@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcmcovokpl6wj"]
+[gd_scene load_steps=8 format=3 uid="uid://bcmcovokpl6wj"]
 
 [ext_resource type="Script" path="res://scenes/actors/upgrades/upgrades_button.gd" id="1_b7wmy"]
+[ext_resource type="AudioStream" uid="uid://27pcg38jg7q0" path="res://assets/sounds/shoot/hit_enemy_01.ogg" id="2_kl56k"]
+[ext_resource type="AudioStream" uid="uid://bkq2t443w65f2" path="res://assets/sounds/shoot/hit_enemy_02.ogg" id="3_1ll1n"]
+[ext_resource type="AudioStream" uid="uid://va7jkmnxx1x3" path="res://assets/sounds/shoot/hit_enemy_03.ogg" id="4_suwdr"]
+[ext_resource type="AudioStream" uid="uid://dwk8d3qd7ntsj" path="res://assets/sounds/shoot/hit_enemy_04.ogg" id="5_gsuo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p65aw"]
 size = Vector2(216, 104)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lwnaf"]
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("2_kl56k")
+stream_1/stream = ExtResource("3_1ll1n")
+stream_2/stream = ExtResource("4_suwdr")
+stream_3/stream = ExtResource("5_gsuo7")
 
 [node name="UpgradesButton" type="Node2D"]
 position = Vector2(0, 64)
@@ -38,6 +50,15 @@ text = "
 [outline_size=20][b][center][wave]{teste
 qslkdjfmlkjt}[/wave][/center][/b][/outline_size]"
 
+[node name="Malus2" type="RichTextLabel" parent="NotTaken"]
+unique_name_in_owner = true
+offset_top = 36.0
+offset_right = 216.0
+offset_bottom = 92.0
+bbcode_enabled = true
+text = "
+[outline_size=20][b][center][wave]UPGRADE[/wave][/center][/b][/outline_size]"
+
 [node name="NoItem" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -48,5 +69,8 @@ offset_bottom = 16.0
 bbcode_enabled = true
 text = "
 [outline_size=20][b][center][wave]∅[/wave][/center][/b][/outline_size]"
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_lwnaf")
 
 [connection signal="body_entered" from="NotTaken/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GlobalGameJam2025"
+config/name="The Legend of the Goldfish"
 config/version="0.1"
 run/main_scene="res://scenes/levels/map.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")

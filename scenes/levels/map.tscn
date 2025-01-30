@@ -8,12 +8,12 @@
 [ext_resource type="Script" path="res://scenes/utils/spawner/spawnable_chance.gd" id="4_f32e1"]
 [ext_resource type="PackedScene" uid="uid://dgawuat43rapu" path="res://scenes/actors/enemies/impl/enemy_passive.tscn" id="5_ygbcq"]
 [ext_resource type="PackedScene" uid="uid://bpjx6l40iycrn" path="res://scenes/actors/enemies/impl/enemy_octopus.tscn" id="6_xpab5"]
-[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="7_froc5"]
+[ext_resource type="PackedScene" uid="uid://04or753ha6ns" path="res://scenes/actors/enemies/impl/star.tscn" id="7_kadjw"]
 [ext_resource type="Script" path="res://scenes/levels/push_back.gd" id="8_vk5iy"]
 [ext_resource type="Script" path="res://scenes/levels/game_state_manager.gd" id="9_4yhvd"]
 [ext_resource type="PackedScene" uid="uid://bwtvvdhu3f6yd" path="res://scenes/actors/enemies/impl/enemy_pufferfish.tscn" id="9_5bjie"]
 [ext_resource type="PackedScene" uid="uid://23fyreui7rjv" path="res://scenes/actors/enemies/impl/enemy_shark.tscn" id="9_ckcdj"]
-[ext_resource type="PackedScene" uid="uid://c5o2qks5oijqu" path="res://scenes/actors/enemies/impl/enemy_linear.tscn" id="9_lf3e3"]
+[ext_resource type="PackedScene" uid="uid://bmcad243tfejy" path="res://scenes/actors/enemies/impl/enemy_fish.tscn" id="9_lf3e3"]
 [ext_resource type="AudioStream" uid="uid://cop2ej6ku4os8" path="res://assets/sounds/music/music_main.ogg" id="11_2iqa8"]
 [ext_resource type="Material" uid="uid://b6mduaf21a0id" path="res://scenes/screen_shader/water_material.tres" id="14_cv1cw"]
 [ext_resource type="Texture2D" uid="uid://dd1o6lxujtr8n" path="res://assets/images/background/fond.png" id="15_oconm"]
@@ -63,7 +63,7 @@ chance = 1
 
 [sub_resource type="Resource" id="Resource_aiodl"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("7_froc5")
+spawnable = ExtResource("7_kadjw")
 chance = 2
 
 [sub_resource type="Resource" id="Resource_65jxc"]
@@ -81,7 +81,7 @@ chance = 7
 
 [sub_resource type="Resource" id="Resource_g126e"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("7_froc5")
+spawnable = ExtResource("7_kadjw")
 chance = 3
 
 [sub_resource type="Resource" id="Resource_vtoms"]
@@ -99,7 +99,7 @@ chance = 5
 
 [sub_resource type="Resource" id="Resource_s27hv"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("7_froc5")
+spawnable = ExtResource("7_kadjw")
 chance = 5
 
 [sub_resource type="Resource" id="Resource_d3352"]
@@ -117,7 +117,7 @@ chance = 5
 
 [sub_resource type="Resource" id="Resource_fg8ge"]
 script = ExtResource("4_f32e1")
-spawnable = ExtResource("7_froc5")
+spawnable = ExtResource("7_kadjw")
 chance = 1
 
 [sub_resource type="Resource" id="Resource_h20u1"]

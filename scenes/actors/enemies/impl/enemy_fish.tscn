@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmcad243tfejy"]
 
 [ext_resource type="PackedScene" uid="uid://b66unee4sohqr" path="res://scenes/actors/enemies/enemy.tscn" id="1_phiae"]
-[ext_resource type="PackedScene" uid="uid://caarjj2glbq3t" path="res://scenes/actors/components/movements/linear_movement.tscn" id="3_t4uat"]
+[ext_resource type="PackedScene" uid="uid://c8w7mywnf2c0d" path="res://scenes/actors/components/movements/linear_movement.tscn" id="3_t4uat"]
 
 [node name="Enemy" instance=ExtResource("1_phiae")]
 

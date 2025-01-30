@@ -1,0 +1,193 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2f706pnieki4"]
+
+[ext_resource type="Script" path="res://scenes/actors/player/dying_player.gd" id="1_7mpty"]
+[ext_resource type="Texture2D" uid="uid://cw2vl0i4mdjp8" path="res://assets/images/actors/player/player_dying.png" id="1_ujgdu"]
+[ext_resource type="Texture2D" uid="uid://dfqi66r8sc8qq" path="res://assets/images/actors/bubbles/bubble_big.png" id="2_e5t00"]
+[ext_resource type="PackedScene" uid="uid://bvd1cq4h38s18" path="res://scenes/actors/particles/bubble_pop_particle.tscn" id="3_muhav"]
+
+[sub_resource type="Animation" id="Animation_hct05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bubble:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BubblePopParticle")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_12gdr"]
+resource_name = "dying"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bubble:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.833333, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(2, 2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5, 14), Vector2(26, -13), Vector2(41, -4), Vector2(17, 9), Vector2(1, -9), Vector2(8, 4), Vector2(0.1, 4), Vector2(2, 4), Vector2(5, -5), Vector2(4, -2)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BubblePopParticle")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.866667, 2.83333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"screenshake"
+}, {
+"args": [],
+"method": &"set_game_over"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0hov"]
+_data = {
+"RESET": SubResource("Animation_hct05"),
+"dying": SubResource("Animation_12gdr")
+}
+
+[sub_resource type="Gradient" id="Gradient_o0own"]
+offsets = PackedFloat32Array(0, 0.644068, 0.728814, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a5cs1"]
+gradient = SubResource("Gradient_o0own")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[node name="DyingPlayer" type="Node2D"]
+script = ExtResource("1_7mpty")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e0hov")
+}
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ujgdu")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+texture = ExtResource("2_e5t00")
+
+[node name="BubblePopParticle" parent="." instance=ExtResource("3_muhav")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0.00012207, 0)
+scale = Vector2(2.53976, 2.12739)
+texture = SubResource("GradientTexture2D_a5cs1")
+texture_scale = 21.15

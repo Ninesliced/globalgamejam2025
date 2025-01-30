@@ -14,6 +14,8 @@ var old_direction = Vector2(0, 0)
 var old_mouse_pos = Vector2(0, 0)
 var controller_type: ControllerType = ControllerType.MOUSE
 
+var timer = Timer.new()
+
 enum PlayMode {
 	EIGHT_WAY = 0,
 	MOUSE = 1,
@@ -24,6 +26,8 @@ func _ready() -> void:
 	print("             By Team Ninesliced\n")
 	
 	process_mode = PROCESS_MODE_ALWAYS
+
+	add_child(timer)
 	
 	menu_manager = menu_manager_file.instantiate()
 	add_child(menu_manager)
@@ -71,4 +75,12 @@ func get_direction(current_pos, play_mode : PlayMode, mouse_pos, minimum_dash_di
 	return vec
 
 func win_game():
-	reload_game()
+	menu_manager.set_menu("WinMenu")
+	return 
+	# timer.wait_time = 2.0
+	# timer.timeout.connect(func():
+	# 	timer.stop()
+	# 	menu_manager.set_menu("WinMenu")
+	# )
+	# timer.one_shot = true
+	# timer.start()
