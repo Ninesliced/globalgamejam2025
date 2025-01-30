@@ -89,3 +89,15 @@ func kill_tags(tag):
 	var tags = get_tree().get_nodes_in_group(tag)
 	for t in tags:
 		t.queue_free()
+
+
+func get_best_time():
+	var maps = get_tree().get_nodes_in_group("Map")
+	if maps.size() == 0:
+		return
+	var map : Map = maps[0]
+	var value = map.game_timer
+	var minutes := int(value/60)
+	var seconds := fmod(value, 60.0)
+	var text = "Best time: %d:%.2f" % [minutes, seconds]
+	return text

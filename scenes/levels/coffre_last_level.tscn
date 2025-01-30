@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy1s02m06kix2"]
+[gd_scene load_steps=8 format=3 uid="uid://dryq31luomor6"]
 
 [ext_resource type="Script" path="res://scenes/levels/coffre_last_level.gd" id="1_as2vv"]
 [ext_resource type="Texture2D" uid="uid://82myjobl684h" path="res://assets/images/menu_backgrounds/wall.png" id="1_sa4a4"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2xj07jdqk5dw"]
+[gd_scene load_steps=5 format=3 uid="uid://cqca1tqyla6xk"]
 
 [ext_resource type="Theme" uid="uid://nonhr1o4s7iq" path="res://resources/main_theme.tres" id="1_406q8"]
 [ext_resource type="Script" path="res://scenes/ui/menu/win_menu.gd" id="2_4sgy5"]
@@ -53,6 +53,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "You found the treasure... Was it worth it?"
+label_settings = SubResource("LabelSettings_gq0ul")
+horizontal_alignment = 1
+
+[node name="BestTime" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
