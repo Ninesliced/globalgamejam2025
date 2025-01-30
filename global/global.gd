@@ -84,3 +84,8 @@ func win_game():
 	# )
 	# timer.one_shot = true
 	# timer.start()
+
+func kill_tags(tag):
+	var tags = get_tree().get_nodes_in_group(tag)
+	for t in tags:
+		t.queue_free()

@@ -103,6 +103,8 @@ func _process(_delta):
 				# camera.global_position.y = current_level_node.position.y + get_viewport_rect().size.y / 2
 			camera.camera_move_here = current_level_node.position.y + get_viewport_rect().size.y / 2
 		is_on_a_level = current_level_node is Level
+		if !is_on_a_level:
+			Global.kill_tags("enemy")
 
 
 	
